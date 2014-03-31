@@ -10,9 +10,33 @@ use utf8;
 use List::MoreUtils qw/uniq/;
 use Path::Class;
 use Dancer ':syntax';
+use Dancer::Plugin::Assets;
 use Dancer::Plugin::DBIC;
 
 our $VERSION = '0.1';
+
+hook 'before_template_render' => sub {
+    # Bootstrap CSS (2.3)
+    assets->include('bootstrap/css/bootstrap.css', { media => 'screen' });
+    # Bootstrap CSS for responsive design
+    assets->include('bootstrap/css/bootstrap-responsive.css');
+    # Main CSS
+    assets->include('css/style.css');
+    # make it switchable?
+    assets->include('javascripts/highlight.js/styles/zenburn.css');
+    # jQuery 1.7.2
+    assets->include('javascripts/jquery-1.7.2.js');
+    # Bootstrap JS (2.3)
+    assets->include('bootstrap/js/bootstrap.js');
+    # already packed, is this a problem? consider including it only on
+    # pages that require highlighting, i.e. module pages
+    assets->include('javascripts/highlight.js/highlight.pack.js');
+    # init highlight.js
+    assets->include_content(q{    <script>
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad();
+    </script>});
+};
 
 get '/' => sub {
     # module search by name
