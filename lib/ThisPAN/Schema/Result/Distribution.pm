@@ -56,11 +56,6 @@ __PACKAGE__->table("distribution");
   data_type: 'varchar'
   is_nullable: 1
 
-=head2 dependency_json_path
-
-  data_type: 'varchar'
-  is_nullable: 1
-
 =head2 metadata_json_blob
 
   data_type: 'varchar'
@@ -81,8 +76,6 @@ __PACKAGE__->add_columns(
   "version",
   { data_type => "varchar", is_nullable => 1 },
   "changes_path",
-  { data_type => "varchar", is_nullable => 1 },
-  "dependency_json_path",
   { data_type => "varchar", is_nullable => 1 },
   "metadata_json_blob",
   { data_type => "varchar", is_nullable => 0 },
@@ -115,18 +108,6 @@ __PACKAGE__->set_primary_key("id");
 =cut
 
 __PACKAGE__->add_unique_constraint("changes_path_unique", ["changes_path"]);
-
-=head2 C<dependency_json_path_unique>
-
-=over 4
-
-=item * L</dependency_json_path>
-
-=back
-
-=cut
-
-__PACKAGE__->add_unique_constraint("dependency_json_path_unique", ["dependency_json_path"]);
 
 =head2 C<name_unique>
 
@@ -200,8 +181,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-03-28 10:54:03
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:c2j5SV1QGibj74MS47RswQ
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-03-31 15:46:39
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:rhkIlKYQ32pIQbOlnmPkjw
 
 use JSON -convert_blessed_universally;
 my $json = JSON->new;
