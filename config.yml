@@ -20,8 +20,17 @@ engines:
     start_tag: '[%'
     end_tag:   '%]'
 
+## APP-WIDE CONFIG STARTS HERE
 mirror: /home/fgabolde/work/Weborama-CPANTools/localpintohome/
 workdir: /home/fgabolde/work/WeboPAN/dist-data
+graph_filters:
+  filters:
+    - 
+      name: Weborama
+      regex: "^Weborama"
+  filtering_config: smart
+
+## APP-WIDE CONFIG ENDS HERE
 
 plugins:
   DBIC:

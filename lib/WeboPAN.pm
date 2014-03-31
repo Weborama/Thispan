@@ -7,6 +7,7 @@ use Carp;
 use autodie;
 use utf8;
 
+use List::Util qw/first/;
 use List::MoreUtils qw/uniq/;
 use Path::Class;
 use Dancer ':syntax';
@@ -121,15 +122,17 @@ get '/distribution/:distribution/depgraph.json' => sub {
     my $distribution_name = param('distribution');
     my $depth_successors = param('ds') // undef;
     my $depth_predecessors = param('dp') // undef;
-    my $filter = param('filter') // undef;
+    my $filter_name = param('filter') // 'none';
+    my $filters = setting('graph_filters');
+    my $filter_pair = first { $filter_name eq $_->{name} } @{$filters->{filters}};
 
     # beeg file, might take some time!
     my $full_depgraph = from_json(scalar(file(setting('workdir'), 'depgraph.json')->slurp));
     my $depgraph;
 
     foreach my $vertex (@{$full_depgraph}) {
-        if ($filter) {
-            next if $vertex->{name} !~ $filter;
+        if ($filter_pair) {
+            next if $vertex->{name} !~ $filter_pair->{regex};
         }
         if (exists $vertex->{ancestors}->{$distribution_name}
             or exists $vertex->{descendants}->{$distribution_name}
@@ -141,9 +144,12 @@ get '/distribution/:distribution/depgraph.json' => sub {
         }
     }
 
-    # now remove all children that are not in our subgraph
     foreach my $vertex (keys %{$depgraph}) {
+        # now remove all children that are not in our subgraph
         $depgraph->{$vertex}->{imports} = [ grep { exists $depgraph->{$_} } @{$depgraph->{$vertex}->{imports}} ];
+        # and generate URIs
+        $depgraph->{$vertex}->{url} = uri_for('/distribution/' . $vertex . '/depgraph.json',
+                                              { filter => $filter_name })->as_string;
     }
 
     content_type 'application/json';
@@ -161,6 +167,26 @@ get '/distribution/:distribution/depgraph' => sub {
         # blah blah 404
     }
 
+    my @available_filters = sort { $a cmp $b } map { $_->{name} } @{setting('graph_filters')->{filters}};
+    unshift @available_filters, 'none';
+    my $active_filter = param('filter');
+
+    if (not(defined($active_filter))
+        and setting('graph_filters')->{filtering_config} eq 'smart') {
+
+        # no specific filter provided.  if filtering_config is set and
+        # "smart", try to infer a good filter from what the main dist
+        # already matches
+        FILTER_PAIR:
+        foreach my $filter_pair (@{setting('graph_filters')->{filters}}) {
+            if ($distribution_name =~ $filter_pair->{regex}) {
+                $active_filter = $filter_pair->{name};
+                last FILTER_PAIR;
+            }
+        }
+
+    }
+
     my @all_prereqs = $distribution->relationship_parents;
     my @reverse_prereqs = $distribution->relationship_children;
 
@@ -173,9 +199,13 @@ get '/distribution/:distribution/depgraph' => sub {
     my @reverse_dependency_list = uniq map { $_->parent->name } @reverse_prereqs;
 
     template 'depgraph', {
+        active_filter => $active_filter // 'none',
+        available_filters => \@available_filters,
         distribution => $distribution_name,
         prereqs => $prereqs,
         rdepends => \@reverse_dependency_list,
+        depgraph_json_url => uri_for('/distribution/' . $distribution_name . '/depgraph.json',
+                                     { filter => $active_filter })->as_string,
     };
 
 };

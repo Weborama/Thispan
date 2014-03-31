@@ -2,6 +2,9 @@
   <div class="page-header">
     <h1>Dependency graph for [% distribution %]</h1>
   </div>
+
+  <div><p>Back to the <a href="[% request.uri_for("/distribution/${distribution}") %]">distribution page</a>.</p></div>
+
 </div>
 
 <div class="row-fluid">
@@ -21,6 +24,23 @@
 </div>
 
 <div class="span8">
+  <form class="form-inline"
+        method="GET"
+        action="[% request.uri_for("/distribution/${distribution}/depgraph") %]">
+    <fieldset>
+      [% FOREACH filter_name IN available_filters %]
+      <label class="radio inline">
+        <input type="radio" name="filter" value="[% filter_name %]"
+               [% IF filter_name == active_filter %]checked="checked"[% END %]
+               />
+        [% filter_name %]
+      </label>
+      [% END %]
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </fieldset>
+  </form>
+  (filtering is half-buggy: if you click a link on the graph, it
+  doesn't respect a filter set manually)
   <div id="chart" class="well text-center">
   </div>
 </div>
@@ -69,7 +89,7 @@ var svg = d3.select("#chart").append("svg")
 var link = svg.append("g").selectAll(".link"),
     node = svg.append("g").selectAll(".node");
 
-d3.json("[% request.uri_for("/distribution/${distribution}/depgraph.json") %]", function(error, classes) {
+d3.json("[% depgraph_json_url %]", function(error, classes) {
   var nodes = cluster.nodes(packageHierarchy(classes)),
       links = packageImports(nodes);
 
@@ -83,7 +103,7 @@ d3.json("[% request.uri_for("/distribution/${distribution}/depgraph.json") %]", 
   node = node
       .data(nodes.filter(function(n) { return !n.children; }))
     .enter().append("svg:a")
-      .attr("xlink:href", function(d) { return "[% request.uri_for("/distribution") %]" + '/' + d.key + '/depgraph'; })
+      .attr("xlink:href", function(d) { return d.url; })
       .append("text")
       .attr("class", "node")
       .attr("dx", function(d) { return d.x < 180 ? 8 : -8; })
@@ -134,6 +154,7 @@ function packageHierarchy(classes) {
         node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
         node.parent.children.push(node);
         node.key = name.substring(i + 1);
+        node.url = data.url;
       }
     }
     return node;
