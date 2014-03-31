@@ -13,7 +13,7 @@ use Path::Class;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
 
-our $VERSION = '0.1';
+our $VERSION = '0.001';
 
 get '/' => sub {
     # module search by name
