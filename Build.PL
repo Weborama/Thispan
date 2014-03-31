@@ -41,6 +41,7 @@ my $build = Module::Build->new(
         'Moo' => 0,
         'Params::Validate' => 0,
         'Path::Class' => 0,
+        'Pod::Simple::XHTML' => 0,
         'Scalar::Util' => 0,
         'Storable' => 0,
         'strict' => 0,
