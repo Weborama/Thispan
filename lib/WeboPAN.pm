@@ -57,7 +57,9 @@ get '/module/:module' => sub {
                                                    { key => 'name_unique' });
 
     unless ($module) {
-        # blah blah 404
+        forward '/no_such_module', {
+            module => $module_name
+        };
     }
 
     my $pod;
@@ -76,6 +78,20 @@ get '/module/:module' => sub {
 
 };
 
+get '/no_such_distribution' => sub {
+    status 404;
+    template 'no-such-dist', {
+        distribution => param('distribution'),
+    };
+};
+
+get '/no_such_module' => sub {
+    status 404;
+    template 'no-such-mod', {
+        module => param('module'),
+    };
+};
+
 get '/distribution/:distribution' => sub {
 
     my $distribution_name = param('distribution');
@@ -84,7 +100,9 @@ get '/distribution/:distribution' => sub {
                                                                { key => 'name_unique' });
 
     unless ($distribution) {
-        # blah blah 404
+        forward '/no_such_distribution', {
+            distribution => $distribution_name
+        };
     }
 
     my $changes_file = file(setting('workdir'), $distribution->changes_path);
@@ -164,7 +182,9 @@ get '/distribution/:distribution/depgraph' => sub {
                                                                { key => 'name_unique' });
 
     unless ($distribution) {
-        # blah blah 404
+        forward '/no_such_distribution', {
+            distribution => $distribution_name
+        };
     }
 
     my @available_filters = sort { $a cmp $b } map { $_->{name} } @{setting('graph_filters')->{filters}};
@@ -218,7 +238,9 @@ get '/distribution/:distribution/download' => sub {
                                                                { key => 'name_unique' });
 
     unless ($distribution) {
-        # blah blah 404
+        forward '/no_such_distribution', {
+            distribution => $distribution_name
+        };
     }
 
     my $path_to_tarball = URI->new($distribution->tarball_path);
