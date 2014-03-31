@@ -1,4 +1,4 @@
-package WeboPAN::DependencyGraph;
+package ThisPAN::DependencyGraph;
 
 use strict;
 use warnings;

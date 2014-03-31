@@ -1,4 +1,4 @@
-package WeboPAN;
+package ThisPAN;
 
 use strict;
 use warnings;

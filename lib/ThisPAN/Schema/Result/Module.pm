@@ -1,12 +1,12 @@
 use utf8;
-package WeboPAN::Schema::Result::Module;
+package ThisPAN::Schema::Result::Module;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
 
 =head1 NAME
 
-WeboPAN::Schema::Result::Module
+ThisPAN::Schema::Result::Module
 
 =cut
 
@@ -114,13 +114,13 @@ __PACKAGE__->add_unique_constraint("rendered_pod_path_unique", ["rendered_pod_pa
 
 Type: belongs_to
 
-Related object: L<WeboPAN::Schema::Result::Distribution>
+Related object: L<ThisPAN::Schema::Result::Distribution>
 
 =cut
 
 __PACKAGE__->belongs_to(
   "distribution",
-  "WeboPAN::Schema::Result::Distribution",
+  "ThisPAN::Schema::Result::Distribution",
   { id => "distribution" },
   { is_deferrable => 0, on_delete => "CASCADE", on_update => "CASCADE" },
 );
@@ -129,13 +129,13 @@ __PACKAGE__->belongs_to(
 
 Type: has_many
 
-Related object: L<WeboPAN::Schema::Result::Relationship>
+Related object: L<ThisPAN::Schema::Result::Relationship>
 
 =cut
 
 __PACKAGE__->has_many(
   "relationships_rel",
-  "WeboPAN::Schema::Result::Relationship",
+  "ThisPAN::Schema::Result::Relationship",
   { "foreign.module" => "self.id" },
   { cascade_copy => 0, cascade_delete => 0 },
 );

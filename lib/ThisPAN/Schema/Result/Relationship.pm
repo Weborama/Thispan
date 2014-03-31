@@ -1,12 +1,12 @@
 use utf8;
-package WeboPAN::Schema::Result::Relationship;
+package ThisPAN::Schema::Result::Relationship;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
 
 =head1 NAME
 
-WeboPAN::Schema::Result::Relationship
+ThisPAN::Schema::Result::Relationship
 
 =cut
 
@@ -109,13 +109,13 @@ __PACKAGE__->set_primary_key("parent", "child", "module", "phase");
 
 Type: belongs_to
 
-Related object: L<WeboPAN::Schema::Result::Distribution>
+Related object: L<ThisPAN::Schema::Result::Distribution>
 
 =cut
 
 __PACKAGE__->belongs_to(
   "child",
-  "WeboPAN::Schema::Result::Distribution",
+  "ThisPAN::Schema::Result::Distribution",
   { id => "child" },
   { is_deferrable => 0, on_delete => "RESTRICT", on_update => "CASCADE" },
 );
@@ -124,13 +124,13 @@ __PACKAGE__->belongs_to(
 
 Type: belongs_to
 
-Related object: L<WeboPAN::Schema::Result::Module>
+Related object: L<ThisPAN::Schema::Result::Module>
 
 =cut
 
 __PACKAGE__->belongs_to(
   "module",
-  "WeboPAN::Schema::Result::Module",
+  "ThisPAN::Schema::Result::Module",
   { id => "module" },
   { is_deferrable => 0, on_delete => "RESTRICT", on_update => "CASCADE" },
 );
@@ -139,13 +139,13 @@ __PACKAGE__->belongs_to(
 
 Type: belongs_to
 
-Related object: L<WeboPAN::Schema::Result::Distribution>
+Related object: L<ThisPAN::Schema::Result::Distribution>
 
 =cut
 
 __PACKAGE__->belongs_to(
   "parent",
-  "WeboPAN::Schema::Result::Distribution",
+  "ThisPAN::Schema::Result::Distribution",
   { id => "parent" },
   { is_deferrable => 0, on_delete => "CASCADE", on_update => "CASCADE" },
 );

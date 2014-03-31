@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeboPAN [% IF title %] :: [% title %] [% END %]</title>
+    <title>ThisPAN [% IF title %] :: [% title %] [% END %]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=[% settings.charset %]">
     <link rel="stylesheet" href="[% request.uri_base %]/bootstrap/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="[% request.uri_base %]/bootstrap/css/bootstrap-responsive.css">
@@ -20,7 +20,7 @@
     </script>
       <div class="navbar navbar-static-top navbar-inverse">
         <div class="navbar-inner">
-          <a class="brand" href="[% request.uri_for("/") %]">WeboPAN</a>
+          <a class="brand" href="[% request.uri_for("/") %]">ThisPAN</a>
           <ul class="nav">
             <li class="active"><a href="#">Foo</a></li>
             <li><a href="#">Bar</a></li>

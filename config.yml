@@ -3,7 +3,7 @@
 # all the settings in this file will be loaded at Dancer's startup.
 
 # Your application's name
-appname: "WeboPAN"
+appname: "ThisPAN"
 
 # The default layout to use for your application (located in
 # views/layouts/main.tt)
@@ -21,8 +21,8 @@ engines:
     end_tag:   '%]'
 
 ## APP-WIDE CONFIG STARTS HERE
-mirror: /home/fgabolde/work/Weborama-CPANTools/localpintohome/
-workdir: /home/fgabolde/work/WeboPAN/dist-data
+mirror: /home/fgabolde/work/localpinto
+workdir: /home/fgabolde/work/local-dist-data
 graph_filters:
   filters:
     - 
@@ -36,4 +36,4 @@ plugins:
   DBIC:
     default:
       dsn: dbi:SQLite:foo.db
-      schema_class: WeboPAN::Schema
+      schema_class: ThisPAN::Schema

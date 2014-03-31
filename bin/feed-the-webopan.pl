@@ -12,8 +12,8 @@ use File::Copy;
 use JSON;
 use Storable qw/nstore retrieve/;
 use URI;
-use WeboPAN::Schema;
-use WeboPAN::DependencyGraph;
+use ThisPAN::Schema;
+use ThisPAN::DependencyGraph;
 use Pod::Simple::XHTML;
 
 { no warnings 'redefine';
@@ -29,9 +29,9 @@ use Getopt::Long::Descriptive;
 my ($opt, $usage) = describe_options(
     'feed-the-webopan.pl %o',
     [ 'mirror=s', 'CPAN mirror root' ],
-    [ 'workdir=s', 'WeboPAN work directory',
+    [ 'workdir=s', 'ThisPAN work directory',
       { required => 1 } ],
-    [ 'base-url=s', 'WeboPAN base URL for POD links',
+    [ 'base-url=s', 'ThisPAN base URL for POD links',
       { required => 1 } ],
     [ 'reindex', 'Check for changes if resuming from a previous run' ],
     [ 'resume=s', 'Save/load graph data from this save file' ],
@@ -56,11 +56,11 @@ if ($opt->resume and -e $opt->resume) {
 } else {
     # save file not provided, or not saved to (TODO: differentiate
     # thoses cases in the log output)
-    $graphmaker = WeboPAN::DependencyGraph->new(
+    $graphmaker = ThisPAN::DependencyGraph->new(
         (mirror => $opt->mirror) x !!($opt->mirror));
 }
 
-my $schema = WeboPAN::Schema->connect('dbi:SQLite:foo.db');
+my $schema = ThisPAN::Schema->connect('dbi:SQLite:foo.db');
 
 my @postprocess;
 

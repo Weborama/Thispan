@@ -1,10 +1,10 @@
 use Module::Build;
 
 my $build = Module::Build->new(
-    module_name => 'WeboPAN',
+    module_name => 'ThisPAN',
     dist_abstract => 'Lightweight CPAN mirror explorer',
     dist_author => 'Fabrice Gabolde <fgabolde@weborama.com>',
-    dist_version_from => 'lib/WeboPAN.pm',
+    dist_version_from => 'lib/ThisPAN.pm',
     license => 'restrictive',
     configure_requires => {
         'Module::Build' => '0.36_14',
@@ -52,7 +52,7 @@ my $build = Module::Build->new(
         'warnings' => 0,
         'YAML' => 0,
     },
-    add_to_cleanup => [ 'WeboPAN-*' ],
+    add_to_cleanup => [ 'ThisPAN-*' ],
     meta_merge => {
         resources => {
             repository => '...',

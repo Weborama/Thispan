@@ -1,5 +1,5 @@
 use utf8;
-package WeboPAN::Schema;
+package ThisPAN::Schema;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE

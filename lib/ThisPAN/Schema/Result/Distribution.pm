@@ -1,12 +1,12 @@
 use utf8;
-package WeboPAN::Schema::Result::Distribution;
+package ThisPAN::Schema::Result::Distribution;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
 
 =head1 NAME
 
-WeboPAN::Schema::Result::Distribution
+ThisPAN::Schema::Result::Distribution
 
 =cut
 
@@ -158,13 +158,13 @@ __PACKAGE__->add_unique_constraint("tarball_path_unique", ["tarball_path"]);
 
 Type: has_many
 
-Related object: L<WeboPAN::Schema::Result::Module>
+Related object: L<ThisPAN::Schema::Result::Module>
 
 =cut
 
 __PACKAGE__->has_many(
   "modules",
-  "WeboPAN::Schema::Result::Module",
+  "ThisPAN::Schema::Result::Module",
   { "foreign.distribution" => "self.id" },
   { cascade_copy => 0, cascade_delete => 0 },
 );
@@ -173,13 +173,13 @@ __PACKAGE__->has_many(
 
 Type: has_many
 
-Related object: L<WeboPAN::Schema::Result::Relationship>
+Related object: L<ThisPAN::Schema::Result::Relationship>
 
 =cut
 
 __PACKAGE__->has_many(
   "relationship_children",
-  "WeboPAN::Schema::Result::Relationship",
+  "ThisPAN::Schema::Result::Relationship",
   { "foreign.child" => "self.id" },
   { cascade_copy => 0, cascade_delete => 0 },
 );
@@ -188,13 +188,13 @@ __PACKAGE__->has_many(
 
 Type: has_many
 
-Related object: L<WeboPAN::Schema::Result::Relationship>
+Related object: L<ThisPAN::Schema::Result::Relationship>
 
 =cut
 
 __PACKAGE__->has_many(
   "relationship_parents",
-  "WeboPAN::Schema::Result::Relationship",
+  "ThisPAN::Schema::Result::Relationship",
   { "foreign.parent" => "self.id" },
   { cascade_copy => 0, cascade_delete => 0 },
 );
