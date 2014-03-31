@@ -1,0 +1,100 @@
+<div class="row-fluid">
+  <div class="page-header">
+    <h1>[% distribution %]</h1>
+  </div>
+</div>
+
+<div class="row-fluid">
+
+  <div class="span2">
+    <div><p>Version [% version %]</p></div>
+    [% IF metadata.resources AND metadata.resources.keys.size %]
+    <hr />
+    <div>
+      <ul>
+        [% IF metadata.resources.homepage %]
+        <li>Home page: [% metadata.resources.homepage %]</li>
+        [% END %]
+        [% IF metadata.resources.repository.url %]
+        <li>Repository: <a href="[% metadata.resources.repository.url %]">[% metadata.resources.repository.url %]</a></li>
+        [% END %]
+        [% IF metadata.resources.bugtracker.url %]
+        <li>Bug tracker: [% metadata.resources.bugtracker.url %]</li>
+        [% END %]
+      </ul>
+    </div>
+    [% END %]
+    <hr />
+    <div>
+      <a href="[% request.uri_for("/distribution/${distribution}/download") %]">Download tarball</a>
+    </div> 
+  </div>
+
+  <div class="span8">
+
+    <ul class="nav nav-tabs" id="distribution-tabnav" data-tabs="tabs">
+      <li class="active">
+        <a href="#distribution-module-list" data-toggle="tab">Module list</a>
+      </li>
+      <li>
+        <a href="#distribution-changes" data-toggle="tab">Changes</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+
+      <div class="tab-pane active" id="distribution-module-list">
+        [% IF modules_contained.size %]
+        <ul>
+          [% FOREACH module IN modules_contained.sort %]
+          <li><a href="[% request.uri_for("/module/${module}") %]">[% module %]</a></li>
+          [% END %]
+        </ul>
+        [% ELSE %]
+        This distribution does not appear to contain any modules.
+        [% END %]
+      </div>
+
+      <div class="tab-pane" id="distribution-changes">
+        [% IF changes %]
+        <pre>[% changes | html %]</pre>
+        [% ELSE %]
+        <div class="muted">No Changes file found.</div>
+        [% END %]
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="span2">
+    <div>
+      <h3>Dependencies</h3>
+      [% FOREACH prereq_phase IN prereqs.keys.sort %]
+      <div>
+        [% prereq_phase.ucfirst %]:
+        <ul>
+          [% FOREACH dep IN prereqs.$prereq_phase.requires.keys.sort %]
+          <li><a href="[% request.uri_for("/distribution/${dep}") %]">[% dep %]</a> [% prereqs.$prereq_phase.requires.dep %]</li>
+          [% END %]
+        </ul>
+      </div>
+      [% END %]
+    </div>
+    <div>
+      [% IF rdepends.size %]
+      <h3>Reverse dependencies</h3>
+      <ul>
+        [% FOREACH rdep IN rdepends.sort %]
+        <li><a href="[% request.uri_for("/distribution/${rdep}") %]">[% rdep %]</a></li>
+        [% END %]
+      </ul>
+      [% ELSE %]
+      Nothing depends on this distribution.
+      [% END %]
+    </div>
+    <hr />
+    <i class="icon-picture"></i> <a href="[% request.uri_for("/distribution/${distribution}/depgraph") %]">Dependency graph</a>
+  </div>
+
+</div>

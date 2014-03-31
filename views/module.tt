@@ -1,0 +1,29 @@
+<div class="row-fluid">
+  <div class="page-header">
+    <h1>[% module %] <small>[% parent_distribution %]</small></h1>
+  </div>
+</div>
+
+<div class="row-fluid">
+
+  <div class="span2">
+
+    <div>
+      Parent distribution: <a href="[% request.uri_for("/distribution/${parent_distribution}") %]">[% parent_distribution %]</a>.
+    </div>
+
+    <div>We probably need some more stuff here.</div> 
+
+    <div>POD coverage would be nice.</div> 
+
+  </div>
+
+  <div class="span10">
+    [% IF pod %]
+    [% pod %]
+    [% ELSE %]
+    <div class="muted">This module does not seem to have any POD.</div>
+    [% END %]
+  </div>
+
+</div>
