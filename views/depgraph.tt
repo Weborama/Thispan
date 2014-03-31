@@ -39,8 +39,6 @@
       <button type="submit" class="btn btn-primary">Filter</button>
     </fieldset>
   </form>
-  (filtering is half-buggy: if you click a link on the graph, it
-  doesn't respect a filter set manually)
   <div id="chart" class="well text-center">
   </div>
 </div>

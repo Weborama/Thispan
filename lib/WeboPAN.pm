@@ -166,7 +166,7 @@ get '/distribution/:distribution/depgraph.json' => sub {
         # now remove all children that are not in our subgraph
         $depgraph->{$vertex}->{imports} = [ grep { exists $depgraph->{$_} } @{$depgraph->{$vertex}->{imports}} ];
         # and generate URIs
-        $depgraph->{$vertex}->{url} = uri_for('/distribution/' . $vertex . '/depgraph.json',
+        $depgraph->{$vertex}->{url} = uri_for('/distribution/' . $vertex . '/depgraph',
                                               { filter => $filter_name })->as_string;
     }
 
