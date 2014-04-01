@@ -230,21 +230,22 @@ sub fetch_and_get_metadata {
     my @path_parts = $uri->path_segments;
     my $filename = $path_parts[-1];
 
-    my $sandbox = Path::Class::tempdir(CLEANUP => 0);
+    my $container = Path::Class::tempdir(CLEANUP => 0);
 
     # the tarball needs a filename with a proper extension otherwise
     # Archive::Extract gets confused
-    my $tarball = fetch_file($uri, $sandbox->file($filename));
+    my $tarball = fetch_file($uri, $container->file($filename));
 
     my $dist_archive = Archive::Extract->new(archive => $tarball);
     say "Extracting $tarball...";
-    $dist_archive->extract(to => $sandbox);
+    $dist_archive->extract(to => $container);
     unlink $tarball;
 
     # done with the dist tarball, now we have an extracted directory
     # in $sandbox
 
-    my @files_in_sandbox = $sandbox->children(no_hidden => 1);
+    my @files_in_sandbox = $container->children(no_hidden => 1);
+    my $sandbox;
 
     if (@files_in_sandbox == 1
         and $files_in_sandbox[0]->is_dir) {
@@ -252,6 +253,9 @@ sub fetch_and_get_metadata {
         # all along.  if we don't go through here it means it was one
         # of these tarballs where everything is just at the root
         $sandbox = $files_in_sandbox[0];
+    } else {
+        # El Cheapo cloning
+        $sandbox = dir($container);
     }
 
     say "Looking for META files in all the wrong places...";
@@ -269,7 +273,7 @@ sub fetch_and_get_metadata {
 
     my $metadata = CPAN::Meta->new($meta_contents, { lazy_validation => 1 });
 
-    return [ $sandbox, $metadata ];
+    return [ $sandbox, $container, $metadata ];
 
 }
 
@@ -345,7 +349,7 @@ sub module_dependency_graph {
             # graph.  we track advancement by tarball instead of dist
             # because this way we save having to unpack the tarball to
             # check what dist it provides
-            my ($sandbox_path, $metadata) = @{$self->fetch_and_get_metadata($this_module)};
+            my ($sandbox_path, $container_path, $metadata) = @{$self->fetch_and_get_metadata($this_module)};
 
             $self->dist_metadata->{$metadata->name} = {
                 tarball => $tarball_path,
@@ -375,7 +379,8 @@ sub module_dependency_graph {
                                 version => $metadata->version,
                                 metadata => $metadata,
                                 prereqs => $metadata->effective_prereqs });
-            $sandbox_path->rmtree;
+            # clean up our messes
+            $container_path->rmtree;
 
             # map tarballs to the distribution contained, and mark
             # them as already analyzed
