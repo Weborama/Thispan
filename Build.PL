@@ -55,7 +55,8 @@ my $build = Module::Build->new(
     add_to_cleanup => [ 'ThisPAN-*' ],
     meta_merge => {
         resources => {
-            repository => 'http://gitlab.in.weborama.fr/fgabolde/thispan',
+            repository => 'https://github.com/Weborama/Thispan.git',
+            bugtracker => 'https://github.com/Weborama/Thispan/issues',
         },
     },);
 
