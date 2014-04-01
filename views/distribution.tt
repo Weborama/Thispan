@@ -13,16 +13,16 @@
     <div>
       <ul class="unstyled">
         [% IF metadata.resources.homepage %]
-        <li><a href="[% metadata.resources.homepage %]">Home page</a></li>
+        <li><i class="icon-home"></i> <a href="[% metadata.resources.homepage %]">Home page</a></li>
         [% END %]
         [% IF metadata.resources.repository.web %]
-        <li><a href="[% metadata.resources.repository.web %]">Repository</a></li>
+        <li><i class="icon-globe"></i> <a href="[% metadata.resources.repository.web %]">Repository</a></li>
         [% END %]
         [% IF metadata.resources.repository.url %]
-        <li><a href="[% metadata.resources.repository.url %]">Clone URL</a></li>
+        <li><i class="icon-wrench"></i> <a href="[% metadata.resources.repository.url %]">Clone URL</a></li>
         [% END %]
         [% IF metadata.resources.bugtracker.web %]
-        <li><a href="[% metadata.resources.bugtracker.web %]">Bug tracker</a></li>
+        <li><i class="icon-list"></i> <a href="[% metadata.resources.bugtracker.web %]">Bug tracker</a></li>
         [% END %]
       </ul>
     </div>
