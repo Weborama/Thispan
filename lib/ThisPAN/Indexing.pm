@@ -8,6 +8,7 @@ use autodie;
 use utf8;
 
 use File::Copy;
+use File::Find::Rule;
 use Moo;
 use Path::Class;
 use Scalar::Util qw/blessed/;
