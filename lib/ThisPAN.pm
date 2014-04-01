@@ -187,8 +187,9 @@ get '/distribution/:distribution/depgraph' => sub {
         };
     }
 
-    my @available_filters = sort { $a cmp $b } map { $_->{name} } @{setting('graph_filters')->{filters}};
-    unshift @available_filters, 'none';
+    my @available_filters = sort { $a->{name} cmp $b->{name} } @{setting('graph_filters')->{filters}};
+    unshift @available_filters, { name => 'none',
+                                  regex => '.*' };
     my $active_filter = param('filter');
 
     if (not(defined($active_filter))
@@ -207,6 +208,9 @@ get '/distribution/:distribution/depgraph' => sub {
 
     }
 
+    # still not defined?
+    $active_filter //= 'none';
+
     my @all_prereqs = $distribution->relationship_parents;
     my @reverse_prereqs = $distribution->relationship_children;
 
@@ -220,7 +224,7 @@ get '/distribution/:distribution/depgraph' => sub {
 
     template 'depgraph', {
         active_filter => $active_filter // 'none',
-        available_filters => \@available_filters,
+        available_filter_pairs => \@available_filters,
         distribution => $distribution_name,
         prereqs => $prereqs,
         rdepends => \@reverse_dependency_list,

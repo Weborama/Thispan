@@ -28,12 +28,13 @@
         method="GET"
         action="[% request.uri_for("/distribution/${distribution}/depgraph") %]">
     <fieldset>
-      [% FOREACH filter_name IN available_filters %]
+      <legend>Filtering by distribution name</legend>
+      [% FOREACH filter_pair IN available_filter_pairs %]
       <label class="radio inline">
-        <input type="radio" name="filter" value="[% filter_name %]"
+        <input type="radio" name="filter" value="[% filter_pair.name %]"
                [% IF filter_name == active_filter %]checked="checked"[% END %]
                />
-        [% filter_name %]
+        [% filter_pair.name %] (/[% filter_pair.regex %]/)
       </label>
       [% END %]
       <button type="submit" class="btn btn-primary">Filter</button>
