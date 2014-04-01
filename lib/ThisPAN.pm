@@ -63,9 +63,11 @@ get '/module/:module' => sub {
     }
 
     my $pod;
-    my $pod_file = file(setting('workdir'), $module->rendered_pod_path);
-    if (-e $pod_file) {
-        $pod = $pod_file->slurp;
+    if ($module->rendered_pod_path) {
+        my $pod_file = file(setting('workdir'), $module->rendered_pod_path);
+        if (-e $pod_file) {
+            $pod = $pod_file->slurp;
+        }
     }
 
     my $parent_distribution = $module->distribution;
