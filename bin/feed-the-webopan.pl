@@ -75,7 +75,6 @@ sub insert_perl_distribution {
         { name => $distribution,
           version => $payload->{version},
           changes_path => undef,
-          dependency_json_path => undef,
           metadata_json_blob => {},
           tarball_path => URI->new_abs('authors/id/' . $payload->{tarball}, $opt->mirror) });
 
@@ -101,10 +100,6 @@ sub insert_new_distribution {
         $changes_path = file($distribution, 'Changes');
     }
 
-    # make path to depgraph.json, will fill it in later from full
-    # graph
-    my $dependency_json_path = file($opt->workdir, $distribution, 'depgraph.json');
-
     # find module files and render PODs
     my @modules = File::Find::Rule->file->name('*.pm')->in(dir($payload->{extracted_at}, 'lib'));
 
@@ -128,13 +123,11 @@ sub insert_new_distribution {
         { name => $distribution,
           version => $payload->{version},
           changes_path => $changes_path ? $changes_path->stringify : undef,
-          dependency_json_path => $dependency_json_path ? $dependency_json_path->stringify : undef,
           metadata_json_blob => $payload->{metadata},
           tarball_path => URI->new_abs('authors/id/' . $payload->{tarball}, $opt->mirror) });
 
     push @postprocess, {
         distribution => $distribution,
-        json_at => $dependency_json_path,
         object => $dist_object,
         prereqs => $payload->{prereqs},
     };
