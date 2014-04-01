@@ -105,8 +105,11 @@ get '/distribution/:distribution' => sub {
         };
     }
 
-    my $changes_file = file(setting('workdir'), $distribution->changes_path);
-    my $changes = -e $changes_file ? $changes_file->slurp : undef;
+    my $changes;
+    if ($distribution->changes_path) {
+        my $changes_file = file(setting('workdir'), $distribution->changes_path);
+        $changes = -e $changes_file ? $changes_file->slurp : undef;
+    }
 
     my $metadata = $distribution->metadata_json_blob;
 
