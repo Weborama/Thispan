@@ -19,9 +19,10 @@ my ($opt, $usage) = describe_options(
       { required => 1 } ],
     [ 'base-url=s', 'ThisPAN base URL for POD links',
       { required => 1 } ],
-    [ 'resume=s', 'Save/load graph data from this save file' ]);
+    [ 'resume=s', 'Save/load graph data from this save file' ],
+    [ 'dsn=s', 'DSN for database connections' ]);
 
-my $schema = ThisPAN::Schema->connect('dbi:SQLite:foo.db');
+my $schema = ThisPAN::Schema->connect($opt->dsn);
 
 my $indexer = ThisPAN::Indexing->new(
     (mirror => $opt->mirror) x!! $opt->mirror,
