@@ -5,7 +5,7 @@ my $build = Module::Build->new(
     dist_abstract => 'Lightweight CPAN mirror explorer',
     dist_author => 'Fabrice Gabolde <fgabolde@weborama.com>',
     dist_version_from => 'lib/ThisPAN.pm',
-    license => 'restrictive',
+    license => 'gpl',
     configure_requires => {
         'Module::Build' => '0.36_14',
     },
