@@ -19,7 +19,8 @@ my $build = Module::Build->new(
         'base' => 0,
         'Carp' => 0,
         'CPAN::Meta' => 0,
-        'CPAN::Meta::Prereqs' => 0,
+        # need merged_requirements() support
+        'CPAN::Meta::Prereqs' => '2.132830',
         'CPAN::Meta::Requirements' => 0,
         'Dancer' => 0,
         'Dancer::Plugin::DBIC' => 0,
