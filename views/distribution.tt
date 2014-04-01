@@ -11,22 +11,25 @@
     [% IF metadata.resources AND metadata.resources.keys.size %]
     <hr />
     <div>
-      <ul>
+      <ul class="unstyled">
         [% IF metadata.resources.homepage %]
-        <li>Home page: [% metadata.resources.homepage %]</li>
+        <li><a href="[% metadata.resources.homepage %]">Home page</a></li>
+        [% END %]
+        [% IF metadata.resources.repository.web %]
+        <li><a href="[% metadata.resources.repository.web %]">Repository</a></li>
         [% END %]
         [% IF metadata.resources.repository.url %]
-        <li>Repository: <a href="[% metadata.resources.repository.url %]">[% metadata.resources.repository.url %]</a></li>
+        <li><a href="[% metadata.resources.repository.url %]">Clone URL</a></li>
         [% END %]
-        [% IF metadata.resources.bugtracker.url %]
-        <li>Bug tracker: [% metadata.resources.bugtracker.url %]</li>
+        [% IF metadata.resources.bugtracker.web %]
+        <li><a href="[% metadata.resources.bugtracker.web %]">Bug tracker</a></li>
         [% END %]
       </ul>
     </div>
     [% END %]
     <hr />
     <div>
-      <a href="[% request.uri_for("/distribution/${distribution}/download") %]">Download tarball</a>
+      <i class="icon-download-alt"></i> <a href="[% request.uri_for("/distribution/${distribution}/download") %]">Download tarball</a>
     </div> 
   </div>
 
