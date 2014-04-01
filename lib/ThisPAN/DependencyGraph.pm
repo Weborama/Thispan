@@ -20,7 +20,6 @@ use List::MoreUtils qw/uniq/;
 use Module::CoreList 2.21;
 use Params::Validate qw/:types validate/;
 use Path::Class;
-use Scalar::Util qw/blessed/;
 use Storable qw/nstore/;
 use Try::Tiny;
 use URI;
@@ -29,13 +28,7 @@ use YAML;
 use Moo;
 
 has 'mirror' => (is => 'ro',
-                 isa => sub { blessed($_[0]) and $_[0]->isa('URI') },
-                 default => sub { URI->new(q{http://www.cpan.org/}) },
-                 coerce => sub {
-                     unless (blessed($_[0])) {
-                         return URI->new($_[0])
-                     }
-                 });
+                 required => 1);
 has 'requirement_phases' => (is => 'ro',
                              default => sub { [qw/configure build test runtime/] });
 has 'requirement_types' => (is => 'ro',

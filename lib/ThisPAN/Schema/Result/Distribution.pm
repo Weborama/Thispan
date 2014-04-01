@@ -193,5 +193,17 @@ __PACKAGE__->inflate_column('metadata_json_blob', {
     deflate => sub { $json->encode(shift) },
 });
 
+use Path::Class;
+
+sub base_dir {
+    my ($self, $workdir) = @_;
+    return dir($workdir, $self->name);
+}
+
+sub base_pod_dir {
+    my ($self, $workdir) = @_;
+    return $self->base_dir($workdir)->subdir('pod');
+}
+
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
