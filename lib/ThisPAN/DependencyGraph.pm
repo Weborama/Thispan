@@ -561,10 +561,16 @@ dependency graphs.
 
 You can serialize the object as-is (with a serializer/deserializer
 that supports objects, anyway) to cache the results of the
-computations done so far.  However, if the mirror state changes
-(e.g. a new version of a distribution is uploaded), there is no
-mechanism so far to invalidate or rebuild only part of the graph, and
-you're better off trashing your object and building a new one.
+computations done so far.  Initially, there was no way to do partial
+reindexes and so the best way to cope with a nontrivial change on the
+mirror (upgrades with new dependencies, downgrades, deletions) was to
+trash the serialized object and start anew.  However, all current
+versions of this module support partial reindexing (at the cost of not
+maintaining the dependency graph, but regenerating it every time from
+a flat data structure).  You probably won't ever see the old code in
+action unless you checkout very old changesets.
+
+L<ThisPAN::DependencyGraph> is a Moo class.
 
 =head2 THE DEPENDENCIES GRAPH
 
@@ -611,29 +617,87 @@ C<CPAN::Meta::Requirements>'s C<as_string_hash> method
 
 =head1 ATTRIBUTES
 
-=head2 graph
+=head2 dist_metadata
 
-(read-only directed Graph object)
+(read-only data structure)
 
-The full graph dependency, as far as we have been able to build it
-(e.g. after a call to C<module_dependency_graph> or
-C<full_dependency_graph>).  You can call the usual Graph methods on
-it, so for instance to get the list of distributions that have no
-dependencies (likely to be "perl" and possibly some distributions that
-don't declare core modules as dependencies):
+This attribute contains a map of distribution metadata keyed by
+distribution name.  The values are hashrefs with the following keys
+and values:
 
-  my @sinks = $depgraph->graph->sink_vertices;
+=over 4
 
-Or distributions that have no reverse dependencies:
+=item tarball
 
-  my @sources = $depgraph->graph->source_vertices;
+Path to distribution tarball on the mirror,
+e.g. F<F/FO/FOO/FooBar-0.018.tar.gz>.
+
+=item version
+
+Version number of the distribution, as a L<version> object.
+
+=item date_index
+
+Date the distribution was indexed by L<ThisPan>, as a L<DateTime>
+object.
+
+=item modules
+
+Arrayref of module names.
+
+=item prereqs
+
+All the prerequisites for this distribution, as a
+L<CPAN::Meta::Prereqs> object.
+
+=back
+
+Only distributions that have been encountered in the process of
+walking the dependency graph will be represented here.  Distributions
+may disappear after C<reindex> has been called, if appropriate.
+
+=head2 hook_map
+
+(read-only hashref of coderefs)
+
+TODO: make this attribute private
+
+Note that this attribute is not serialized by the C<serialize> method
+because many serializers do not support coderefs.
+
+=head2 logger
+
+(read-only lazy L<Log::Any> object)
+
+Because this distribution is expected to run non-interactively (cron
+jobs, daemon...), all log output, debug, etc. should go through this
+object.  By default, it is a logger in the category C<CLASSNAME> where
+C<CLASSNAME> is the name of the current instance's class (that is,
+L<ThisPAN::DependencyGraph> or a subclass thereof).
 
 =head2 mirror
 
-(read-only URI object, optionally coerced from a string)
+(read-only required URI object)
 
-The URL to the mirror providing the tarballs.  Defaults to
-"http://www.cpan.org/".
+The URL to the mirror providing the tarballs.
+
+=head2 modules_visited
+
+(read-only hashref of strings)
+
+Map of module names to their parent distribution names.
+
+Only modules that have been encountered in the process of walking the
+dependency graph will be represented here.  Modules may disappear
+after C<reindex> has been called, if appropriate.
+
+=head2 package_index
+
+(read-only hashref of strings)
+
+Map of module names to distribution tarball paths on the mirror,
+obtained straight from F<modules/02packages.details.txt.gz>.  This
+attribute is updated by a call to C<reindex>.
 
 =head2 perl_tarball
 
@@ -650,63 +714,219 @@ sure to also provide C<perl_version>.
 Version number extracted from the Perl tarball path in the index.
 This is set by the builder method for C<perl_tarball>.
 
+=head2 requirement_phases
+
+(read-only arrayref of strings)
+
+What phases should be considered for the dependency walk.  By default,
+this is an arrayref containing the strings "configure", "build",
+"test" and "runtime".  "develop" is also a valid phase.
+
+=head2 requirement_types
+
+(read-only arrayref of strings)
+
+What dependency types should be considered for the dependency walk.
+By default, this is an arrayref containing the string "requires".
+"recommends", "suggests" and "conflicts" are also valid types.
+
+Note that currently this module will not treat "conflicts" prereqs
+specially, which is probably not what you need.
+
+=head2 tarballs_visited
+
+(read-only hashref of strings)
+
+Map of tarball paths (F<F/FO/FOO/FooBar-0.018.tar.gz>) to distribution
+names.
+
+Only tarballs that have been encountered in the process of walking the
+dependency graph will be represented here.  Tarballs may disappear
+after C<reindex> has been called, if appropriate.
+
 =head1 METHODS
+
+=head2 attach_hook
+
+  $depgraph->attach_hook('new_distribution_indexed', sub { ... });
+
+Add a coderef to be called during a dependency walk.  The coderef will
+be given an argument list containing the L<ThisPAN::DependencyGraph>
+instance, the hook name, and a payload (usually a hashref) with
+variable contents.
+
+=head2 fetch_and_build_package_index
+
+Builder for C<package_index>, and called to build a fresh package
+index when C<reindex> is called.
+
+=head2 fetch_and_get_metadata
+
+TODO: make this private.
+
+=head2 fetch_file
+
+  $depgraph->fetch_file($url, $destination);
+
+Fetches the URL provided and writes it to disk.  The URL may be an
+HTTP URL, in which case L<HTTP::Tiny> will be used, or a file URL, in
+which case we simply copy the file over with L<File::Copy>.
+
+=head2 find_perl_tarball
+
+Builder for C<perl_tarball>, and sets C<perl_version>.
+
+=head2 fire_hooks
+
+  $depgraph->fire_hooks('new_distribution_indexed', $payload);
+
+Call all the coderefs registered for this hook with C<attach_hook>.
 
 =head2 full_dependency_graph
 
-  my $graph = $depgraph->full_dependency_graph(requirement_phases => [qw/.../],
-                                               requirement_types => [qw/.../],
-                                               filter_with_regex => qr/.../);
+  $depgraph->full_dependency_graph(filter_with_regex => qr/.../);
 
 Builds the full dependency graph for the whole package index.  This
 works by looping over all module names in the index, skipping the ones
-that don't match the regex passed in C<filter_with_regex>, and calling
-C<module_dependency_graph> on them, currying all other arguments.
+that don't match the regex passed in the optional
+C<filter_with_regex>, and calling C<module_dependency_graph> on them.
 
-Returns said graph.
+Returns self.
+
+=head2 grow_graph
+
+  my $graph = $depgraph->grow_graph;
+
+Returns a brand new directed L<Graph> instance, with vertices and
+edges as described previously.
 
 =head2 module_dependency_graph
 
-  my $graph = $depgraph->module_dependency_graph('Acme::Weborama',
-      requirement_phases => [qw/.../],
-      requirement_types => [qw/.../],
+  $depgraph->module_dependency_graph('Acme::Weborama',
       filter_with_regex => qr/.../);
 
-Builds the dependency graph for the module provided.  All arguments
-except the module name are optional.
+Builds the dependency graph for the module provided.
 
-C<requirement_phases> is passed on to the L<CPAN::Meta::Prereqs>
-object, to allow filtering on specific prereqs phases.  The prereqs
-phases are all defined in L<CPAN::Meta::Spec>.  Valid phases include
-C<configure>, C<runtime>, C<build>, C<test> and C<develop>; by
-default, we enable all but C<develop>.
-
-C<requirement_types> is similar, but allows filtering on the nature of
-the relationship.  Prereq types are also defined in
-L<CPAN::Meta::Spec>.  Valid types include C<requires>, C<recommends>,
-C<suggests> and C<conflicts>; by default, we enable only C<requires>.
-
-C<filter_with_regex> should be a regex that matches the modules you're
-interested in, e.g. C<qr/^Acme::>.  It will be used every time a
-distribution tarball is unpacked, looking for dependencies; any
-dependency that doesn't match the regex will not be investigated or
-added to the graph.
+C<filter_with_regex>, if provided, should be a regex that matches the
+modules you're interested in, e.g. C<qr/^Acme::>.  It will be used
+every time a distribution tarball is unpacked, looking for
+dependencies; any dependency that doesn't match the regex will not be
+investigated or added to the graph.
 
 Since C<module_dependency_graph> properly keeps all its interesting
 state in the L<Weborama::CPANTools::DependencyGraph> object, it can be
 called multiple times to build a graph incrementally.
 
-Returns the whole dependency graph built so far.  This may not be what
-you want if you're interested in the dependency chain of a single
-module, but you have already built some other modules' chains.  In
-that case, consider using the L<Graph> methods to refine the result,
-e.g.
+Returns self.
 
-  $depgraph->module_dependency_graph('Acme::Foo');
-  my $graph = $depgraph->module_dependency_graph('Acme::Bar');
-  # now $graph has Acme::Foo, Acme::Bar, and all of their dependencies
-  # these are the interesting dists as far as Foo is concerned:
-  my @dists = $graph->all_successors('Acme::Bar');
+=head2 parse_meta_json
+
+  my $metadata = $depgraph->parse_meta_json('path/to/META.json');
+
+Slurp, parse and return the metadata in the file provided.  The return
+value is a plain Perl reference, not an object.  If the parsing
+failed, returns false (to fall through to other methods of obtaining
+the metadata).
+
+=head2 parse_meta_yaml
+
+Like C<parse_meta_json>, for F<META.yml>.
+
+=head2 reindex
+
+  $depgraph->reindex;
+
+Fetches a brand new copy of F<modules/02packages.details.txt.gz>,
+rebuilds C<package_index> and invalidates parts of C<dist_metadata>,
+C<modules_visited> and C<tarballs_visited> accordingly.
+
+After a call to C<reindex>, the instance is ready to rebuild the
+missing parts of the dependency graph with C<full_dependency_graph> or
+C<module_dependency_graph>.
+
+Returns self.
+
+=head2 run_configure_script
+
+  my $metadata = $depgraph->run_configure_script('path/to/Build.PL');
+
+Runs the configure script provided (e.g. F<Build.PL> or
+F<Makefile.PL>), in the hopes of generating a F<MYMETA.json> or
+F<MYMETA.yaml> usable to determine distribution metadata.  If
+successful (the configure scripts exits successfully), attempts to
+parse the C<MYMETA> file with C<parse_meta_json> or
+C<parse_meta_yaml>, and returns the result.
+
+This method used to be called whenever a distribution had
+C<dynamic_config> set to a true value in the metadata returned by the
+parsing methods, but this turned out to be very often indeed.  It
+appears older metadata formats did not include this key, and
+L<CPAN::Meta> assumes it is true when absent.  It is currently called
+only when no C<META> file has been found in the tarball.
+
+=head2 serialize
+
+  $depgraph->serialize('path/to/file');
+
+Serialize the instance and write it to file.  Currently this is done
+via L<Storable>'s C<nstore>.
+
+=head1 HOOKS
+
+Hooks are called in the order they were attached.
+
+=head2 missing_dependency
+
+This hook is fired whenever a module is being considered (because it
+has been found as a prereq of a distribution), but the module is not
+in C<package_index>.
+
+The payload is
+
+  { module => 'Foo::Bar' }
+
+=head2 new_distribution_indexed
+
+This hook is fired whenever a module is being considered, once per
+distribution.
+
+The payload is
+
+  { distribution => 'Foo-Bar',
+    tarball      => 'F/FO/FOO/Foo-Bar-0.018.tar.gz',
+    extracted_at => '/tmp/...',
+    version      => version->parse('0.018'),
+    metadata     => CPAN::Meta->new(...),
+    prereqs      => metadata->effective_prereqs }
+
+where C<extracted_at> is the path to a sandbox that is still available
+for further study (POD generation, etc.) but will be removed
+immediately after, C<version> is a L<version> object with the value
+extracted from the metadata, and C<prereqs> is the result of calling
+C<effective_prereqs> from the metadata object.
+
+=head2 new_module_indexed
+
+This hook is fired whenever a module is being considered, after
+C<new_distribution_indexed> was fired if appropriate.  Unlike
+C<new_distribution_indexed>, it is called for every module that is not
+a missing dependency.
+
+The payload is
+
+  { distribution => 'Foo-Bar',
+    module       => 'Foo::Bar' }
+
+=head2 perl_indexed
+
+This hook is fired when the Perl tarball is found in the package
+index, when C<perl_tarball> is set by its builder.
+
+The payload is
+
+  { distribution => 'perl', # always
+    tarball      => 'J/JE/JESSE/perl-5.12.2.tar.bz2',
+    version      => $self->perl_version }
 
 =head1 SEE ALSO
 
