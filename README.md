@@ -12,6 +12,7 @@ See it in action
 + Interactive dependency (and reverse dependency) graph ala Stratopan,
   with d3.js (again only for prereqs in the metadata files)
 + Pretty POD render with syntax highlighting thanks to highlight.js
++ Index and browse multiple mirrors
 + PSGI-compliant
 + Reasonably lightweight: Dancer + DBIC
 + Free and open source software
@@ -23,11 +24,6 @@ See it in action
   mirrors for darkpans don't usually keep old releases.
 + PAUSE-like uploading.  ThisPAN does not manage uploading at all.
   Use your existing tools, e.g. Pinto or mcpani.
-+ Stacks, like Stratopan.  While ThisPAN will happily index and make
-  available for browsing anything that's sufficiently CPAN-like, to
-  index multiple mirrors you will need multiple instances of ThisPAN.
-  The interesting stacks will be longer-lived anyway, so you can have
-  e.g. a ThisPAN instance for production and one for integration.
 + Authentication.  If your ThisPAN instance is indexing public
   distributions, keep it public.  If it's indexing private
   distributions, keep it as private as your mirror.  If you really
