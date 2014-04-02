@@ -1,0 +1,21 @@
+<div class="row-fluid">
+  <div class="page-header">
+    <h1>Mirrors managed by ThisPAN</h1>
+  </div>
+</div>
+
+<div class="row-fluid">
+
+  <div class="span12">
+
+    <ul>
+      [% FOREACH mirror_data IN mirror_list %]
+      <li [% IF mirror_data.name == selected_mirror %]class="active"[% END %]>
+        <a href="[% mirror_data.url %]">[% mirror_data.title %]</a>
+      </li>
+      [% END %]
+    </ul>
+
+  </div>
+
+</div>
