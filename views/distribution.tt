@@ -29,7 +29,7 @@
     [% END %]
     <hr />
     <div>
-      <i class="icon-download-alt"></i> <a href="[% request.uri_for("/distribution/${distribution}/download") %]">Download tarball</a>
+      <i class="icon-download-alt"></i> <a href="[% mirror_uri_for("/distribution/${distribution}/download") %]">Download tarball</a>
     </div> 
   </div>
 
@@ -50,7 +50,7 @@
         [% IF modules_contained.size %]
         <ul>
           [% FOREACH module IN modules_contained.sort %]
-          <li><a href="[% request.uri_for("/module/${module}") %]">[% module %]</a></li>
+          <li><a href="[% mirror_uri_for("/module/${module}") %]">[% module %]</a></li>
           [% END %]
         </ul>
         [% ELSE %]
@@ -78,7 +78,7 @@
         [% prereq_phase.ucfirst %]:
         <ul>
           [% FOREACH dep IN prereqs.$prereq_phase.requires.keys.sort %]
-          <li><a href="[% request.uri_for("/distribution/${dep}") %]">[% dep %]</a> [% prereqs.$prereq_phase.requires.dep %]</li>
+          <li><a href="[% mirror_uri_for("/distribution/${dep}") %]">[% dep %]</a> [% prereqs.$prereq_phase.requires.dep %]</li>
           [% END %]
         </ul>
       </div>
@@ -89,7 +89,7 @@
       <h3>Reverse dependencies</h3>
       <ul>
         [% FOREACH rdep IN rdepends.sort %]
-        <li><a href="[% request.uri_for("/distribution/${rdep}") %]">[% rdep %]</a></li>
+        <li><a href="[% mirror_uri_for("/distribution/${rdep}") %]">[% rdep %]</a></li>
         [% END %]
       </ul>
       [% ELSE %]
@@ -97,7 +97,7 @@
       [% END %]
     </div>
     <hr />
-    <i class="icon-picture"></i> <a href="[% request.uri_for("/distribution/${distribution}/depgraph") %]">Dependency graph</a>
+    <i class="icon-picture"></i> <a href="[% mirror_uri_for("/distribution/${distribution}/depgraph") %]">Dependency graph</a>
   </div>
 
 </div>

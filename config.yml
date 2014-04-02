@@ -21,8 +21,15 @@ engines:
     end_tag:   '%]'
 
 ## APP-WIDE CONFIG STARTS HERE
-mirror: /home/fgabolde/work/localpinto
-workdir: /home/fgabolde/work/local-dist-data
+mirrors:
+  local:
+    title: "Test-SetupTeardown Pinto"
+    mirror: /home/fgabolde/work/localpinto
+    workdir: /home/fgabolde/work/local-dist-data
+  otherlocal:
+    title: "Pretend to be another mirror"
+    mirror: /home/fgabolde/work/localpinto
+    workdir: /home/fgabolde/work/local-dist-data
 graph_filters:
   filters:
     - 
@@ -34,6 +41,9 @@ graph_filters:
 
 plugins:
   DBIC:
-    default:
+    local:
+      dsn: dbi:SQLite:foo.db
+      schema_class: ThisPAN::Schema
+    otherlocal:
       dsn: dbi:SQLite:foo.db
       schema_class: ThisPAN::Schema

@@ -15,69 +15,57 @@ use Dancer::Plugin::DBIC;
 
 our $VERSION = '0.001';
 
-get '/' => sub {
-    # module search by name
-    template 'index';
-};
+sub mirror_exists_or_404 {
+    my $mirror_name = param('mirror');
+    unless (exists setting('mirrors')->{$mirror_name}) {
+        forward '/no_such_mirror', { mirror => $mirror_name };
+    }
+}
 
-get '/module-search/json' => sub {
+sub mirror_uri_for {
+    my ($uri, @rest) = @_;
+    $uri =~ s{^/?}{};
+    $uri = sprintf('/mirror/%s/%s',
+                   param('mirror'),
+                   $uri);
+    $uri =~ s{/?$}{};
+    return uri_for($uri,
+                   @rest);
+}
 
-    my $query = param('q');
-    my @results = schema->resultset('Module')->search({ name => { like => '%'.$query.'%' } },
-                                                      { rows => 10,
-                                                        order_by => 'name' })->all;
-    return to_json([ map { { label => $_->name,
-                             url => uri_for("/module/".$_->name)->as_string } } @results ]);
+sub mirror_schema {
+    return schema(param('mirror'));
+}
 
-};
+sub workdir_of_mirror {
+    return setting('mirrors')->{param('mirror')}->{workdir};
+}
 
-get '/module-search' => sub {
+hook 'before_template_render' => sub {
+    my $tokens = shift;
+    $tokens->{mirror_uri_for} = \&mirror_uri_for;
 
-    my $query = param('q');
-    my $page = param('p');
-    my $rs = schema->resultset('Module')->search({ name => { like => '%'.$query.'%' } },
-                                                 { rows => 20,
-                                                   page => $page || 1,
-                                                   order_by => 'name' });
-    template 'module-list', {
-        query => $query,
-        pager => $rs->pager,
-        result_total_count => $rs->pager->total_entries,
-        result_displayed_count => $rs->count,
-        results => [ $rs->all ],
-    };
+    # switch between mirrors
+    my $current_path = request->path_info;
 
-};
-
-get '/module/:module' => sub {
-
-    my $module_name = param('module');
-
-    my $module = schema->resultset('Module')->find({ name => $module_name },
-                                                   { key => 'name_unique' });
-
-    unless ($module) {
-        forward '/no_such_module', {
-            module => $module_name
+    foreach my $mirror (keys %{setting('mirrors')}) {
+        my $current_path_in_other_mirror = $current_path;
+        $current_path_in_other_mirror =~ s{/mirror/[^/]+?(/|$)}{/mirror/$mirror$1};
+        push @{$tokens->{mirror_list}}, {
+            name => $mirror,
+            title => setting('mirrors')->{$mirror}->{title},
+            url => uri_for($current_path_in_other_mirror, scalar(params('query'))),
         };
     }
 
-    my $pod;
-    if ($module->rendered_pod_path) {
-        my $pod_file = file(setting('workdir'), $module->rendered_pod_path);
-        if (-e $pod_file) {
-            $pod = $pod_file->slurp;
-        }
-    }
+    $tokens->{selected_mirror} = param('mirror') // 'nomirror';
+};
 
-    my $parent_distribution = $module->distribution;
-
-    template 'module', {
-        module => $module->name,
-        pod => $pod,
-        parent_distribution => $parent_distribution->name,
-    }; 
-
+get '/no_such_mirror' => sub {
+    status 404;
+    template 'no-such-mirror', {
+        mirror => param('mirror'),
+    };
 };
 
 get '/no_such_distribution' => sub {
@@ -94,12 +82,84 @@ get '/no_such_module' => sub {
     };
 };
 
-get '/distribution/:distribution' => sub {
+get '/mirror/:mirror' => sub {
+    # module search by name
+    mirror_exists_or_404();
+    template 'index';
+};
+
+get '/mirror/:mirror/module-search/json' => sub {
+
+    my $query = param('q');
+    my @results = mirror_schema->resultset('Module')->search({ name => { like => '%'.$query.'%' } },
+                                                             { rows => 10,
+                                                               order_by => 'name' })->all;
+    return to_json([ map { { label => $_->name,
+                             url => uri_for("/module/".$_->name)->as_string } } @results ]);
+
+};
+
+get '/mirror/:mirror/module-search' => sub {
+
+    mirror_exists_or_404();
+
+    my $query = param('q');
+    my $page = param('p');
+    my $rs = mirror_schema->resultset('Module')->search({ name => { like => '%'.$query.'%' } },
+                                                        { rows => 20,
+                                                          page => $page || 1,
+                                                          order_by => 'name' });
+    template 'module-list', {
+        query => $query,
+        pager => $rs->pager,
+        result_total_count => $rs->pager->total_entries,
+        result_displayed_count => $rs->count,
+        results => [ $rs->all ],
+    };
+
+};
+
+get '/mirror/:mirror/module/:module' => sub {
+
+    mirror_exists_or_404();
+
+    my $module_name = param('module');
+
+    my $module = mirror_schema->resultset('Module')->find({ name => $module_name },
+                                                          { key => 'name_unique' });
+
+    unless ($module) {
+        forward '/no_such_module', {
+            module => $module_name
+        };
+    }
+
+    my $pod;
+    if ($module->rendered_pod_path) {
+        my $pod_file = file(workdir_of_mirror(), $module->rendered_pod_path);
+        if (-e $pod_file) {
+            $pod = $pod_file->slurp;
+        }
+    }
+
+    my $parent_distribution = $module->distribution;
+
+    template 'module', {
+        module => $module->name,
+        pod => $pod,
+        parent_distribution => $parent_distribution->name,
+    }; 
+
+};
+
+get '/mirror/:mirror/distribution/:distribution' => sub {
+
+    mirror_exists_or_404();
 
     my $distribution_name = param('distribution');
 
-    my $distribution = schema->resultset('Distribution')->find({ name => $distribution_name },
-                                                               { key => 'name_unique' });
+    my $distribution = mirror_schema->resultset('Distribution')->find({ name => $distribution_name },
+                                                                      { key => 'name_unique' });
 
     unless ($distribution) {
         forward '/no_such_distribution', {
@@ -109,7 +169,7 @@ get '/distribution/:distribution' => sub {
 
     my $changes;
     if ($distribution->changes_path) {
-        my $changes_file = file(setting('workdir'), $distribution->changes_path);
+        my $changes_file = file(workdir_of_mirror(), $distribution->changes_path);
         $changes = -e $changes_file ? $changes_file->slurp : undef;
     }
 
@@ -141,7 +201,10 @@ get '/distribution/:distribution' => sub {
 
 };
 
-get '/distribution/:distribution/depgraph.json' => sub {
+get '/mirror/:mirror/distribution/:distribution/depgraph.json' => sub {
+
+    mirror_exists_or_404();
+
     my $distribution_name = param('distribution');
     my $depth_successors = param('ds') // undef;
     my $depth_predecessors = param('dp') // undef;
@@ -150,7 +213,7 @@ get '/distribution/:distribution/depgraph.json' => sub {
     my $filter_pair = first { $filter_name eq $_->{name} } @{$filters->{filters}};
 
     # beeg file, might take some time!
-    my $full_depgraph = from_json(scalar(file(setting('workdir'), 'depgraph.json')->slurp));
+    my $full_depgraph = from_json(scalar(file(workdir_of_mirror(), 'depgraph.json')->slurp));
     my $depgraph;
 
     foreach my $vertex (@{$full_depgraph}) {
@@ -171,20 +234,20 @@ get '/distribution/:distribution/depgraph.json' => sub {
         # now remove all children that are not in our subgraph
         $depgraph->{$vertex}->{imports} = [ grep { exists $depgraph->{$_} } @{$depgraph->{$vertex}->{imports}} ];
         # and generate URIs
-        $depgraph->{$vertex}->{url} = uri_for('/distribution/' . $vertex . '/depgraph',
-                                              { filter => $filter_name })->as_string;
+        $depgraph->{$vertex}->{url} = mirror_uri_for('/distribution/' . $vertex . '/depgraph',
+                                                     { filter => $filter_name })->as_string;
     }
 
     content_type 'application/json';
     return to_json([ values %{$depgraph} ]);
 };
 
-get '/distribution/:distribution/depgraph' => sub {
+get '/mirror/:mirror/distribution/:distribution/depgraph' => sub {
 
     my $distribution_name = param('distribution');
 
-    my $distribution = schema->resultset('Distribution')->find({ name => $distribution_name },
-                                                               { key => 'name_unique' });
+    my $distribution = mirror_schema->resultset('Distribution')->find({ name => $distribution_name },
+                                                                      { key => 'name_unique' });
 
     unless ($distribution) {
         forward '/no_such_distribution', {
@@ -233,18 +296,20 @@ get '/distribution/:distribution/depgraph' => sub {
         distribution => $distribution_name,
         prereqs => $prereqs,
         rdepends => \@reverse_dependency_list,
-        depgraph_json_url => uri_for('/distribution/' . $distribution_name . '/depgraph.json',
-                                     { filter => $active_filter })->as_string,
+        depgraph_json_url => mirror_uri_for('/distribution/' . $distribution_name . '/depgraph.json',
+                                            { filter => $active_filter })->as_string,
     };
 
 };
 
-get '/distribution/:distribution/download' => sub {
+get '/mirror/:mirror/distribution/:distribution/download' => sub {
+
+    mirror_exists_or_404();
 
     my $distribution_name = param('distribution');
 
-    my $distribution = schema->resultset('Distribution')->find({ name => $distribution_name },
-                                                               { key => 'name_unique' });
+    my $distribution = mirror_schema->resultset('Distribution')->find({ name => $distribution_name },
+                                                                      { key => 'name_unique' });
 
     unless ($distribution) {
         forward '/no_such_distribution', {

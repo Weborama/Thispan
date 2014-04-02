@@ -9,7 +9,7 @@
   <div class="span2">
 
     <div>
-      Parent distribution: <a href="[% request.uri_for("/distribution/${parent_distribution}") %]">[% parent_distribution %]</a>.
+      Parent distribution: <a href="[% mirror_uri_for("/distribution/${parent_distribution}") %]">[% parent_distribution %]</a>.
     </div>
 
     <div>We probably need some more stuff here.</div> 
