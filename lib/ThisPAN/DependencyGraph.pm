@@ -17,9 +17,11 @@ use HTTP::Tiny;
 use IO::File;
 use JSON;
 use List::MoreUtils qw/uniq/;
+use Log::Any;
 use Module::CoreList 2.21;
 use Params::Validate qw/:types validate/;
 use Path::Class;
+use Scalar::Util qw/blessed/;
 use Storable qw/nstore/;
 use Try::Tiny;
 use URI;
@@ -29,6 +31,9 @@ use Moo;
 
 has 'mirror' => (is => 'ro',
                  required => 1);
+has 'logger' => (is => 'ro',
+                 lazy => 1,
+                 default => sub { Log::Any->get_logger(category => blessed(shift)) });
 has 'requirement_phases' => (is => 'ro',
                              default => sub { [qw/configure build test runtime/] });
 has 'requirement_types' => (is => 'ro',
@@ -78,12 +83,11 @@ sub serialize {
 }
 
 sub fetch_file {
-    my $url = shift;
-    my $destination = shift;
-    print "Fetching file at $url... ";
+    my ($self, $url, $destination) = @_;
+    $self->logger->infof(q{Fetching URL %s},
+                        $url->as_string);
     if ($url->scheme eq 'http') {
         my $response = HTTP::Tiny->new->get($url);
-        say 'Done.';
         croak(sprintf(q{Could not fetch file at %s: %d %s},
                       $url, $response->{status}, $response->{reason}))
             unless $response->{success};
@@ -96,12 +100,19 @@ sub fetch_file {
         }
         $fh->print($content);
         $fh->close;
+        # note the cheap stringification: because $destination might
+        # be an object or a string, and Log::Any does its own
+        # stringification
+        $self->logger->infof(q{File has been fetched via HTTP to %s},
+                             "$destination");
     } elsif ($url->scheme eq 'file') {
         (undef, $destination) = File::Temp::tempfile(UNLINK => 0)
             unless $destination;
-        copy($url->file, $destination) or die(sprintf("can't fetch file at %s: %s",
-                                                      $url->file, $!));
-        say 'Done.';
+        copy($url->file, $destination) or croak(sprintf(q{Could not copy file at %s: %s},
+                                                        $url->file, $!));
+        $self->logger->infof(q{File has been copied from %s to %s},
+                             $url->file,
+                             "$destination");
     } else {
         croak(sprintf(q{Not sure how to handle URI scheme '%s'},
                       $url->scheme));
@@ -110,11 +121,12 @@ sub fetch_file {
 }
 
 sub parse_meta_json {
-    my ($metafile) = @_;
+    my ($self, $metafile) = @_;
     my $meta_contents = try {
         JSON::decode_json(scalar $metafile->slurp);
     } catch {
-        warn "While trying to parse $metafile: $_";
+        $self->warningf(q{While trying to parse JSON metadata file %s: %s},
+                        $metafile, $_);
         return;
     };
     return unless $meta_contents;
@@ -127,11 +139,12 @@ sub parse_meta_json {
 }
 
 sub parse_meta_yaml {
-    my ($metafile) = @_;
+    my ($self, $metafile) = @_;
     my $meta_contents = try {
         YAML::Load(scalar $metafile->slurp);
     } catch {
-        warn "While trying to parse $metafile: $_";
+        $self->warningf(q{While trying to parse YAML metadata file %s: %s},
+                        $metafile, $_);
         return;
     };
     return unless $meta_contents;
@@ -144,19 +157,21 @@ sub parse_meta_yaml {
 }
 
 sub run_configure_script {
-    my ($sandbox, $make_or_build_pl) = @_;
+    my ($self, $sandbox, $make_or_build_pl) = @_;
     my (undef, $tempfile) = File::Temp::tempfile(UNLINK => 0);
     try {
         system("cd '$sandbox' && perl '$make_or_build_pl' > $tempfile 2>&1");
         unlink $tempfile;
         return 1;
     } catch {
-        warn "While trying to run '$make_or_build_pl': $_\n";
-        warn "Logs can be found at '$tempfile'.\n";
+        $self->warningf(q{While trying to run build script %s: %s},
+                        $make_or_build_pl, $_);
+        $self->warningf(q{Logs have been kept at %s},
+                        $tempfile);
         return;
     } or return;
-    return parse_meta_json($sandbox->file('MYMETA.json'))
-        || parse_meta_yaml($sandbox->file('MYMETA.yml'));
+    return $self->parse_meta_json($sandbox->file('MYMETA.json'))
+        || $self->parse_meta_yaml($sandbox->file('MYMETA.yml'));
 }
 
 sub find_perl_tarball {
@@ -181,14 +196,15 @@ sub find_perl_tarball {
 sub fetch_and_build_package_index {
 
     my $self = shift;
-    my $package_index_filename = fetch_file(URI->new_abs('modules/02packages.details.txt.gz', $self->mirror));
+    my $package_index_filename = $self->fetch_file(URI->new_abs('modules/02packages.details.txt.gz', $self->mirror));
 
     my $index_contents;
 
     my $index_archive = Archive::Extract->new(archive => $package_index_filename,
                                               type => 'gz');
     my (undef, $extracted_filename) = File::Temp::tempfile(UNLINK => 0);
-    say "Extracting $extracted_filename...";
+    $self->logger->infof(q{Extracting package index %s to %s},
+                         $package_index_filename, $extracted_filename);
     $index_archive->extract(to => $extracted_filename);
     unlink $package_index_filename;
     my $fh = IO::File->new($extracted_filename, 'r');
@@ -197,7 +213,7 @@ sub fetch_and_build_package_index {
 
     # parse and transform 02packages.details.txt
     my $in_header = 1;
-    say "Parsing $extracted_filename...";
+    $self->logger->info(q{Parsing extracted package index});
     while (my $line = $fh->getline) {
         chomp($line);
         if ($line =~ /^$/ and $in_header) {
@@ -211,6 +227,8 @@ sub fetch_and_build_package_index {
         $dist_name =~ s/-[\d.]+(?:-TRIAL)?[^-]*$//;
         $index{$module_name} = $path;
     }
+
+    $self->logger->info(q{Done parsing package index});
 
     $fh->close;
     unlink $extracted_filename;
@@ -234,10 +252,11 @@ sub fetch_and_get_metadata {
 
     # the tarball needs a filename with a proper extension otherwise
     # Archive::Extract gets confused
-    my $tarball = fetch_file($uri, $container->file($filename));
+    my $tarball = $self->fetch_file($uri, $container->file($filename));
 
     my $dist_archive = Archive::Extract->new(archive => $tarball);
-    say "Extracting $tarball...";
+    $self->logger->infof(q{Extracting distribution tarball %s to %s},
+                         $tarball->stringify, $container->stringify);
     $dist_archive->extract(to => $container);
     unlink $tarball;
 
@@ -252,23 +271,25 @@ sub fetch_and_get_metadata {
         # properly extracted tarball.  pretend that's what we meant
         # all along.  if we don't go through here it means it was one
         # of these tarballs where everything is just at the root
+        $self->logger->info(q{Tarball has a single directory in it, good.});
         $sandbox = $files_in_sandbox[0];
     } else {
         # El Cheapo cloning
+        $self->logger->info(q{Tarball doesn't have a proper root directory, assuming jumble.});
         $sandbox = dir($container);
     }
 
-    say "Looking for META files in all the wrong places...";
+    $self->logger->info('Looking for metadata files...');
 
     # deafening applause
     my $meta_contents =
-           -e $sandbox->file('META.json')   && parse_meta_json($sandbox->file('META.json'))
-        || -e $sandbox->file('META.yml')    && parse_meta_yaml($sandbox->file('META.yml'))
-        || -e $sandbox->file('Build.PL')    && run_configure_script($sandbox, $sandbox->file('Build.PL'))
-        || -e $sandbox->file('Makefile.PL') && run_configure_script($sandbox, $sandbox->file('Makefile.PL'));
+                                                               -e $sandbox->file('META.json')   && $self->parse_meta_json($sandbox->file('META.json'))
+        || $self->logger->info('No usable META.json file.') && -e $sandbox->file('META.yml')    && $self->parse_meta_yaml($sandbox->file('META.yml'))
+        || $self->logger->info('No usable META.yml file.')  && -e $sandbox->file('Build.PL')    && $self->run_configure_script($sandbox, $sandbox->file('Build.PL'))
+        || $self->logger->info('No usable Build.PL file.')  && -e $sandbox->file('Makefile.PL') && $self->run_configure_script($sandbox, $sandbox->file('Makefile.PL'));
 
     unless ($meta_contents) {
-        die('Impossible to determine prereqs!');
+        croak('Impossible to determine prereqs!');
     }
 
     my $metadata = CPAN::Meta->new($meta_contents, { lazy_validation => 1 });
@@ -283,14 +304,21 @@ sub full_dependency_graph {
     my %args = validate(@_,
                         { filter_with_regex => { default => undef } });
 
-    say "Perl tarball appears to be at ".$self->perl_tarball;
+    $self->logger->info('Starting to build full dependency graph.');
+    if ($self->perl_tarball) {
+        $self->logger->infof(q{Perl tarball appears to be %s},
+                             $self->perl_tarball);
+    } else {
+        $self->logger->warningf(q{Couldn't find a Perl tarball.});
+    }
 
     foreach my $module (keys %{$self->package_index}) {
 
         next if exists $self->modules_visited->{$module};
         next unless (not $args{filter_with_regex}
                      or $module =~ $args{filter_with_regex});
-        say "Now checking dependency chain for '$module'...";
+        $self->logger->infof(q{Checking dependency chain for module %s},
+                             $module);
         $self->module_dependency_graph($module,
                                        %args);
 
@@ -328,7 +356,8 @@ sub module_dependency_graph {
             if (version->parse(Module::CoreList->first_release($this_module))
                 <= version->parse($self->perl_version)) {
                 # it's in core.  proceed, citizen
-                say "        $this_module is a core module (unindexed), skipping";
+                $self->logger->infof(q{Skipping %s which is a core module (determined from Module::CoreList)},
+                                     $this_module);
                 $self->modules_visited->{$this_module} = 'perl';
                 $tarball_path = $self->perl_tarball;
             } else {
@@ -340,7 +369,8 @@ sub module_dependency_graph {
 
         } elsif ($tarball_path eq $self->perl_tarball) {
 
-            say "        $this_module is a core module, skipping";
+            $self->logger->infof(q{Skipping %s which is a core module (provided by the Perl tarball)},
+                                 $this_module);
             $self->modules_visited->{$this_module} = 'perl';
 
         } elsif (not $self->tarballs_visited->{$tarball_path}) {
