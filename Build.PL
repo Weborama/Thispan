@@ -37,6 +37,7 @@ my $build = Module::Build->new(
         # 2008
         'JSON' => 2.07,
         'List::MoreUtils' => 0,
+        'Log::Any' => 0,
         # need first_release() support
         'Module::CoreList' => 2.21,
         'Moo' => 0,

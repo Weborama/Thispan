@@ -9,6 +9,7 @@ use utf8;
 
 use File::Copy;
 use File::Find::Rule;
+use Log::Any;
 use Moo;
 use Path::Class;
 use Scalar::Util qw/blessed/;
@@ -35,6 +36,9 @@ has 'mirror' => (is => 'ro',
                          return URI->new($_[0])
                      }
                  });
+has 'logger' => (is => 'ro',
+                 lazy => 1,
+                 default => sub { Log::Any->get_logger(category => blessed(shift)) });
 has 'base_url' => (is => 'ro',
                    required => 1);
 has 'workdir' => (is => 'ro',
@@ -196,9 +200,9 @@ sub hook_new_module_indexed {
     my $distribution = $self->dist_index_by_name->{$distribution_name} //= $self->schema->resultset('Distribution')->find({ name => $distribution_name },
                                                                                                                           { key => 'name_unique' });
     unless ($distribution) {
-        warn(sprintf(q{Trying to create module %s for missing distribution %s},
-                     $payload->{module},
-                     $distribution_name));
+        $self->logger->errorf(q{While trying to find or create module %s for dist %s: distribution is not in database},
+                              $payload->{module},
+                              $distribution_name);
         return;
     }
     my $rendered_pod_path = $distribution->base_pod_dir($self->workdir)->file(split('::', $filename));
@@ -209,18 +213,19 @@ sub hook_new_module_indexed {
                                               { key => 'name_unique' });
     };
     if (my $error = $@) {
-        warn(sprintf(q{While trying to insert module %s for dist %s: %s},
-                     $payload->{module},
-                     $distribution_name,
-                     $error));
+        $self->logger->errorf(q{While trying to find or create module %s for dist %s: %s},
+                              $payload->{module},
+                              $distribution_name,
+                              $error);
+        return;
     }
 }
 
 sub hook_missing_dependency {
     my ($self, $graphmaker, $hook_name, $payload) = @_;
     # payload has keys: module
-    warn(sprintf(q{Missing dependency: %s},
-                 $payload->{module}));
+    $self->warningf(q{Missing dependency: %s},
+                    $payload->{module});
 }
 
 sub run {
@@ -261,16 +266,19 @@ sub _create_new_links {
                     my $dep_object = $self->dist_index_by_name->{$dist_of_dependency} //= $self->schema->resultset('Distribution')->find({ name => $dist_of_dependency },
                                                                                                                                          { key => 'name_unique' });
                     unless ($dep_object) {
-                        warn("Can't find dist dependency $dist_of_dependency for $distribution!");
+                        $self->errorf(q{Distribution %s depends on distribution %s but it cannot be found in database},
+                                      $distribution, $dist_of_dependency);
                         next;
                     }
                     my $module_object = $self->module_index_by_name->{$dependency} //= $self->schema->resultset('Module')->find({ name => $dependency });
                     unless ($module_object) {
-                        warn("Can't find module dependency $dependency for $distribution!");
+                        $self->errorf(q{Distribution %s depends on module %s but it cannot be found in database},
+                                      $distribution, $dependency);
                         next;
                     }
-                    say(sprintf(q{Now linking %s to %s through %s},
-                                $distribution, $dist_of_dependency, $dependency));
+                    $self->logger->infof(q{Adding relationship: %s depends on %s because %s is required for %s},
+                                         $distribution, $dist_of_dependency,
+                                         $dependency, $prereq_phase);
                     # TODO handle relationships dropped or moved from
                     # phase to phase
                     $self->schema->resultset('Relationship')->find_or_create(
