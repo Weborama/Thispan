@@ -95,7 +95,7 @@ get '/mirror/:mirror/module-search/json' => sub {
                                                              { rows => 10,
                                                                order_by => 'name' })->all;
     return to_json([ map { { label => $_->name,
-                             url => uri_for("/module/".$_->name)->as_string } } @results ]);
+                             url => mirror_uri_for("/module/".$_->name)->as_string } } @results ]);
 
 };
 

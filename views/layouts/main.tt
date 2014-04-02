@@ -43,7 +43,7 @@ $(document).ready(function() {
     $(".search-module-names").typeahead({
         minLength: 3,
         source: function(query, process) {
-            $.getJSON("[% request.uri_base %]/module-search/json", { q: query }, function(data) {
+            $.getJSON("[% mirror_uri_for("/module-search/json") %]", { q: query }, function(data) {
                 labels = [];
                 mapped = {};
                 $.each(data, function(i,item) {
@@ -55,7 +55,7 @@ $(document).ready(function() {
         },
         updater: function (item) {
             if (mapped[item] === undefined) {
-                document.location = "[% request.uri_for("/module-search") %]" + '?q=' + encodeURIComponent(item);
+                document.location = "[% mirror_uri_for("/module-search") %]" + '?q=' + encodeURIComponent(item);
             } else {
                 document.location = mapped[item];
             }
