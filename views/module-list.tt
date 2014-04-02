@@ -14,17 +14,17 @@
     <div class="pagination">
       <ul>
         <li [% IF pager.current_page == pager.first_page %]class="disabled"[% END %]>
-          <a href="[% request.uri_for("/module-search", { "q" => query, "p" => pager.previous_page }) %]">
+          <a href="[% mirror_uri_for("/module-search", { "q" => query, "p" => pager.previous_page }) %]">
             &laquo;
           </a>
         </li>
         [% FOREACH thispage IN [ pager.first_page .. pager.last_page ] %]
         <li [% IF pager.current_page == thispage %]class="active"[% END %]>
-          <a href="[% request.uri_for("/module-search", { "q" => query, "p" => thispage }) %]">[% thispage %]</a>
+          <a href="[% mirror_uri_for("/module-search", { "q" => query, "p" => thispage }) %]">[% thispage %]</a>
         </li>
         [% END %]
         <li [% IF pager.current_page == pager.last_page %]class="disabled"[% END %]>
-          <a href="[% request.uri_for("/module-search", { "q" => query, "p" => pager.next_page }) %]">
+          <a href="[% mirror_uri_for("/module-search", { "q" => query, "p" => pager.next_page }) %]">
             &raquo;
           </a>
         </li>
@@ -33,7 +33,7 @@
 
     <ul>
     [% FOREACH module IN results %]
-    <li><a href="[% request.uri_for("/module/${module.name}") %]">[% module.name %]</a></li>
+    <li><a href="[% mirror_uri_for("/module/${module.name}") %]">[% module.name %]</a></li>
     [% END %]
     </ul>
     [% ELSE %]
