@@ -184,7 +184,17 @@ __PACKAGE__->has_many(
 # Created by DBIx::Class::Schema::Loader v0.07039 @ 2014-03-31 15:46:39
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:rhkIlKYQ32pIQbOlnmPkjw
 
-use JSON -convert_blessed_universally;
+use JSON;
+
+# copied from JSON -convert_blessed_universally, but made local.
+local *UNIVERSAL::TO_JSON = sub {
+    my $b_obj = B::svref_2object( $_[0] );
+    return    $b_obj->isa('B::HV') ? { %{ $_[0] } }
+            : $b_obj->isa('B::AV') ? [ @{ $_[0] } ]
+            : undef
+            ;
+};
+
 my $json = JSON->new;
 $json->allow_blessed(1);
 $json->convert_blessed(1);
