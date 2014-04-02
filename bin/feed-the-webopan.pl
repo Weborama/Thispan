@@ -12,24 +12,39 @@ use Path::Class;
 use ThisPAN::Schema;
 use ThisPAN::Indexing;
 use Getopt::Long::Descriptive;
+use YAML;
 
 my ($opt, $usage) = describe_options(
     'feed-the-webopan.pl %o',
     [ 'mirror=s', 'CPAN mirror root' ],
-    [ 'workdir=s', 'ThisPAN work directory',
-      { required => 1 } ],
-    [ 'base-url=s', 'ThisPAN base URL for POD links',
-      { required => 1 } ],
-    [ 'resume=s', 'Save/load graph data from this save file' ],
-    [ 'dsn=s', 'DSN for database connections' ]);
+    [ 'workdir=s', 'ThisPAN work directory' ],
+    [ 'base-url=s', 'ThisPAN base URL for POD links' ],
+    [ 'state=s', 'Save/load graph data from this save file' ],
+    [ 'dsn=s', 'DSN for database connections' ],
+    [ 'config=s', 'Provide defaults for all previous values from a YAML config file' ]);
 
-my $schema = ThisPAN::Schema->connect($opt->dsn);
+my $config = $opt->config ? YAML::LoadFile($opt->config) : {};
+
+my %options = (
+    mirror     => $opt->mirror   // $config->{mirror},
+    workdir    => $opt->workdir  // $config->{workdir},
+    'base-url' => $opt->base_url // $config->{'base-url'},
+    state      => $opt->state    // $config->{state},
+    dsn        => $opt->dsn      // $config->{dsn},
+    );
+
+my @missing_options = grep { not defined $options{$_} } qw/workdir base-url dsn/;
+croak(sprintf(q{Missing values for mandatory options: %s},
+              join(', ', @missing_options)))
+    if @missing_options;
+
+my $schema = ThisPAN::Schema->connect($options{dsn});
 
 my $indexer = ThisPAN::Indexing->new(
-    (mirror => $opt->mirror) x!! $opt->mirror,
-    base_url => $opt->base_url,
-    workdir => $opt->workdir,
-    (graph_factory_save_file => $opt->resume) x!! $opt->resume,
+    (mirror => $options{mirror}) x!! $options{mirror},
+    base_url => $options{'base-url'},
+    workdir => $options{workdir},
+    (graph_factory_save_file => $options{state}) x!! $options{state},
     schema => $schema);
 
 my $graph = $indexer->run;
@@ -47,7 +62,7 @@ foreach my $vertex ($graph->vertices) {
         descendants => { map { $_ => 1 } $graph->all_successors($vertex) } };
 }
 
-my $fh = file($opt->workdir, 'depgraph.json')->openw;
+my $fh = file($options{workdir}, 'depgraph.json')->openw;
 $fh->print(JSON::encode_json(\@json));
 $fh->close;
 
