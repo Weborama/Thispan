@@ -25,9 +25,11 @@ sub mirror_exists_or_404 {
 sub mirror_uri_for {
     my ($uri, @rest) = @_;
     $uri =~ s{^/?}{};
-    $uri = sprintf('/mirror/%s/%s',
-                   param('mirror'),
-                   $uri);
+    if (param('mirror')) {
+        $uri = sprintf('/mirror/%s/%s',
+                       param('mirror'),
+                       $uri);
+    }
     $uri =~ s{/?$}{};
     return uri_for($uri,
                    @rest);
@@ -47,10 +49,11 @@ hook 'before_template_render' => sub {
 
     # switch between mirrors
     my $current_path = request->path_info;
+    $current_path = '' if $current_path eq '/';
 
     foreach my $mirror (keys %{setting('mirrors')}) {
         my $current_path_in_other_mirror = $current_path;
-        $current_path_in_other_mirror =~ s{/mirror/[^/]+?(/|$)}{/mirror/$mirror$1};
+        $current_path_in_other_mirror =~ s{(?:/mirror/[^/]+?)?(/|$)}{/mirror/$mirror$1};
         push @{$tokens->{mirror_list}}, {
             name => $mirror,
             title => setting('mirrors')->{$mirror}->{title},
@@ -80,6 +83,10 @@ get '/no_such_module' => sub {
     template 'no-such-mod', {
         module => param('module'),
     };
+};
+
+get '/' => sub {
+    template 'mirror-list';
 };
 
 get '/mirror/:mirror' => sub {

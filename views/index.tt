@@ -1,7 +1,7 @@
 <div class="row-fluid">
   <div class="home text-center">
     <form class="form-search">
-      <h1>[% settings.appname %]</h1>
+      <h1>[% settings.appname %] &mdash; [% selected_mirror %]</h1>
       <input type="text" class="search-module-names input-large" placeholder="Search by module name" autofocus="autofocus">
       <button type="submit" class="btn">Search</button>
     </form>
