@@ -7,6 +7,7 @@ use Carp;
 use autodie;
 use utf8;
 
+use Log::Any::Adapter ('Stdout');
 use Path::Class;
 use ThisPAN::Schema;
 use ThisPAN::Indexing;
