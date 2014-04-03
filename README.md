@@ -58,6 +58,14 @@ modules
   02packages.details.txt.gz
 ```
 
+ThisPAN can be run entirely straight from a cloned repository,
+assuming you install the dependencies first:
+
+```shell
+cd path/to/git-clone
+cpanm -v --installdeps .
+```
+
 ThisPAN will need a database to properly index distribution metadata.
 The official, supported flavor is SQLite 3, but anything sufficiently
 DBIC-friendly *should* work.
