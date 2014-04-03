@@ -1,0 +1,45 @@
+<div class="row-fluid">
+  <div class="page-header">
+    <h1>Modules containing "[% query %]"</h1>
+  </div>
+</div>
+
+<div class="row-fluid">
+
+  [% result_total_count %] result(s) were found, [% result_displayed_count %] displayed.
+
+  <div class="span12">
+
+    [% IF results.size %]
+    <div class="pagination">
+      <ul>
+        <li [% IF pager.current_page == pager.first_page %]class="disabled"[% END %]>
+          <a href="[% mirror_uri_for("/module-search", { "q" => query, "p" => pager.previous_page }) %]">
+            &laquo;
+          </a>
+        </li>
+        [% FOREACH thispage IN [ pager.first_page .. pager.last_page ] %]
+        <li [% IF pager.current_page == thispage %]class="active"[% END %]>
+          <a href="[% mirror_uri_for("/module-search", { "q" => query, "p" => thispage }) %]">[% thispage %]</a>
+        </li>
+        [% END %]
+        <li [% IF pager.current_page == pager.last_page %]class="disabled"[% END %]>
+          <a href="[% mirror_uri_for("/module-search", { "q" => query, "p" => pager.next_page }) %]">
+            &raquo;
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <ul>
+    [% FOREACH module IN results %]
+    <li><a href="[% mirror_uri_for("/module/${module.name}") %]">[% module.name %]</a></li>
+    [% END %]
+    </ul>
+    [% ELSE %]
+    <div class="muted">No module names match the query.</div>
+    [% END %]
+
+  </div>
+
+</div>

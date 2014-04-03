@@ -1,0 +1,42 @@
+# This is the main configuration file of your Dancer app
+# env-related settings should go to environments/$env.yml
+# all the settings in this file will be loaded at Dancer's startup.
+
+# Your application's name
+appname: "ThisPAN"
+
+# The default layout to use for your application (located in
+# views/layouts/main.tt)
+layout: "main"
+
+# when the charset is set to UTF-8 Dancer will handle for you
+# all the magic of encoding and decoding. You should not care
+# about unicode within your app when this setting is set (recommended).
+charset: "UTF-8"
+
+template: "template_toolkit"
+engines:
+  template_toolkit:
+    start_tag: '[%'
+    end_tag:   '%]'
+
+## APP-WIDE CONFIG STARTS HERE
+mirrors:
+  local:
+    title: "Test-SetupTeardown Pinto"
+    mirror: /home/fgabolde/work/localpinto
+    workdir: /home/fgabolde/work/local-dist-data
+graph_filters:
+  filters:
+    - 
+      name: Weborama
+      regex: "^Weborama"
+  filtering_config: smart
+
+## APP-WIDE CONFIG ENDS HERE
+
+plugins:
+  DBIC:
+    local:
+      dsn: dbi:SQLite:path/to/foo.db
+      schema_class: ThisPAN::Schema

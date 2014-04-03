@@ -1,0 +1,1445 @@
+[Thu Apr  3 11:49:03 2014] Starting to build full dependency graph.
+[Thu Apr  3 11:49:03 2014] Fetching URL file:///home/fgabolde/work/localpinto/modules/02packages.details.txt.gz
+[Thu Apr  3 11:49:03 2014] File has been copied from /home/fgabolde/work/localpinto/modules/02packages.details.txt.gz to /tmp/779IrrWRnc
+[Thu Apr  3 11:49:03 2014] Extracting package index /tmp/779IrrWRnc to /tmp/7RUO5Et6L6
+[Thu Apr  3 11:49:03 2014] Parsing extracted package index
+[Thu Apr  3 11:49:03 2014] Done parsing package index
+[Thu Apr  3 11:49:03 2014] Perl tarball appears to be F/FA/FAKE/perl-5.12.2.tar.gz
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::Unix
+[Thu Apr  3 11:49:03 2014] Skipping ExtUtils::CBuilder::Platform::Unix which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module Pod::Simple
+[Thu Apr  3 11:49:03 2014] Skipping Pod::Simple which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module Params::Check
+[Thu Apr  3 11:49:03 2014] Skipping Params::Check which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module Config
+[Thu Apr  3 11:49:03 2014] Skipping Config which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module ExtUtils::MM_MacOS
+[Thu Apr  3 11:49:03 2014] Skipping ExtUtils::MM_MacOS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module ExtUtils::Embed
+[Thu Apr  3 11:49:03 2014] Skipping ExtUtils::Embed which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module Text::Tabs
+[Thu Apr  3 11:49:03 2014] Skipping Text::Tabs which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::cygwin
+[Thu Apr  3 11:49:03 2014] Skipping ExtUtils::CBuilder::Platform::cygwin which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:03 2014] Checking dependency chain for module CPAN::Meta
+[Thu Apr  3 11:49:03 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/CPAN-Meta-2.140640.tar.gz
+[Thu Apr  3 11:49:03 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/CPAN-Meta-2.140640.tar.gz to /tmp/MJ61vlvYuV/CPAN-Meta-2.140640.tar.gz
+[Thu Apr  3 11:49:03 2014] Extracting distribution tarball /tmp/MJ61vlvYuV/CPAN-Meta-2.140640.tar.gz to /tmp/MJ61vlvYuV
+[Thu Apr  3 11:49:04 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:04 2014] Looking for metadata files...
+[Thu Apr  3 11:49:04 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.38.tar.gz
+[Thu Apr  3 11:49:04 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.38.tar.gz to /tmp/DqiKM82Aoh/Scalar-List-Utils-1.38.tar.gz
+[Thu Apr  3 11:49:04 2014] Extracting distribution tarball /tmp/DqiKM82Aoh/Scalar-List-Utils-1.38.tar.gz to /tmp/DqiKM82Aoh
+[Thu Apr  3 11:49:04 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:04 2014] Looking for metadata files...
+[Thu Apr  3 11:49:04 2014] Skipping File::Spec which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:04 2014] Skipping File::Spec::Functions which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:04 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/Parse-CPAN-Meta-1.4414.tar.gz
+[Thu Apr  3 11:49:04 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/Parse-CPAN-Meta-1.4414.tar.gz to /tmp/Y1s6QVG4Pd/Parse-CPAN-Meta-1.4414.tar.gz
+[Thu Apr  3 11:49:04 2014] Extracting distribution tarball /tmp/Y1s6QVG4Pd/Parse-CPAN-Meta-1.4414.tar.gz to /tmp/Y1s6QVG4Pd
+[Thu Apr  3 11:49:04 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:04 2014] Looking for metadata files...
+[Thu Apr  3 11:49:04 2014] Skipping warnings which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:04 2014] Skipping ExtUtils::MakeMaker which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:04 2014] Skipping Data::Dumper which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:04 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/J/JP/JPEACOCK/version-0.9908.tar.gz
+[Thu Apr  3 11:49:04 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/J/JP/JPEACOCK/version-0.9908.tar.gz to /tmp/8299q5Kgi3/version-0.9908.tar.gz
+[Thu Apr  3 11:49:04 2014] Extracting distribution tarball /tmp/8299q5Kgi3/version-0.9908.tar.gz to /tmp/8299q5Kgi3
+[Thu Apr  3 11:49:05 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:05 2014] Looking for metadata files...
+[Thu Apr  3 11:49:05 2014] Skipping overload which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:05 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/CPAN-Meta-YAML-0.012.tar.gz
+[Thu Apr  3 11:49:05 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/CPAN-Meta-YAML-0.012.tar.gz to /tmp/KCde_JJz1q/CPAN-Meta-YAML-0.012.tar.gz
+[Thu Apr  3 11:49:05 2014] Extracting distribution tarball /tmp/KCde_JJz1q/CPAN-Meta-YAML-0.012.tar.gz to /tmp/KCde_JJz1q
+[Thu Apr  3 11:49:05 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:05 2014] Looking for metadata files...
+[Thu Apr  3 11:49:05 2014] Skipping utf8 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:05 2014] Skipping Carp which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:05 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/M/MA/MAKAMAKA/JSON-PP-2.27203.tar.gz
+[Thu Apr  3 11:49:05 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/M/MA/MAKAMAKA/JSON-PP-2.27203.tar.gz to /tmp/o66jk8aDrK/JSON-PP-2.27203.tar.gz
+[Thu Apr  3 11:49:05 2014] Extracting distribution tarball /tmp/o66jk8aDrK/JSON-PP-2.27203.tar.gz to /tmp/o66jk8aDrK
+[Thu Apr  3 11:49:05 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:05 2014] Looking for metadata files...
+[Thu Apr  3 11:49:05 2014] Skipping strict which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:05 2014] Skipping perl which is a core module (determined from Module::CoreList)
+[Thu Apr  3 11:49:05 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/E/EX/EXODIST/Test-Simple-1.001003.tar.gz
+[Thu Apr  3 11:49:05 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/E/EX/EXODIST/Test-Simple-1.001003.tar.gz to /tmp/P9DLwwaBzm/Test-Simple-1.001003.tar.gz
+[Thu Apr  3 11:49:05 2014] Extracting distribution tarball /tmp/P9DLwwaBzm/Test-Simple-1.001003.tar.gz to /tmp/P9DLwwaBzm
+[Thu Apr  3 11:49:06 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:06 2014] Looking for metadata files...
+[Thu Apr  3 11:49:06 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/CPAN-Meta-Requirements-2.125.tar.gz
+[Thu Apr  3 11:49:06 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/CPAN-Meta-Requirements-2.125.tar.gz to /tmp/MUfKnWrSc1/CPAN-Meta-Requirements-2.125.tar.gz
+[Thu Apr  3 11:49:06 2014] Extracting distribution tarball /tmp/MUfKnWrSc1/CPAN-Meta-Requirements-2.125.tar.gz to /tmp/MUfKnWrSc1
+[Thu Apr  3 11:49:07 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:07 2014] Looking for metadata files...
+[Thu Apr  3 11:49:07 2014] Skipping File::Temp which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping File::Basename which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping IO::Dir which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping Encode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping lib which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping vars which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping Exporter which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping parent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping Fcntl which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping File::Find which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping Getopt::Long which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping B which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping Test::Harness which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping IO::Handle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Skipping IPC::Open3 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Log::Message::Simple
+[Thu Apr  3 11:49:07 2014] Skipping Log::Message::Simple which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module PerlIO::encoding
+[Thu Apr  3 11:49:07 2014] Skipping PerlIO::encoding which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Text::ParseWords
+[Thu Apr  3 11:49:07 2014] Skipping Text::ParseWords which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module IPC::Open2
+[Thu Apr  3 11:49:07 2014] Skipping IPC::Open2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module File::stat
+[Thu Apr  3 11:49:07 2014] Skipping File::stat which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module IO::Compress::Zlib::Constants
+[Thu Apr  3 11:49:07 2014] Skipping IO::Compress::Zlib::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Pod::Simple::PullParserEndToken
+[Thu Apr  3 11:49:07 2014] Skipping Pod::Simple::PullParserEndToken which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Math::Complex
+[Thu Apr  3 11:49:07 2014] Skipping Math::Complex which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module File::DosGlob
+[Thu Apr  3 11:49:07 2014] Skipping File::DosGlob which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module ExtUtils::MM_VMS
+[Thu Apr  3 11:49:07 2014] Skipping ExtUtils::MM_VMS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module CPANPLUS::Module::Signature
+[Thu Apr  3 11:49:07 2014] Skipping CPANPLUS::Module::Signature which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module IO::Poll
+[Thu Apr  3 11:49:07 2014] Skipping IO::Poll which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module vmsish
+[Thu Apr  3 11:49:07 2014] Skipping vmsish which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module threads::shared
+[Thu Apr  3 11:49:07 2014] Skipping threads::shared which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Socket
+[Thu Apr  3 11:49:07 2014] Skipping Socket which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Module::Pluggable
+[Thu Apr  3 11:49:07 2014] Skipping Module::Pluggable which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Tie::File
+[Thu Apr  3 11:49:07 2014] Skipping Tie::File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Net::FTP::A
+[Thu Apr  3 11:49:07 2014] Skipping Net::FTP::A which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Locale::Maketext::Simple
+[Thu Apr  3 11:49:07 2014] Skipping Locale::Maketext::Simple which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:07 2014] Checking dependency chain for module Module::Build::Platform::cygwin
+[Thu Apr  3 11:49:07 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/L/LE/LEONT/Module-Build-0.4205.tar.gz
+[Thu Apr  3 11:49:07 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/L/LE/LEONT/Module-Build-0.4205.tar.gz to /tmp/iAakDOJqK6/Module-Build-0.4205.tar.gz
+[Thu Apr  3 11:49:07 2014] Extracting distribution tarball /tmp/iAakDOJqK6/Module-Build-0.4205.tar.gz to /tmp/iAakDOJqK6
+[Thu Apr  3 11:49:07 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:07 2014] Looking for metadata files...
+[Thu Apr  3 11:49:07 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/E/ET/ETHER/Module-Metadata-1.000019.tar.gz
+[Thu Apr  3 11:49:07 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/E/ET/ETHER/Module-Metadata-1.000019.tar.gz to /tmp/hRQ70epQCi/Module-Metadata-1.000019.tar.gz
+[Thu Apr  3 11:49:07 2014] Extracting distribution tarball /tmp/hRQ70epQCi/Module-Metadata-1.000019.tar.gz to /tmp/hRQ70epQCi
+[Thu Apr  3 11:49:08 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:08 2014] Looking for metadata files...
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Install which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping File::Compare which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping File::Path which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/Perl-OSType-1.007.tar.gz
+[Thu Apr  3 11:49:08 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/Perl-OSType-1.007.tar.gz to /tmp/lDo824Ywtz/Perl-OSType-1.007.tar.gz
+[Thu Apr  3 11:49:08 2014] Extracting distribution tarball /tmp/lDo824Ywtz/Perl-OSType-1.007.tar.gz to /tmp/lDo824Ywtz
+[Thu Apr  3 11:49:08 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:08 2014] Looking for metadata files...
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Manifest which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping File::Copy which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping Text::Abbrev which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Man which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::ParseXS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Mkbootstrap which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping Cwd which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping IO::File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Skipping constant which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module File::GlobMapper
+[Thu Apr  3 11:49:08 2014] Skipping File::GlobMapper which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::GSM0338
+[Thu Apr  3 11:49:08 2014] Skipping Encode::GSM0338 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::Progress
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::Progress which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Devel::SelfStubber
+[Thu Apr  3 11:49:08 2014] Skipping Devel::SelfStubber which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Platform::Amiga
+[Thu Apr  3 11:49:08 2014] Skipping Module::Build::Platform::Amiga which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Prompt
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Prompt which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module File::Spec::Cygwin
+[Thu Apr  3 11:49:08 2014] Skipping File::Spec::Cygwin which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module mro
+[Thu Apr  3 11:49:08 2014] Skipping mro which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::HTML
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::HTML which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::HTMLBatch
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::HTMLBatch which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Pipe
+[Thu Apr  3 11:49:08 2014] Skipping IO::Pipe which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CGI::Util
+[Thu Apr  3 11:49:08 2014] Skipping CGI::Util which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::YAML
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Config
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::Command
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Command which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::Search
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::Search which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Uncompress::AnyInflate
+[Thu Apr  3 11:49:08 2014] Skipping IO::Uncompress::AnyInflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Formatter::Base
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Formatter::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module File::Spec::VMS
+[Thu Apr  3 11:49:08 2014] Skipping File::Spec::VMS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Opcode
+[Thu Apr  3 11:49:08 2014] Skipping Opcode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Archive::Tar
+[Thu Apr  3 11:49:08 2014] Skipping Archive::Tar which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Result::Pragma
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Result::Pragma which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module PerlIO::via::QuotedPrint
+[Thu Apr  3 11:49:08 2014] Skipping PerlIO::via::QuotedPrint which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module File::CheckTree
+[Thu Apr  3 11:49:08 2014] Skipping File::CheckTree which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::EBCDIC
+[Thu Apr  3 11:49:08 2014] Skipping Encode::EBCDIC which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Internals::Search
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Internals::Search which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module re
+[Thu Apr  3 11:49:08 2014] Skipping re which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Net::Netrc
+[Thu Apr  3 11:49:08 2014] Skipping Net::Netrc which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Compress::Raw::Zlib
+[Thu Apr  3 11:49:08 2014] Skipping Compress::Raw::Zlib which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::YAMLish::Writer
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::YAMLish::Writer which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::CacheMgr
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::CacheMgr which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Thread::Queue
+[Thu Apr  3 11:49:08 2014] Skipping Thread::Queue which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Perldoc::GetOptsOO
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Perldoc::GetOptsOO which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Dist::Sample
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Dist::Sample which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::Encoder
+[Thu Apr  3 11:49:08 2014] Skipping Encode::Encoder which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Scalar::Util::PP
+[Thu Apr  3 11:49:08 2014] Skipping Scalar::Util::PP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Test::Builder::Tester
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Formatter::Session
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Formatter::Session which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Bundle
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Bundle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Win32API::File::ExtUtils::Myconst2perl
+[Thu Apr  3 11:49:08 2014] Skipping Win32API::File::ExtUtils::Myconst2perl which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Error
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Error which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::VMS
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Platform::VMS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Hash::Util
+[Thu Apr  3 11:49:08 2014] Skipping Hash::Util which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module blib
+[Thu Apr  3 11:49:08 2014] Skipping blib which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::FTP::netrc
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::FTP::netrc which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module B::Lint::Debug
+[Thu Apr  3 11:49:08 2014] Skipping B::Lint::Debug which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Math::BigInt::FastCalc
+[Thu Apr  3 11:49:08 2014] Skipping Math::BigInt::FastCalc which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Uncompress::Adapter::Identity
+[Thu Apr  3 11:49:08 2014] Skipping IO::Uncompress::Adapter::Identity which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Net::FTP::I
+[Thu Apr  3 11:49:08 2014] Skipping Net::FTP::I which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Errno
+[Thu Apr  3 11:49:08 2014] Skipping Errno which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module base
+[Thu Apr  3 11:49:08 2014] Skipping base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module charnames
+[Thu Apr  3 11:49:08 2014] Skipping charnames which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Dumpvalue
+[Thu Apr  3 11:49:08 2014] Skipping Dumpvalue which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Configure::Setup
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Configure::Setup which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::testlib
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::testlib which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module version::regex
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module VMS::Stdio
+[Thu Apr  3 11:49:08 2014] Skipping VMS::Stdio which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Tie::RefHash
+[Thu Apr  3 11:49:08 2014] Skipping Tie::RefHash which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Uncompress::RawInflate
+[Thu Apr  3 11:49:08 2014] Skipping IO::Uncompress::RawInflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Utils
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Utils which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Platform::VMS
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::MM_DOS
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::MM_DOS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Kwalify
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Kwalify which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Backend
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Backend which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Internals::Source::Memory
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Internals::Source::Memory which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module DBM_Filter::null
+[Thu Apr  3 11:49:08 2014] Skipping DBM_Filter::null which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Base
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module DBM_Filter::compress
+[Thu Apr  3 11:49:08 2014] Skipping DBM_Filter::compress which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Uncompress::Gunzip
+[Thu Apr  3 11:49:08 2014] Skipping IO::Uncompress::Gunzip which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module encoding::warnings
+[Thu Apr  3 11:49:08 2014] Skipping encoding::warnings which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::Constant::XS
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Constant::XS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::KR
+[Thu Apr  3 11:49:08 2014] Skipping Encode::KR which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::MIME::Header::ISO_2022_JP
+[Thu Apr  3 11:49:08 2014] Skipping Encode::MIME::Header::ISO_2022_JP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module AutoLoader
+[Thu Apr  3 11:49:08 2014] Skipping AutoLoader which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Platform::aix
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Text::Color
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Text::Color which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Time::tm
+[Thu Apr  3 11:49:08 2014] Skipping Time::tm which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Net::NNTP
+[Thu Apr  3 11:49:08 2014] Skipping Net::NNTP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Devel::DProf
+[Thu Apr  3 11:49:08 2014] Skipping Devel::DProf which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module locale
+[Thu Apr  3 11:49:08 2014] Skipping locale which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Load
+[Thu Apr  3 11:49:08 2014] Skipping Module::Load which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO
+[Thu Apr  3 11:49:08 2014] Skipping IO which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::KR::2022_KR
+[Thu Apr  3 11:49:08 2014] Skipping Encode::KR::2022_KR which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Scheduler::Spinner
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Scheduler::Spinner which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Meta::Prereqs
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Shell::Default
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Shell::Default which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Digest::base
+[Thu Apr  3 11:49:08 2014] Skipping Digest::base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::LaTeX
+[Thu Apr  3 11:49:08 2014] Skipping Pod::LaTeX which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::PPMMaker
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module PerlIO::via
+[Thu Apr  3 11:49:08 2014] Skipping PerlIO::via which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module diagnostics
+[Thu Apr  3 11:49:08 2014] Skipping diagnostics which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Result
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Result which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Iterator
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Iterator which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module SelfLoader
+[Thu Apr  3 11:49:08 2014] Skipping SelfLoader which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::CoreList
+[Thu Apr  3 11:49:08 2014] Skipping Module::CoreList which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::CJKConstants
+[Thu Apr  3 11:49:08 2014] Skipping Encode::CJKConstants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Distribution
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Distribution which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Meta::Validator
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::FirstTime
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::FirstTime which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::PullParserStartToken
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::PullParserStartToken which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Perldoc::ToRtf
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Perldoc::ToRtf which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Author
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Author which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Test::Builder::Module
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Compress::Deflate
+[Thu Apr  3 11:49:08 2014] Skipping IO::Compress::Deflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module User::grent
+[Thu Apr  3 11:49:08 2014] Skipping User::grent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Html
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Html which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Perldoc::ToNroff
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Perldoc::ToNroff which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Result::Comment
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Result::Comment which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module version::vpp
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Selfupdate
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Selfupdate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::Packlist
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Packlist which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Thread
+[Thu Apr  3 11:49:08 2014] Skipping Thread which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Formatter::Console::ParallelSession
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Formatter::Console::ParallelSession which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Unicode::Collate
+[Thu Apr  3 11:49:08 2014] Skipping Unicode::Collate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Compress::Gzip
+[Thu Apr  3 11:49:08 2014] Skipping IO::Compress::Gzip which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Module::Fake
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Module::Fake which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Time::HiRes
+[Thu Apr  3 11:49:08 2014] Skipping Time::HiRes which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Net::protoent
+[Thu Apr  3 11:49:08 2014] Skipping Net::protoent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IPC::Semaphore
+[Thu Apr  3 11:49:08 2014] Skipping IPC::Semaphore which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::PullParserToken
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::PullParserToken which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IPC::SysV
+[Thu Apr  3 11:49:08 2014] Skipping IPC::SysV which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Math::BigInt::CalcEmu
+[Thu Apr  3 11:49:08 2014] Skipping Math::BigInt::CalcEmu which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::JP::JIS7
+[Thu Apr  3 11:49:08 2014] Skipping Encode::JP::JIS7 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Sys::Hostname
+[Thu Apr  3 11:49:08 2014] Skipping Sys::Hostname which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::PlainText
+[Thu Apr  3 11:49:08 2014] Skipping Pod::PlainText which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module deprecate
+[Thu Apr  3 11:49:08 2014] Skipping deprecate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Socket::INET
+[Thu Apr  3 11:49:08 2014] Skipping IO::Socket::INET which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::Byte
+[Thu Apr  3 11:49:08 2014] Skipping Encode::Byte which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module less
+[Thu Apr  3 11:49:08 2014] Skipping less which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Compress::Zlib::Extra
+[Thu Apr  3 11:49:08 2014] Skipping IO::Compress::Zlib::Extra which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module DynaLoader
+[Thu Apr  3 11:49:08 2014] Skipping DynaLoader which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Meta::Converter
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Shell::Default::Plugins::Source
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Shell::Default::Plugins::Source which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Tie::Scalar
+[Thu Apr  3 11:49:08 2014] Skipping Tie::Scalar which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Math::BigFloat::Trace
+[Thu Apr  3 11:49:08 2014] Skipping Math::BigFloat::Trace which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Module::Author::Fake
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Module::Author::Fake which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Win32
+[Thu Apr  3 11:49:08 2014] Skipping Win32 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Internals::Source::SQLite
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Internals::Source::SQLite which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Math::Trig
+[Thu Apr  3 11:49:08 2014] Skipping Math::Trig which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Object
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Object which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Tie::Array
+[Thu Apr  3 11:49:08 2014] Skipping Tie::Array which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module I18N::Langinfo
+[Thu Apr  3 11:49:08 2014] Skipping I18N::Langinfo which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Shell::Default::Plugins::Remote
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Shell::Default::Plugins::Remote which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::Windows::GCC
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Platform::Windows::GCC which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::Windows
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Platform::Windows which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::TranscodeSmart
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::TranscodeSmart which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::MM_Win95
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::MM_Win95 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Attribute::Handlers
+[Thu Apr  3 11:49:08 2014] Skipping Attribute::Handlers which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Module
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Module which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Term::UI
+[Thu Apr  3 11:49:08 2014] Skipping Term::UI which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Memoize::NDBM_File
+[Thu Apr  3 11:49:08 2014] Skipping Memoize::NDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module IO::Uncompress::Adapter::Bunzip2
+[Thu Apr  3 11:49:08 2014] Skipping IO::Uncompress::Adapter::Bunzip2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module sort
+[Thu Apr  3 11:49:08 2014] Skipping sort which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Net::servent
+[Thu Apr  3 11:49:08 2014] Skipping Net::servent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Pluggable::Object
+[Thu Apr  3 11:49:08 2014] Skipping Module::Pluggable::Object which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Class::Struct
+[Thu Apr  3 11:49:08 2014] Skipping Class::Struct which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::Guess
+[Thu Apr  3 11:49:08 2014] Skipping Encode::Guess which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Simple::TiedOutFH
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Simple::TiedOutFH which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Internals::Source
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Internals::Source which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Perldoc::ToChecker
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Perldoc::ToChecker which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module subs
+[Thu Apr  3 11:49:08 2014] Skipping subs which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Test::Builder
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module autodie
+[Thu Apr  3 11:49:08 2014] Skipping autodie which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module DBM_Filter::int32
+[Thu Apr  3 11:49:08 2014] Skipping DBM_Filter::int32 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::MM_NW5
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::MM_NW5 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CGI::Carp
+[Thu Apr  3 11:49:08 2014] Skipping CGI::Carp which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Compat
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Getopt::Std
+[Thu Apr  3 11:49:08 2014] Skipping Getopt::Std which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Platform::MPEiX
+[Thu Apr  3 11:49:08 2014] Skipping Module::Build::Platform::MPEiX which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Object::Accessor
+[Thu Apr  3 11:49:08 2014] Skipping Object::Accessor which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::MM_Win32
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::MM_Win32 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Debug
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Debug which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module File::Fetch
+[Thu Apr  3 11:49:08 2014] Skipping File::Fetch which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Term::ReadLine
+[Thu Apr  3 11:49:08 2014] Skipping Term::ReadLine which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::Constant::Utils
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::Constant::Utils which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Archive::Tar::Constant
+[Thu Apr  3 11:49:08 2014] Skipping Archive::Tar::Constant which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Locale::Language
+[Thu Apr  3 11:49:08 2014] Skipping Locale::Language which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::dec_osf
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Platform::dec_osf which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Benchmark
+[Thu Apr  3 11:49:08 2014] Skipping Benchmark which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module FindBin
+[Thu Apr  3 11:49:08 2014] Skipping FindBin which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Net::hostent
+[Thu Apr  3 11:49:08 2014] Skipping Net::hostent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::PodParser
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::MY
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::MY which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module FileCache
+[Thu Apr  3 11:49:08 2014] Skipping FileCache which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module bigrat
+[Thu Apr  3 11:49:08 2014] Skipping bigrat which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Select
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Select which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module TAP::Parser::Result::Plan
+[Thu Apr  3 11:49:08 2014] Skipping TAP::Parser::Result::Plan which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Locale::Maketext::GutsLoader
+[Thu Apr  3 11:49:08 2014] Skipping Locale::Maketext::GutsLoader which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Checker
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Checker which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::JP
+[Thu Apr  3 11:49:08 2014] Skipping Encode::JP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Platform::os2
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Text::Termcap
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Text::Termcap which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Locale::Maketext::Guts
+[Thu Apr  3 11:49:08 2014] Skipping Locale::Maketext::Guts which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::DeferredCode
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::DeferredCode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Index
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Index which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Usage
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Usage which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Text
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Text which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Perldoc::ToPod
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Perldoc::ToPod which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::ParseUtils
+[Thu Apr  3 11:49:08 2014] Skipping Pod::ParseUtils which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Version
+[Thu Apr  3 11:49:08 2014] Skipping CPAN::Version which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module I18N::LangTags
+[Thu Apr  3 11:49:08 2014] Skipping I18N::LangTags which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Safe
+[Thu Apr  3 11:49:08 2014] Skipping Safe which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPAN::Meta::History
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::ModuleInfo
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Module::Checksums
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Module::Checksums which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Encode::MIME::Header
+[Thu Apr  3 11:49:08 2014] Skipping Encode::MIME::Header which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::Windows::BCC
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Platform::Windows::BCC which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module overload::numbers
+[Thu Apr  3 11:49:08 2014] Skipping overload::numbers which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Sys::Syslog::win32::Win32
+[Thu Apr  3 11:49:08 2014] Skipping Sys::Syslog::win32::Win32 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::Windows::MSVC
+[Thu Apr  3 11:49:08 2014] Skipping ExtUtils::CBuilder::Platform::Windows::MSVC which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Platform::EBCDIC
+[Thu Apr  3 11:49:08 2014] Skipping Module::Build::Platform::EBCDIC which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module bignum
+[Thu Apr  3 11:49:08 2014] Skipping bignum which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module DBM_Filter::encode
+[Thu Apr  3 11:49:08 2014] Skipping DBM_Filter::encode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Test
+[Thu Apr  3 11:49:08 2014] Skipping Test which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Version
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Hash::Util::FieldHash
+[Thu Apr  3 11:49:08 2014] Skipping Hash::Util::FieldHash which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Exporter::Heavy
+[Thu Apr  3 11:49:08 2014] Skipping Exporter::Heavy which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module App::Prove::State::Result
+[Thu Apr  3 11:49:08 2014] Skipping App::Prove::State::Result which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Shell::Default::Plugins::CustomSource
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Shell::Default::Plugins::CustomSource which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Build::Dumper
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Internals::Utils::Autoflush
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Internals::Utils::Autoflush which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Internals::Constants
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Internals::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Win32API::File
+[Thu Apr  3 11:49:08 2014] Skipping Win32API::File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Time::localtime
+[Thu Apr  3 11:49:08 2014] Skipping Time::localtime which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Module::Author
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Module::Author which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Module::Load::Conditional
+[Thu Apr  3 11:49:08 2014] Skipping Module::Load::Conditional which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module CPANPLUS::Backend::RV
+[Thu Apr  3 11:49:08 2014] Skipping CPANPLUS::Backend::RV which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Pod::Functions
+[Thu Apr  3 11:49:08 2014] Skipping Pod::Functions which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:08 2014] Checking dependency chain for module Test::Exception
+[Thu Apr  3 11:49:08 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/A/AD/ADIE/Test-Exception-0.32.tar.gz
+[Thu Apr  3 11:49:08 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/A/AD/ADIE/Test-Exception-0.32.tar.gz to /tmp/nXWdZqSEbm/Test-Exception-0.32.tar.gz
+[Thu Apr  3 11:49:08 2014] Extracting distribution tarball /tmp/nXWdZqSEbm/Test-Exception-0.32.tar.gz to /tmp/nXWdZqSEbm
+[Thu Apr  3 11:49:09 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:09 2014] Looking for metadata files...
+[Thu Apr  3 11:49:09 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/Sub-Uplevel-0.24.tar.gz
+[Thu Apr  3 11:49:09 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/D/DA/DAGOLDEN/Sub-Uplevel-0.24.tar.gz to /tmp/e9Vxeefc8m/Sub-Uplevel-0.24.tar.gz
+[Thu Apr  3 11:49:09 2014] Extracting distribution tarball /tmp/e9Vxeefc8m/Sub-Uplevel-0.24.tar.gz to /tmp/e9Vxeefc8m
+[Thu Apr  3 11:49:09 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:09 2014] Looking for metadata files...
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module File::Spec::Epoc
+[Thu Apr  3 11:49:09 2014] Skipping File::Spec::Epoc which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Devel::PPPort
+[Thu Apr  3 11:49:09 2014] Skipping Devel::PPPort which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Socket
+[Thu Apr  3 11:49:09 2014] Skipping IO::Socket which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Command::MM
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Command::MM which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Locale::Script
+[Thu Apr  3 11:49:09 2014] Skipping Locale::Script which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::os2
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::CBuilder::Platform::os2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module version::vxs
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Term::UI::History
+[Thu Apr  3 11:49:09 2014] Skipping Term::UI::History which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Win32CORE
+[Thu Apr  3 11:49:09 2014] Skipping Win32CORE which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Result::Test
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Result::Test which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Text::Balanced
+[Thu Apr  3 11:49:09 2014] Skipping Text::Balanced which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Test::Builder::IO::Scalar
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CGI::Push
+[Thu Apr  3 11:49:09 2014] Skipping CGI::Push which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Digest::MD5
+[Thu Apr  3 11:49:09 2014] Skipping Digest::MD5 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::Domain
+[Thu Apr  3 11:49:09 2014] Skipping Net::Domain which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Formatter::Color
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Formatter::Color which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Formatter::File
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Formatter::File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Perldoc::ToTk
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Perldoc::ToTk which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module filetest
+[Thu Apr  3 11:49:09 2014] Skipping filetest which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Unicode::UCD
+[Thu Apr  3 11:49:09 2014] Skipping Unicode::UCD which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Memoize::Storable
+[Thu Apr  3 11:49:09 2014] Skipping Memoize::Storable which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Compress::Adapter::Deflate
+[Thu Apr  3 11:49:09 2014] Skipping IO::Compress::Adapter::Deflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Encode::TW
+[Thu Apr  3 11:49:09 2014] Skipping Encode::TW which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Cookbook
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module XS::APItest
+[Thu Apr  3 11:49:09 2014] Skipping XS::APItest which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Perldoc
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Perldoc which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::ConfigData
+[Thu Apr  3 11:49:09 2014] Skipping Module::Build::ConfigData which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module AutoSplit
+[Thu Apr  3 11:49:09 2014] Skipping AutoSplit which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Result::Version
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Result::Version which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Platform::Default
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Locale::Country
+[Thu Apr  3 11:49:09 2014] Skipping Locale::Country which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Platform::Unix
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Mksymlists
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Mksymlists which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::HandleConfig
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::HandleConfig which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Memoize::Expire
+[Thu Apr  3 11:49:09 2014] Skipping Memoize::Expire which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Shell
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Shell which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Result::Unknown
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Result::Unknown which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module SDBM_File
+[Thu Apr  3 11:49:09 2014] Skipping SDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::Methody
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::Methody which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Compress::RawDeflate
+[Thu Apr  3 11:49:09 2014] Skipping IO::Compress::RawDeflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_Any
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_Any which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Uncompress::AnyUncompress
+[Thu Apr  3 11:49:09 2014] Skipping IO::Uncompress::AnyUncompress which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module bytes
+[Thu Apr  3 11:49:09 2014] Skipping bytes which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Complete
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Complete which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Formatter::Console
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Formatter::Console which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Deparse
+[Thu Apr  3 11:49:09 2014] Skipping B::Deparse which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module autouse
+[Thu Apr  3 11:49:09 2014] Skipping autouse which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module FileHandle
+[Thu Apr  3 11:49:09 2014] Skipping FileHandle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::FTP
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::FTP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Dist
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Dist which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Dist::Build
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Dist::Build which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Digest::file
+[Thu Apr  3 11:49:09 2014] Skipping Digest::file which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module File::Glob
+[Thu Apr  3 11:49:09 2014] Skipping File::Glob which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Mirrors
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Mirrors which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Encode::Symbol
+[Thu Apr  3 11:49:09 2014] Skipping Encode::Symbol which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Debug
+[Thu Apr  3 11:49:09 2014] Skipping B::Debug which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module VMS::Filespec
+[Thu Apr  3 11:49:09 2014] Skipping VMS::Filespec which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module I18N::LangTags::List
+[Thu Apr  3 11:49:09 2014] Skipping I18N::LangTags::List which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module List::Util::XS
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Constant
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Constant which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module App::Prove::State::Result::Test
+[Thu Apr  3 11:49:09 2014] Skipping App::Prove::State::Result::Test which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Socket::UNIX
+[Thu Apr  3 11:49:09 2014] Skipping IO::Socket::UNIX which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Uncompress::Adapter::Inflate
+[Thu Apr  3 11:49:09 2014] Skipping IO::Uncompress::Adapter::Inflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Test::Builder::Tester::Color
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module feature
+[Thu Apr  3 11:49:09 2014] Skipping feature which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Compress::Adapter::Bzip2
+[Thu Apr  3 11:49:09 2014] Skipping IO::Compress::Adapter::Bzip2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Source
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Source which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_UWIN
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_UWIN which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_QNX
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_QNX which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Term::ANSIColor
+[Thu Apr  3 11:49:09 2014] Skipping Term::ANSIColor which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::Checker
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::Checker which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Multiplexer
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Multiplexer which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module MIME::QuotedPrint
+[Thu Apr  3 11:49:09 2014] Skipping MIME::QuotedPrint which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Time::Seconds
+[Thu Apr  3 11:49:09 2014] Skipping Time::Seconds which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Base
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Concise
+[Thu Apr  3 11:49:09 2014] Skipping B::Concise which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module PerlIO
+[Thu Apr  3 11:49:09 2014] Skipping PerlIO which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_BeOS
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_BeOS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Iterator::Process
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Iterator::Process which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CGI::Cookie
+[Thu Apr  3 11:49:09 2014] Skipping CGI::Cookie which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module UNIVERSAL
+[Thu Apr  3 11:49:09 2014] Skipping UNIVERSAL which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Uncompress::Inflate
+[Thu Apr  3 11:49:09 2014] Skipping IO::Uncompress::Inflate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Log::Message::Item
+[Thu Apr  3 11:49:09 2014] Skipping Log::Message::Item which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module autodie::exception
+[Thu Apr  3 11:49:09 2014] Skipping autodie::exception which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_Cygwin
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_Cygwin which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Fatal
+[Thu Apr  3 11:49:09 2014] Skipping Fatal which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IPC::Msg
+[Thu Apr  3 11:49:09 2014] Skipping IPC::Msg which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Module
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Module which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Terse
+[Thu Apr  3 11:49:09 2014] Skipping B::Terse which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Constant::ProxySubs
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Constant::ProxySubs which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Archive::Extract
+[Thu Apr  3 11:49:09 2014] Skipping Archive::Extract which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::HTMLLegacy
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::HTMLLegacy which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Platform::MacOS
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN
+[Thu Apr  3 11:49:09 2014] Skipping CPAN which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Notes
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Base
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::netent
+[Thu Apr  3 11:49:09 2014] Skipping Net::netent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Devel::InnerPackage
+[Thu Apr  3 11:49:09 2014] Skipping Devel::InnerPackage which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Internals::Fetch
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Internals::Fetch which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Zlib
+[Thu Apr  3 11:49:09 2014] Skipping IO::Zlib which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Memoize::SDBM_File
+[Thu Apr  3 11:49:09 2014] Skipping Memoize::SDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::FTP
+[Thu Apr  3 11:49:09 2014] Skipping Net::FTP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ODBM_File
+[Thu Apr  3 11:49:09 2014] Skipping ODBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Package::Constants
+[Thu Apr  3 11:49:09 2014] Skipping Package::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::POP3
+[Thu Apr  3 11:49:09 2014] Skipping Net::POP3 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Xref
+[Thu Apr  3 11:49:09 2014] Skipping B::Xref which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_VOS
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_VOS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Math::BigRat
+[Thu Apr  3 11:49:09 2014] Skipping Math::BigRat which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Formatter::File::Session
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Formatter::File::Session which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module bigint
+[Thu Apr  3 11:49:09 2014] Skipping bigint which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Unicode
+[Thu Apr  3 11:49:09 2014] Skipping Unicode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Dist::Autobundle
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Dist::Autobundle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Uncompress::Unzip
+[Thu Apr  3 11:49:09 2014] Skipping IO::Uncompress::Unzip which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Encode::Encoding
+[Thu Apr  3 11:49:09 2014] Skipping Encode::Encoding which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module GDBM_File
+[Thu Apr  3 11:49:09 2014] Skipping GDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Uncompress::Bunzip2
+[Thu Apr  3 11:49:09 2014] Skipping IO::Uncompress::Bunzip2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module App::Cpan
+[Thu Apr  3 11:49:09 2014] Skipping App::Cpan which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Sys::Syslog
+[Thu Apr  3 11:49:09 2014] Skipping Sys::Syslog which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Unicode::Normalize
+[Thu Apr  3 11:49:09 2014] Skipping Unicode::Normalize which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Filter::Util::Call
+[Thu Apr  3 11:49:09 2014] Skipping Filter::Util::Call which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Text::Wrap
+[Thu Apr  3 11:49:09 2014] Skipping Text::Wrap which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::MM_OS2
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::MM_OS2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::aix
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::CBuilder::Platform::aix which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Parser
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Parser which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::CBuilder::Platform::darwin
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::CBuilder::Platform::darwin which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module SelectSaver
+[Thu Apr  3 11:49:09 2014] Skipping SelectSaver which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Time::gmtime
+[Thu Apr  3 11:49:09 2014] Skipping Time::gmtime which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CGI::Fast
+[Thu Apr  3 11:49:09 2014] Skipping CGI::Fast which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CGI
+[Thu Apr  3 11:49:09 2014] Skipping CGI which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IPC::SharedMem
+[Thu Apr  3 11:49:09 2014] Skipping IPC::SharedMem which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Shell::Classic
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Shell::Classic which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module App::Prove::State
+[Thu Apr  3 11:49:09 2014] Skipping App::Prove::State which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Time::Local
+[Thu Apr  3 11:49:09 2014] Skipping Time::Local which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module DBM_Filter::utf8
+[Thu Apr  3 11:49:09 2014] Skipping DBM_Filter::utf8 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::RTF
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::RTF which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Log::Message::Handlers
+[Thu Apr  3 11:49:09 2014] Skipping Log::Message::Handlers which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::ParseLink
+[Thu Apr  3 11:49:09 2014] Skipping Pod::ParseLink which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Exception::RecursiveDependency
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Exception::RecursiveDependency which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Tie::Handle
+[Thu Apr  3 11:49:09 2014] Skipping Tie::Handle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::PullParser
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::PullParser which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Text::Soundex
+[Thu Apr  3 11:49:09 2014] Skipping Text::Soundex which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Config
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Config which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Memoize::ExpireFile
+[Thu Apr  3 11:49:09 2014] Skipping Memoize::ExpireFile which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Platform::RiscOS
+[Thu Apr  3 11:49:09 2014] Skipping Module::Build::Platform::RiscOS which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::FTP::E
+[Thu Apr  3 11:49:09 2014] Skipping Net::FTP::E which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Source::Perl
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Source::Perl which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Select
+[Thu Apr  3 11:49:09 2014] Skipping IO::Select which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Internals::Utils
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Internals::Utils which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Locale::Maketext
+[Thu Apr  3 11:49:09 2014] Skipping Locale::Maketext which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module I18N::Collate
+[Thu Apr  3 11:49:09 2014] Skipping I18N::Collate which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::Text
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::Text which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Scheduler::Job
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Scheduler::Job which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Locale::Constants
+[Thu Apr  3 11:49:09 2014] Skipping Locale::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Installed
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Installed which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Uncompress::Base
+[Thu Apr  3 11:49:09 2014] Skipping IO::Uncompress::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::URL
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::URL which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module VMS::DCLsym
+[Thu Apr  3 11:49:09 2014] Skipping VMS::DCLsym which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Encode::CN::HZ
+[Thu Apr  3 11:49:09 2014] Skipping Encode::CN::HZ which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Distrostatus
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Distrostatus which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Perldoc::ToXml
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Perldoc::ToXml which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Harness
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Harness which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::IteratorFactory
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::IteratorFactory which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Archive::Tar::File
+[Thu Apr  3 11:49:09 2014] Skipping Archive::Tar::File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Miniperl
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Miniperl which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::Config
+[Thu Apr  3 11:49:09 2014] Skipping Net::Config which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Compress::Zip
+[Thu Apr  3 11:49:09 2014] Skipping IO::Compress::Zip which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::LinkSection
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::LinkSection which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Iterator::Stream
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Iterator::Stream which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Encode::Alias
+[Thu Apr  3 11:49:09 2014] Skipping Encode::Alias which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Memoize::AnyDBM_File
+[Thu Apr  3 11:49:09 2014] Skipping Memoize::AnyDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Text::Overstrike
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Text::Overstrike which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Internals::Constants::Report
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Internals::Constants::Report which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Escapes
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Escapes which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Perldoc::BaseTo
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Perldoc::BaseTo which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Storable
+[Thu Apr  3 11:49:09 2014] Skipping Storable which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Scheduler
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Scheduler which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Symbol
+[Thu Apr  3 11:49:09 2014] Skipping Symbol which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module if
+[Thu Apr  3 11:49:09 2014] Skipping if which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Term::Cap
+[Thu Apr  3 11:49:09 2014] Skipping Term::Cap which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Compress::Base
+[Thu Apr  3 11:49:09 2014] Skipping IO::Compress::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Math::BigInt
+[Thu Apr  3 11:49:09 2014] Skipping Math::BigInt which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::InfoObj
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::InfoObj which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Result::Bailout
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Result::Bailout which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Lint
+[Thu Apr  3 11:49:09 2014] Skipping B::Lint which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Find
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Find which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module English
+[Thu Apr  3 11:49:09 2014] Skipping English which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Net::FTP::dataconn
+[Thu Apr  3 11:49:09 2014] Skipping Net::FTP::dataconn which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::InputObjects
+[Thu Apr  3 11:49:09 2014] Skipping Pod::InputObjects which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Tie::Hash
+[Thu Apr  3 11:49:09 2014] Skipping Tie::Hash which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Configure
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Configure which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module open
+[Thu Apr  3 11:49:09 2014] Skipping open which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Log::Message::Config
+[Thu Apr  3 11:49:09 2014] Skipping Log::Message::Config which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Result::YAML
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Result::YAML which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Math::BigInt::Calc
+[Thu Apr  3 11:49:09 2014] Skipping Math::BigInt::Calc which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Parser::Grammar
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Parser::Grammar which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module File::Spec::Mac
+[Thu Apr  3 11:49:09 2014] Skipping File::Spec::Mac which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module XSLoader
+[Thu Apr  3 11:49:09 2014] Skipping XSLoader which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Filter::Simple
+[Thu Apr  3 11:49:09 2014] Skipping Filter::Simple which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module inc::latest::private
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Platform::darwin
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module TAP::Formatter::Console::Session
+[Thu Apr  3 11:49:09 2014] Skipping TAP::Formatter::Console::Session which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module autodie::hints
+[Thu Apr  3 11:49:09 2014] Skipping autodie::hints which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Moped::Msg
+[Thu Apr  3 11:49:09 2014] Skipping Moped::Msg which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Search::Dict
+[Thu Apr  3 11:49:09 2014] Skipping Search::Dict which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module fields
+[Thu Apr  3 11:49:09 2014] Skipping fields which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Liblist
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Liblist which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPANPLUS::Dist::MM
+[Thu Apr  3 11:49:09 2014] Skipping CPANPLUS::Dist::MM which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Exception::yaml_not_installed
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Exception::yaml_not_installed which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module XS::APItest::KeywordRPN
+[Thu Apr  3 11:49:09 2014] Skipping XS::APItest::KeywordRPN which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module CPAN::Queue
+[Thu Apr  3 11:49:09 2014] Skipping CPAN::Queue which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Test::SetupTeardown
+[Thu Apr  3 11:49:09 2014] Fetching URL file:///home/fgabolde/work/localpinto/authors/id/F/FG/FGA/Test-SetupTeardown-0.003.tar.gz
+[Thu Apr  3 11:49:09 2014] File has been copied from /home/fgabolde/work/localpinto/authors/id/F/FG/FGA/Test-SetupTeardown-0.003.tar.gz to /tmp/kNYE25y30O/Test-SetupTeardown-0.003.tar.gz
+[Thu Apr  3 11:49:09 2014] Extracting distribution tarball /tmp/kNYE25y30O/Test-SetupTeardown-0.003.tar.gz to /tmp/kNYE25y30O
+[Thu Apr  3 11:49:09 2014] Tarball has a single directory in it, good.
+[Thu Apr  3 11:49:09 2014] Looking for metadata files...
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ExtUtils::Constant::Base
+[Thu Apr  3 11:49:09 2014] Skipping ExtUtils::Constant::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IO::Seekable
+[Thu Apr  3 11:49:09 2014] Skipping IO::Seekable which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module ops
+[Thu Apr  3 11:49:09 2014] Skipping ops which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Tie::Memoize
+[Thu Apr  3 11:49:09 2014] Skipping Tie::Memoize which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module B::Showlex
+[Thu Apr  3 11:49:09 2014] Skipping B::Showlex which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Time::Piece
+[Thu Apr  3 11:49:09 2014] Skipping Time::Piece which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Pod::Simple::DumpAsXML
+[Thu Apr  3 11:49:09 2014] Skipping Pod::Simple::DumpAsXML which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module DB
+[Thu Apr  3 11:49:09 2014] Skipping DB which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Module::Build::Platform::VOS
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module Env
+[Thu Apr  3 11:49:09 2014] Skipping Env which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:09 2014] Checking dependency chain for module IPC::Cmd
+[Thu Apr  3 11:49:09 2014] Skipping IPC::Cmd which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module autodie::exception::system
+[Thu Apr  3 11:49:10 2014] Skipping autodie::exception::system which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Encode::CN
+[Thu Apr  3 11:49:10 2014] Skipping Encode::CN which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module I18N::LangTags::Detect
+[Thu Apr  3 11:49:10 2014] Skipping I18N::LangTags::Detect which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module List::Util::PP
+[Thu Apr  3 11:49:10 2014] Skipping List::Util::PP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Config::Extensions
+[Thu Apr  3 11:49:10 2014] Skipping Config::Extensions which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Encode::Unicode
+[Thu Apr  3 11:49:10 2014] Skipping Encode::Unicode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Perldoc::ToText
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Perldoc::ToText which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module sigtrap
+[Thu Apr  3 11:49:10 2014] Skipping sigtrap which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::Distroprefs
+[Thu Apr  3 11:49:10 2014] Skipping CPAN::Distroprefs which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::XMLOutStream
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::XMLOutStream which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::XHTML
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::XHTML which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Net::Cmd
+[Thu Apr  3 11:49:10 2014] Skipping Net::Cmd which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Encode::Config
+[Thu Apr  3 11:49:10 2014] Skipping Encode::Config which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::XSSymSet
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::XSSymSet which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Encode::JP::H2Z
+[Thu Apr  3 11:49:10 2014] Skipping Encode::JP::H2Z which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CGI::Switch
+[Thu Apr  3 11:49:10 2014] Skipping CGI::Switch which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::DumpAsText
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::DumpAsText which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Digest
+[Thu Apr  3 11:49:10 2014] Skipping Digest which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Internals::Extract
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Internals::Extract which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Math::BigFloat
+[Thu Apr  3 11:49:10 2014] Skipping Math::BigFloat which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::BlackBox
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::BlackBox which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::Meta::Feature
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::Exception::blocked_urllist
+[Thu Apr  3 11:49:10 2014] Skipping CPAN::Exception::blocked_urllist which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module overloading
+[Thu Apr  3 11:49:10 2014] Skipping overloading which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Net::Time
+[Thu Apr  3 11:49:10 2014] Skipping Net::Time which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module warnings::register
+[Thu Apr  3 11:49:10 2014] Skipping warnings::register which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::MM_AIX
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::MM_AIX which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Module::Loaded
+[Thu Apr  3 11:49:10 2014] Skipping Module::Loaded which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module TAP::Parser::ResultFactory
+[Thu Apr  3 11:49:10 2014] Skipping TAP::Parser::ResultFactory which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module File::Spec::Win32
+[Thu Apr  3 11:49:10 2014] Skipping File::Spec::Win32 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Memoize::ExpireTest
+[Thu Apr  3 11:49:10 2014] Skipping Memoize::ExpireTest which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module encoding
+[Thu Apr  3 11:49:10 2014] Skipping encoding which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Internals::Report
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Internals::Report which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::MM_Darwin
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::MM_Darwin which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Net::Ping
+[Thu Apr  3 11:49:10 2014] Skipping Net::Ping which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Compress::Raw::Bzip2
+[Thu Apr  3 11:49:10 2014] Skipping Compress::Raw::Bzip2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Math::BigInt::Trace
+[Thu Apr  3 11:49:10 2014] Skipping Math::BigInt::Trace which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Perldoc::ToMan
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Perldoc::ToMan which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module PerlIO::scalar
+[Thu Apr  3 11:49:10 2014] Skipping PerlIO::scalar which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module IO::Compress::Adapter::Identity
+[Thu Apr  3 11:49:10 2014] Skipping IO::Compress::Adapter::Identity which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Net::FTP::L
+[Thu Apr  3 11:49:10 2014] Skipping Net::FTP::L which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module attributes
+[Thu Apr  3 11:49:10 2014] Skipping attributes which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module App::Prove
+[Thu Apr  3 11:49:10 2014] Skipping App::Prove which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Thread::Semaphore
+[Thu Apr  3 11:49:10 2014] Skipping Thread::Semaphore which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module inc::latest
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Compress::Zlib
+[Thu Apr  3 11:49:10 2014] Skipping Compress::Zlib which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Tie::SubstrHash
+[Thu Apr  3 11:49:10 2014] Skipping Tie::SubstrHash which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module NEXT
+[Thu Apr  3 11:49:10 2014] Skipping NEXT which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CGI::Apache
+[Thu Apr  3 11:49:10 2014] Skipping CGI::Apache which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::Liblist::Kid
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::Liblist::Kid which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Tie::StdHandle
+[Thu Apr  3 11:49:10 2014] Skipping Tie::StdHandle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::Meta::Spec
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module NDBM_File
+[Thu Apr  3 11:49:10 2014] Skipping NDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::Tarzip
+[Thu Apr  3 11:49:10 2014] Skipping CPAN::Tarzip which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module TAP::Parser::Aggregator
+[Thu Apr  3 11:49:10 2014] Skipping TAP::Parser::Aggregator which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Net::SMTP
+[Thu Apr  3 11:49:10 2014] Skipping Net::SMTP which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Encode::Unicode::UTF7
+[Thu Apr  3 11:49:10 2014] Skipping Encode::Unicode::UTF7 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module MIME::Base64
+[Thu Apr  3 11:49:10 2014] Skipping MIME::Base64 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::SimpleTree
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::SimpleTree which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::TextContent
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::TextContent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Devel::Peek
+[Thu Apr  3 11:49:10 2014] Skipping Devel::Peek which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Dist::Base
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Dist::Base which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Log::Message
+[Thu Apr  3 11:49:10 2014] Skipping Log::Message which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Carp::Heavy
+[Thu Apr  3 11:49:10 2014] Skipping Carp::Heavy which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CGI::Pretty
+[Thu Apr  3 11:49:10 2014] Skipping CGI::Pretty which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module File::Spec::Unix
+[Thu Apr  3 11:49:10 2014] Skipping File::Spec::Unix which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Dist::Build::Constants
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Dist::Build::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Internals
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Internals which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module integer
+[Thu Apr  3 11:49:10 2014] Skipping integer which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module TAP::Parser::YAMLish::Reader
+[Thu Apr  3 11:49:10 2014] Skipping TAP::Parser::YAMLish::Reader which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::MM
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::MM which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Digest::SHA
+[Thu Apr  3 11:49:10 2014] Skipping Digest::SHA which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Locale::Currency
+[Thu Apr  3 11:49:10 2014] Skipping Locale::Currency which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::Transcode
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::Transcode which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module DirHandle
+[Thu Apr  3 11:49:10 2014] Skipping DirHandle which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::MakeMaker::Config
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::MakeMaker::Config which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Encode::MIME::Name
+[Thu Apr  3 11:49:10 2014] Skipping Encode::MIME::Name which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::Nox
+[Thu Apr  3 11:49:10 2014] Skipping CPAN::Nox which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module ExtUtils::MM_Unix
+[Thu Apr  3 11:49:10 2014] Skipping ExtUtils::MM_Unix which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Internals::Source::SQLite::Tie
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Internals::Source::SQLite::Tie which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module DB_File
+[Thu Apr  3 11:49:10 2014] Skipping DB_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module XS::Typemap
+[Thu Apr  3 11:49:10 2014] Skipping XS::Typemap which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module File::Spec::OS2
+[Thu Apr  3 11:49:10 2014] Skipping File::Spec::OS2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module IO::Compress::Bzip2
+[Thu Apr  3 11:49:10 2014] Skipping IO::Compress::Bzip2 which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::Debug
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::Debug which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPANPLUS::Shell
+[Thu Apr  3 11:49:10 2014] Skipping CPANPLUS::Shell which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::PullParserTextToken
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::PullParserTextToken which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module IO::Compress::Zip::Constants
+[Thu Apr  3 11:49:10 2014] Skipping IO::Compress::Zip::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Memoize
+[Thu Apr  3 11:49:10 2014] Skipping Memoize which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Term::Complete
+[Thu Apr  3 11:49:10 2014] Skipping Term::Complete which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module IO::Compress::Gzip::Constants
+[Thu Apr  3 11:49:10 2014] Skipping IO::Compress::Gzip::Constants which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module CPAN::LWP::UserAgent
+[Thu Apr  3 11:49:10 2014] Skipping CPAN::LWP::UserAgent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module POSIX
+[Thu Apr  3 11:49:10 2014] Skipping POSIX which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module User::pwent
+[Thu Apr  3 11:49:10 2014] Skipping User::pwent which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Tie::Hash::NamedCapture
+[Thu Apr  3 11:49:10 2014] Skipping Tie::Hash::NamedCapture which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module DBM_Filter
+[Thu Apr  3 11:49:10 2014] Skipping DBM_Filter which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Pod::Simple::TranscodeDumb
+[Thu Apr  3 11:49:10 2014] Skipping Pod::Simple::TranscodeDumb which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module Module::Build::Platform::Windows
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module O
+[Thu Apr  3 11:49:10 2014] Skipping O which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module threads
+[Thu Apr  3 11:49:10 2014] Skipping threads which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module IO::Compress::Base::Common
+[Thu Apr  3 11:49:10 2014] Skipping IO::Compress::Base::Common which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module AnyDBM_File
+[Thu Apr  3 11:49:10 2014] Skipping AnyDBM_File which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Checking dependency chain for module TAP::Parser::Iterator::Array
+[Thu Apr  3 11:49:10 2014] Skipping TAP::Parser::Iterator::Array which is a core module (provided by the Perl tarball)
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because IO::Handle is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because File::Spec is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because ExtUtils::MakeMaker is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because IPC::Open3 is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on Scalar-List-Utils because List::Util is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because File::Temp is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because File::Spec::Functions is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because warnings is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on Scalar-List-Utils because Scalar::Util is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on version because version is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-Requirements depends on perl because Carp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on Scalar-List-Utils because List::Util is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because ExtUtils::MakeMaker is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because constant is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because File::Spec::Functions is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because warnings is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Perl-OSType depends on perl because Exporter is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Simple depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Simple depends on perl because ExtUtils::MakeMaker is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Simple depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Simple depends on perl because Test::Harness is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Simple depends on Scalar-List-Utils because Scalar::Util is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on perl because ExtUtils::MakeMaker is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on Test-Simple because Test::More is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on perl because parent is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on perl because File::Temp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: version depends on perl because ExtUtils::MakeMaker is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because ExtUtils::MakeMaker is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because IO::File is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Spec is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because Data::Dumper is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because Exporter is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because Config is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because Carp is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Find is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Temp is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Path is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Basename is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because Cwd is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because warnings is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because IO::File is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on version because version is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Spec is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because vars is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because Carp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Metadata depends on perl because File::Find is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Scalar-List-Utils depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Scalar-List-Utils depends on perl because ExtUtils::MakeMaker is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Scalar-List-Utils depends on Test-Simple because Test::More is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on Test-Simple because Test::More is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Test::Harness is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on Parse-CPAN-Meta because Parse::CPAN::Meta is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Temp is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on CPAN-Meta-YAML because CPAN::Meta::YAML is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on Module-Metadata because Module::Metadata is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Spec is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because ExtUtils::Install is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Compare is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Find is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Path is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on CPAN-Meta because CPAN::Meta is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on Perl-OSType because Perl::OSType is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because ExtUtils::CBuilder is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because ExtUtils::Manifest is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Text::Abbrev is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Test::Harness is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Copy is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Getopt::Long is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Pod::Man is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on version because version is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because ExtUtils::ParseXS is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Data::Dumper is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Text::ParseWords is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because File::Basename is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because ExtUtils::Mkbootstrap is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Module-Build depends on perl because Cwd is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because File::Spec is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because ExtUtils::MakeMaker is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because Data::Dumper is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because overload is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because utf8 is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because File::Temp is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because File::Basename is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because File::Spec::Functions is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because IO::Dir is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because warnings is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on Scalar-List-Utils because Scalar::Util is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on Parse-CPAN-Meta because Parse::CPAN::Meta is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on version because version is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on CPAN-Meta-YAML because CPAN::Meta::YAML is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because Carp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on JSON-PP because JSON::PP is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on Scalar-List-Utils because List::Util is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta depends on CPAN-Meta-Requirements because CPAN::Meta::Requirements is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-SetupTeardown depends on Module-Build because Module::Build is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-SetupTeardown depends on Test-Simple because Test::More is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-SetupTeardown depends on Test-Exception because Test::Exception is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-SetupTeardown depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-SetupTeardown depends on Test-Simple because Test::Builder is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because warnings is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on version because version is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because File::Spec is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because ExtUtils::MakeMaker is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because vars is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on Scalar-List-Utils because List::Util is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because lib is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because File::Spec::Functions is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because File::Spec is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on CPAN-Meta-YAML because CPAN::Meta::YAML is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because Exporter is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because Encode is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because Carp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on JSON-PP because JSON::PP is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Parse-CPAN-Meta depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on Module-Build because Module::Build is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on Test-Simple because Test::More is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on perl because Test::Harness is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on Test-Simple because Test::Builder is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on Sub-Uplevel because Sub::Uplevel is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on Test-Simple because Test::Simple is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Test-Exception depends on Test-Simple because Test::Builder::Tester is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because File::Find is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because File::Temp is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because Exporter is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because warnings is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because constant is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: Sub-Uplevel depends on perl because Carp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because Getopt::Long is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on version because version is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because File::Spec is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because ExtUtils::MakeMaker is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because vars is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because utf8 is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on Test-Simple because Test::More is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on Scalar-List-Utils because List::Util is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on JSON-PP because JSON::PP is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because File::Find is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because File::Temp is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because lib is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because File::Basename is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because File::Spec::Functions is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because IO::Dir is required for test
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because warnings is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on Scalar-List-Utils because Scalar::Util is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because Fcntl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because Exporter is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because B is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because Carp is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because perl is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: CPAN-Meta-YAML depends on perl because strict is required for runtime
+[Thu Apr  3 11:49:10 2014] Adding relationship: JSON-PP depends on perl because ExtUtils::MakeMaker is required for configure
+[Thu Apr  3 11:49:10 2014] Adding relationship: JSON-PP depends on perl because ExtUtils::MakeMaker is required for build
+[Thu Apr  3 11:49:10 2014] Adding relationship: JSON-PP depends on Test-Simple because Test::More is required for runtime
+[Thu Apr  3 11:49:29 2014] Fetching URL file:///home/fgabolde/work/localpinto/modules/02packages.details.txt.gz
+[Thu Apr  3 11:49:29 2014] File has been copied from /home/fgabolde/work/localpinto/modules/02packages.details.txt.gz to /tmp/q2yfTHbC3r
+[Thu Apr  3 11:49:29 2014] Extracting package index /tmp/q2yfTHbC3r to /tmp/OD3fbxa93c
+[Thu Apr  3 11:49:30 2014] Parsing extracted package index
+[Thu Apr  3 11:49:30 2014] Done parsing package index
+[Thu Apr  3 11:49:30 2014] Starting to build full dependency graph.
+[Thu Apr  3 11:49:30 2014] Perl tarball appears to be F/FA/FAKE/perl-5.12.2.tar.gz
+[Thu Apr  3 11:49:45 2014] Fetching URL file:///home/fgabolde/work/localpinto/modules/02packages.details.txt.gz
+[Thu Apr  3 11:49:45 2014] File has been copied from /home/fgabolde/work/localpinto/modules/02packages.details.txt.gz to /tmp/27cKG5H3j0
+[Thu Apr  3 11:49:45 2014] Extracting package index /tmp/27cKG5H3j0 to /tmp/5xozHXYJ5r
+[Thu Apr  3 11:49:45 2014] Parsing extracted package index
+[Thu Apr  3 11:49:45 2014] Done parsing package index
+[Thu Apr  3 11:49:45 2014] Starting to build full dependency graph.
+[Thu Apr  3 11:49:45 2014] Perl tarball appears to be F/FA/FAKE/perl-5.12.2.tar.gz
+[Thu Apr  3 13:37:42 2014] Fetching URL file:///home/fgabolde/work/localpinto/modules/02packages.details.txt.gz
+[Thu Apr  3 13:37:42 2014] File has been copied from /home/fgabolde/work/localpinto/modules/02packages.details.txt.gz to /tmp/PuAVtm7qdM
+[Thu Apr  3 13:37:42 2014] Extracting package index /tmp/PuAVtm7qdM to /tmp/6JZUXcyn7U
+[Thu Apr  3 13:37:42 2014] Parsing extracted package index
+[Thu Apr  3 13:37:42 2014] Done parsing package index
+[Thu Apr  3 13:37:42 2014] Starting to build full dependency graph.
+[Thu Apr  3 13:37:42 2014] Perl tarball appears to be F/FA/FAKE/perl-5.12.2.tar.gz

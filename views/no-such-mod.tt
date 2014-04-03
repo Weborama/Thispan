@@ -1,0 +1,11 @@
+<div class="row-fluid">
+  <div class="page-header">
+    <h1>Oops</h1>
+  </div>
+  <p>
+    Module "[% module %]" not found.  Maybe it's on
+    <a href="https://metacpan.org/pod/[% module %]">
+      MetaCPAN
+    </a> instead?
+  </p>
+</div>
