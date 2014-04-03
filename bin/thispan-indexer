@@ -75,3 +75,117 @@ $fh->print(JSON::encode_json(\@json));
 $fh->close;
 
 exit 0;
+
+__END__
+=pod
+
+=head1 NAME
+
+thispan-indexer -- Indexing script for ThisPAN
+
+=head1 USAGE
+
+  thispan-indexer --config YAML-FILE
+
+=head1 DESCRIPTION
+
+This is a basic entry point for indexing a mirror for ThisPAN.  It
+should work out of the box, but consider writing your own if you have
+specific needs.
+
+=head1 PARAMETERS
+
+All parameters can be provided via the config file, or they can be
+provided as command-line parameters.  If both config file and command
+line have a value for a given parameter, the command line parameter
+will be used.
+
+For more details, see L<ThisPAN::Indexing>, which uses most of these
+directly.
+
+=head2 config
+
+  thispan --config 'examples/config-local.yml'
+
+Path to a well-formed YAML file providing default configuration
+values.  An example file is provided with this distribution at
+F<examples/config-local.yml>.
+
+=head2 base-url
+
+  thispan --base-url 'http://example.com/ourpan/mirror/local/'
+          [rest of options]
+
+Base URL for all links in rendered POD.  This parameter is required.
+
+=head2 dsn
+
+  thispan --dsn 'dbi:DRIVER:DATABASE...'
+          [rest of options]
+
+Data source name for L<ThisPAN::Schema>.  This parameter is required.
+
+=head2 logfile
+
+  thispan --logfile 'path/to/indexer.log'
+          [rest of options]
+
+Path to a writable file for logging.  If not specified, the indexer
+will log to STDOUT.
+
+=head2 mirror
+
+  thispan --mirror 'file:///path/to/mirror/'
+          [rest of options]
+  thispan --mirror 'http://example.com/ourpan-mirror'
+          [rest of options]
+
+URI to the mirror where your tarballs and package index can be found.
+This parameter is required.
+
+=head2 state
+
+  thispan --state 'path/to/save.file'
+          [rest of options]
+
+Path to a writable file for loading and saving the dependency walker's
+state.  If not specified, the dependency walker will start from
+scratch and never save its progress.
+
+=head2 workdir
+
+  thispan --workdir 'path/to/workdir/'
+          [rest of options]
+
+Path to a writable directory for the indexer to write rendered POD,
+Changes files, etc.  This parameter is required.
+
+=head1 SEE ALSO
+
+L<ThisPAN::Indexing>, L<ThisPAN::DependencyGraph>, L<ThisPAN::Schema>,
+L<Log::Any>
+
+=head1 AUTHOR
+
+Fabrice Gabolde <fgabolde@weborama.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2014 Weborama.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+02110-1301 USA.
+
+=cut
