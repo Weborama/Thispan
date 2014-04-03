@@ -7,7 +7,7 @@ use Carp;
 use autodie;
 use utf8;
 
-use Log::Any::Adapter ('Stdout');
+use Log::Any::Adapter;
 use Path::Class;
 use ThisPAN::Schema;
 use ThisPAN::Indexing;
@@ -16,6 +16,7 @@ use YAML;
 
 my ($opt, $usage) = describe_options(
     'feed-the-webopan.pl %o',
+    [ 'logfile=s', 'Output logs here (defaults to STDOUT)' ],
     [ 'mirror=s', 'CPAN mirror root' ],
     [ 'workdir=s', 'ThisPAN work directory' ],
     [ 'base-url=s', 'ThisPAN base URL for POD links' ],
@@ -26,6 +27,7 @@ my ($opt, $usage) = describe_options(
 my $config = $opt->config ? YAML::LoadFile($opt->config) : {};
 
 my %options = (
+    logfile    => $opt->logfile  // $config->{logfile},
     mirror     => $opt->mirror   // $config->{mirror},
     workdir    => $opt->workdir  // $config->{workdir},
     'base-url' => $opt->base_url // $config->{'base-url'},
@@ -37,6 +39,12 @@ my @missing_options = grep { not defined $options{$_} } qw/workdir base-url dsn/
 croak(sprintf(q{Missing values for mandatory options: %s},
               join(', ', @missing_options)))
     if @missing_options;
+
+if (defined $options{logfile}) {
+    Log::Any::Adapter->set('File', $options{logfile});
+} else {
+    Log::Any::Adapter->set('Stdout');
+}
 
 my $schema = ThisPAN::Schema->connect($options{dsn});
 

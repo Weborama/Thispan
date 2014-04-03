@@ -33,6 +33,7 @@ has 'mirror' => (is => 'ro',
                  required => 1);
 has 'logger' => (is => 'ro',
                  lazy => 1,
+                 clearer => 1,
                  default => sub { Log::Any->get_logger(category => blessed(shift)) });
 has 'requirement_phases' => (is => 'ro',
                              default => sub { [qw/configure build test runtime/] });
@@ -78,6 +79,7 @@ sub fire_hooks {
 sub serialize {
     my ($self, $filename) = @_;
     $self->_set_hook_map({});
+    $self->clear_logger;
     nstore($self, $filename);
     return $filename;
 }
