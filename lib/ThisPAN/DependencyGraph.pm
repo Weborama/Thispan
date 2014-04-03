@@ -127,8 +127,8 @@ sub parse_meta_json {
     my $meta_contents = try {
         JSON::decode_json(scalar $metafile->slurp);
     } catch {
-        $self->warningf(q{While trying to parse JSON metadata file %s: %s},
-                        $metafile, $_);
+        $self->logger->warningf(q{While trying to parse JSON metadata file %s: %s},
+                                $metafile, $_);
         return;
     };
     return unless $meta_contents;
@@ -145,8 +145,8 @@ sub parse_meta_yaml {
     my $meta_contents = try {
         YAML::Load(scalar $metafile->slurp);
     } catch {
-        $self->warningf(q{While trying to parse YAML metadata file %s: %s},
-                        $metafile, $_);
+        $self->logger->warningf(q{While trying to parse YAML metadata file %s: %s},
+                                $metafile, $_);
         return;
     };
     return unless $meta_contents;
@@ -166,10 +166,10 @@ sub run_configure_script {
         unlink $tempfile;
         return 1;
     } catch {
-        $self->warningf(q{While trying to run build script %s: %s},
-                        $make_or_build_pl, $_);
-        $self->warningf(q{Logs have been kept at %s},
-                        $tempfile);
+        $self->logger->warningf(q{While trying to run build script %s: %s},
+                                $make_or_build_pl, $_);
+        $self->logger->warningf(q{Logs have been kept at %s},
+                                $tempfile);
         return;
     } or return;
     return $self->parse_meta_json($sandbox->file('MYMETA.json'))

@@ -224,8 +224,8 @@ sub hook_new_module_indexed {
 sub hook_missing_dependency {
     my ($self, $graphmaker, $hook_name, $payload) = @_;
     # payload has keys: module
-    $self->warningf(q{Missing dependency: %s},
-                    $payload->{module});
+    $self->logger->warningf(q{Missing dependency: %s},
+                            $payload->{module});
 }
 
 sub run {
