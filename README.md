@@ -24,6 +24,10 @@ See it in action
   mirrors for darkpans don't usually keep old releases.
 + PAUSE-like uploading.  ThisPAN does not manage uploading at all.
   Use your existing tools, e.g. Pinto or mcpani.
++ Any understanding of what's a version number good for, including
+  whether a given distribution satisfies a dependency declared on a
+  version range.  If your mirror is broken in this regard, so is
+  ThisPAN.
 + Authentication.  If your ThisPAN instance is indexing public
   distributions, keep it public.  If it's indexing private
   distributions, keep it as private as your mirror.  If you really
