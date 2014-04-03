@@ -266,13 +266,13 @@ sub _create_new_links {
                     my $dep_object = $self->dist_index_by_name->{$dist_of_dependency} //= $self->schema->resultset('Distribution')->find({ name => $dist_of_dependency },
                                                                                                                                          { key => 'name_unique' });
                     unless ($dep_object) {
-                        $self->errorf(q{Distribution %s depends on distribution %s but it cannot be found in database},
+                        $self->logger->errorf(q{Distribution %s depends on distribution %s but it cannot be found in database},
                                       $distribution, $dist_of_dependency);
                         next;
                     }
                     my $module_object = $self->module_index_by_name->{$dependency} //= $self->schema->resultset('Module')->find({ name => $dependency });
                     unless ($module_object) {
-                        $self->errorf(q{Distribution %s depends on module %s but it cannot be found in database},
+                        $self->logger->errorf(q{Distribution %s depends on module %s but it cannot be found in database},
                                       $distribution, $dependency);
                         next;
                     }
