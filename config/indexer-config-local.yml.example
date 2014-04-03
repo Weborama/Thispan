@@ -1,0 +1,6 @@
+---
+mirror: file:///home/fgabolde/work/localpinto/
+workdir: /home/fgabolde/work/local-dist-data/
+state: state.storable
+base-url: http://localhost:5000/webopan/mirror/local/
+dsn: dbi:SQLite:foo.db
