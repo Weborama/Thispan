@@ -95,8 +95,20 @@ perl -Ilib bin/thispan-indexer \
 This script should be started regularly, or possibly whenever a new
 tarball enters your mirror.
 
-Start the server:
+# Web frontend deployment
+
+To deploy the web frontend, we recommend installing your pick of a
+PSGI-aware server, e.g. Starman, and the Plack tools and libraries
+(`cpanm -v Plack Starman`).
+
+You can find an example PSGI app at `examples/start-thispan-web.psgi`.
+To use it, copy it to bin/ (in the git repository, *not* `/usr/bin`)
+and start up the daemon like this:
 
 ```shell
-plackup -s Starman -p 5000 bin/whatever.psgi --pid thispan.pid -D
+plackup -s Starman -p 5000 bin/start-thispan-web.psgi --pid thispan.pid -D
 ```
+
+Note that you should edit the Dancer configuration file `config.yml`
+and the PSGI script itself (the PSGI script is where you should change
+the app mountpoint and enable any middlewares).
