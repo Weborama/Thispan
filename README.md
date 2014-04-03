@@ -102,13 +102,19 @@ PSGI-aware server, e.g. Starman, and the Plack tools and libraries
 (`cpanm -v Plack Starman`).
 
 You can find an example PSGI app at `examples/start-thispan-web.psgi`.
-To use it, copy it to bin/ (in the git repository, *not* `/usr/bin`)
-and start up the daemon like this:
+Edit it (there are quite a few paths that you should modify in there)
+and save it wherever.
+
+Create a configuration file named `config.yml` (Dancer needs that
+exact filename) in the confdir you specified in your PSGI script,
+using the example at `examples/config.yml`.  Documentation for this
+file lives at ThisPAN::Configuration (caution: this module may or may
+not have been written yet).
 
 ```shell
-plackup -s Starman -p 5000 bin/start-thispan-web.psgi --pid thispan.pid -D
+plackup -s Starman -p 5000 some/path/start-thispan-web.psgi \
+        --pid thispan.pid -D
 ```
 
-Note that you should edit the Dancer configuration file `config.yml`
-and the PSGI script itself (the PSGI script is where you should change
-the app mountpoint and enable any middlewares).
+You should have a working app at
+[http://localhost:5000/wherever](http://localhost:5000/wherever).

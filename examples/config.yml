@@ -26,10 +26,6 @@ mirrors:
     title: "Test-SetupTeardown Pinto"
     mirror: /home/fgabolde/work/localpinto
     workdir: /home/fgabolde/work/local-dist-data
-  otherlocal:
-    title: "Pretend to be another mirror"
-    mirror: /home/fgabolde/work/localpinto
-    workdir: /home/fgabolde/work/local-dist-data
 graph_filters:
   filters:
     - 
@@ -42,8 +38,5 @@ graph_filters:
 plugins:
   DBIC:
     local:
-      dsn: dbi:SQLite:foo.db
-      schema_class: ThisPAN::Schema
-    otherlocal:
-      dsn: dbi:SQLite:foo.db
+      dsn: dbi:SQLite:path/to/foo.db
       schema_class: ThisPAN::Schema
