@@ -76,7 +76,7 @@ sqlite3 foo.db < sql/create.sql
 Start indexing:
 
 ```shell
-perl -Ilib bin/feed-the-webopan.pl \
+perl -Ilib bin/thispan-indexer \
      --mirror file:///home/fgabolde/work/localpinto/ \
      --workdir /home/fgabolde/work/local-dist-data/ \
      --resume state.storable \
