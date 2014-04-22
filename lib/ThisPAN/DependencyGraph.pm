@@ -355,8 +355,9 @@ sub module_dependency_graph {
             # Pinto does not add an entry in the index for all modules
             # from core.  Test if this is the case, or if we're really
             # missing a dependency on the mirror.
-            if (version->parse(Module::CoreList->first_release($this_module))
-                <= version->parse($self->perl_version)) {
+            if (Module::CoreList->first_release($this_module)
+                and version->parse(Module::CoreList->first_release($this_module))
+                  <= version->parse($self->perl_version)) {
                 # it's in core.  proceed, citizen
                 $self->logger->infof(q{Skipping %s which is a core module (determined from Module::CoreList)},
                                      $this_module);
