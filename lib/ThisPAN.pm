@@ -62,6 +62,8 @@ hook 'before_template_render' => sub {
     }
 
     $tokens->{selected_mirror} = param('mirror') // 'nomirror';
+    $tokens->{thispan_version} = $VERSION;
+
 };
 
 get '/no_such_mirror' => sub {

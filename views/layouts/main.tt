@@ -18,6 +18,9 @@
       hljs.tabReplace = '    ';
       hljs.initHighlightingOnLoad();
     </script>
+
+    <div id="mainwrap">
+
       <div class="navbar navbar-static-top navbar-inverse">
         <div class="navbar-inner">
           <a class="brand" href="[% mirror_uri_for("/") %]">ThisPAN</a>
@@ -34,9 +37,25 @@
           </form>
         </div>
       </div>
-    <div class="container-fluid">
-      [% content %]
+
+      <div class="container-fluid">
+        [% content %]
+        <div id="push"></div>
+      </div>
+
     </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">
+          Running <a href="https://github.com/Weborama/Thispan">ThisPAN</a>
+          version [% thispan_version %].  Powered
+          by <a href="http://perldancer.org/">Dancer</a>
+          and <a href="http://www.perl.org/">Perl 5</a>.
+        </p>
+      </div>
+    </div>
+
     <script>
       <!-- TODO find a better place to put this -->
 $(document).ready(function() {
