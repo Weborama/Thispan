@@ -68,7 +68,7 @@ sub BUILD {
     } else {
         $self->_set_graph_factory($self->build_graph_factory);
     }
-    foreach my $hook (qw/perl_indexed new_distribution_indexed new_module_indexed missing_dependency/) {
+    foreach my $hook (qw/perl_indexed new_distribution_indexed new_module_indexed missing_dependency dist_changed module_changed/) {
         # attach to all known hooks -- update this if new hooks appear
         if (my $callback = $self->can("hook_$hook")) {
             $self->graph_factory->attach_hook($hook,
@@ -190,6 +190,8 @@ sub hook_new_distribution_indexed {
 
     $self->dist_index_by_name->{$dist_object->name} = $dist_object;
 
+    return $dist_object;
+
 }
 
 sub hook_new_module_indexed {
@@ -228,6 +230,20 @@ sub hook_missing_dependency {
     # payload has keys: module
     $self->logger->warningf(q{Missing dependency: %s},
                             $payload->{module});
+}
+
+sub hook_dist_changed {
+    my ($self, $graphmaker, $hook_name, $payload) = @_;
+    # payload has keys: dist_name
+    $self->logger->infof(q{Distribution has changed: %s},
+                         $payload->{dist_name});
+}
+
+sub hook_module_changed {
+    my ($self, $graphmaker, $hook_name, $payload) = @_;
+    # payload has keys: module_name, maybe old_module, maybe new_module
+    $self->logger->warningf(q{Module has changed: %s},
+                            $payload->{module_name});
 }
 
 sub run {
@@ -500,9 +516,9 @@ before indexing started.
 =head1 HOOKS
 
 After construction (during C<BUILD>, the indexer will attach callbacks
-to all known hooks (currently: "missing_dependency",
-"new_distribution_indexed", "new_module_indexed" and "perl_indexed").
-This is done by checking if
+to all known hooks (currently: "dist_changed", "missing_dependency",
+"module_changed", "new_distribution_indexed", "new_module_indexed" and
+"perl_indexed").  This is done by checking if
 
   $callback = $self->can("hook_$hookname")
 
@@ -527,10 +543,11 @@ hook; see the relevant documentation for L<ThisPAN::DependencyGraph>.
 
 =back
 
-Note that all four of the hooks mentioned have an implementation
-already in this class, and that implementation is important for proper
-indexing.  If you wish to attach your own callbacks, you should make
-sure you call the superclass' method with SUPER.
+Note that all six of the hooks mentioned have an implementation
+already in this class, and that in most cases this implementation is
+important for proper indexing.  If you wish to attach your own
+callbacks, you should make sure you call the superclass' method with
+SUPER.
 
   package OurPAN::Indexing::WithLucy;
   use Moo;

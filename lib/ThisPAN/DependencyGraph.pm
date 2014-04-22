@@ -502,6 +502,10 @@ sub reindex {
             # added, modules that are in the current package index but
             # with a different tarball path are updated
             $modules_changed{$new_module}++;
+            $self->fire_hooks('module_changed', {
+                module => $new_module,
+                (old_module => $self->package_index->{$new_module}) x!! $self->package_index->{$new_module},
+                new_module => $new_package_index->{$new_module} });
 
         }
 
@@ -511,8 +515,11 @@ sub reindex {
 
         # modules that are in the current package index but not the
         # new one are removed
-        $modules_changed{$old_module}++
-            unless exists $new_package_index->{$old_module};
+        next if exists $new_package_index->{$old_module};
+        $modules_changed{$old_module}++;
+        $self->fire_hooks('module_changed', {
+            module_name => $old_module,
+            old_module => $self->package_index->{$old_module} });
 
     }
 
@@ -521,7 +528,15 @@ sub reindex {
     # (map of tarball paths to dist names), and modules_visited (map
     # of module names to parent dist names)
 
-    my @dists_changed = grep { defined $_ } map { $self->modules_visited->{$_} } keys %modules_changed;
+    my @dists_changed;
+
+    foreach my $module_changed (keys %modules_changed) {
+        my $dist = $self->modules_visited->{$module_changed};
+        next unless $dist;
+        push @dists_changed, $dist;
+        $self->fire_hooks('dist_changed', { dist_name => $dist });
+    }
+
     delete @{$self->dist_metadata}{@dists_changed};
 
     my @tarballs_changed = grep { defined $_ } map { $self->package_index->{$_} } keys %modules_changed;
@@ -881,6 +896,16 @@ via L<Storable>'s C<nstore>.
 
 Hooks are called in the order they were attached.
 
+=head2 dist_changed
+
+This hook is fired during the preliminary reindexing phase (if it
+occurs at all), for each distribution whose modules changed in the
+package index.
+
+The payload is
+
+  { dist_changed => 'Foo-Bar' }
+
 =head2 missing_dependency
 
 This hook is fired whenever a module is being considered (because it
@@ -890,6 +915,22 @@ in C<package_index>.
 The payload is
 
   { module => 'Foo::Bar' }
+
+=head2 module_changed
+
+This hook is fired during the preliminary reindexing phase (if it
+occurs at all), for each module changed in the index: new modules,
+modules moved from a distribution to another (including version
+changes), and modules removed from the index.
+
+The payload is
+
+  { module => 'Foo::Bar',
+    old_module => 'old/package/index/entry',
+    new_module => 'new/package/index/entry' }
+
+New modules will not have an C<old_module> entry and removed modules
+will not have a C<new_module> entry.
 
 =head2 new_distribution_indexed
 
