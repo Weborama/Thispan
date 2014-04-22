@@ -70,7 +70,7 @@ sub attach_hook {
 
 sub fire_hooks {
     my ($self, $hook_name, @args) = @_;
-    foreach my $callback (@{$self->hook_map->{$hook_name}}) {
+    foreach my $callback (@{$self->hook_map->{$hook_name} // []}) {
         $callback->($self, $hook_name, @args);
     }
     return $self;
