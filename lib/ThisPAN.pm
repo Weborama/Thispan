@@ -13,7 +13,7 @@ use Path::Class;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub mirror_exists_or_404 {
     my $mirror_name = param('mirror');
