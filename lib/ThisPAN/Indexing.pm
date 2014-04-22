@@ -28,6 +28,8 @@ use Pod::Simple::XHTML;
   }
 }
 
+has 'config' => (is => 'ro',
+                 default => sub { {} });
 has 'mirror' => (is => 'ro',
                  isa => sub { blessed($_[0]) and $_[0]->isa('URI') },
                  default => sub { URI->new(q{http://www.cpan.org/}) },

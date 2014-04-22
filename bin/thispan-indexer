@@ -7,6 +7,7 @@ use Carp;
 use autodie;
 use utf8;
 
+use Module::Load;
 use Log::Any::Adapter;
 use Path::Class;
 use ThisPAN::Schema;
@@ -16,6 +17,8 @@ use YAML;
 
 my ($opt, $usage) = describe_options(
     'feed-the-webopan.pl %o',
+    [ 'indexing-class=s', 'Perl module to load to run the indexing (defaults to ThisPAN::Indexing)',
+      { default => 'ThisPAN::Indexing' } ],
     [ 'logfile=s', 'Output logs here (defaults to STDOUT)' ],
     [ 'mirror=s', 'CPAN mirror root' ],
     [ 'workdir=s', 'ThisPAN work directory' ],
@@ -33,7 +36,15 @@ my %options = (
     'base-url' => $opt->base_url // $config->{'base-url'},
     state      => $opt->state    // $config->{state},
     dsn        => $opt->dsn      // $config->{dsn},
+    'indexing-class' => $opt->indexing_class // $config->{'indexing-class'},
     );
+
+# in case of failure, let it die like a dog right here
+Module::Load::load($options{'indexing-class'});
+
+# now put the overridden values back into the config hash so that it
+# only contains the values used
+$config = { %{$config}, %options };
 
 my @missing_options = grep { not defined $options{$_} } qw/workdir base-url dsn/;
 croak(sprintf(q{Missing values for mandatory options: %s},
@@ -48,7 +59,8 @@ if (defined $options{logfile}) {
 
 my $schema = ThisPAN::Schema->connect($options{dsn});
 
-my $indexer = ThisPAN::Indexing->new(
+my $indexer = $options{'indexing-class'}->new(
+    config => $config,
     (mirror => $options{mirror}) x!! $options{mirror},
     base_url => $options{'base-url'},
     workdir => $options{workdir},
