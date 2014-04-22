@@ -211,10 +211,11 @@ sub hook_new_module_indexed {
     }
     my $rendered_pod_path = $distribution->base_pod_dir($self->workdir)->file(split('::', $filename));
     eval {
-        $distribution->find_or_create_related('modules',
-                                              { name => $payload->{module},
-                                                rendered_pod_path => -e $rendered_pod_path ? $rendered_pod_path->relative($self->workdir)->stringify : undef },
-                                              { key => 'name_unique' });
+        $self->schema->resultset('Module')->find_or_create(
+            { name => $payload->{module},
+              distribution => $distribution->id,
+              rendered_pod_path => -e $rendered_pod_path ? $rendered_pod_path->relative($self->workdir)->stringify : undef },
+            { key => 'name_unique' });
     };
     if (my $error = $@) {
         $self->logger->errorf(q{While trying to find or create module %s for dist %s: %s},
