@@ -422,6 +422,9 @@ sub module_dependency_graph {
         }
 
         # add current module to list of modules provided by its distribution
+        $self->logger->infof('Adding module %s to distribution %s',
+                             $this_module,
+                             $self->tarballs_visited->{$tarball_path});
         push @{$self->dist_metadata->{$self->tarballs_visited->{$tarball_path}}->{modules}}, $this_module;
 
         # mark current module as processed, and set its parent distribution
