@@ -58,6 +58,14 @@ modules
   02packages.details.txt.gz
 ```
 
+ThisPAN can be run entirely straight from a cloned repository,
+assuming you install the dependencies first:
+
+```shell
+cd path/to/git-clone
+cpanm -v --installdeps .
+```
+
 ThisPAN will need a database to properly index distribution metadata.
 The official, supported flavor is SQLite 3, but anything sufficiently
 DBIC-friendly *should* work.
@@ -87,8 +95,26 @@ perl -Ilib bin/thispan-indexer \
 This script should be started regularly, or possibly whenever a new
 tarball enters your mirror.
 
-Start the server:
+# Web frontend deployment
+
+To deploy the web frontend, we recommend installing your pick of a
+PSGI-aware server, e.g. Starman, and the Plack tools and libraries
+(`cpanm -v Plack Starman`).
+
+You can find an example PSGI app at `examples/start-thispan-web.psgi`.
+Edit it (there are quite a few paths that you should modify in there)
+and save it wherever.
+
+Create a configuration file named `config.yml` (Dancer needs that
+exact filename) in the confdir you specified in your PSGI script,
+using the example at `examples/config.yml`.  Documentation for this
+file lives at ThisPAN::Configuration (caution: this module may or may
+not have been written yet).
 
 ```shell
-plackup -s Starman -p 5000 bin/whatever.psgi --pid thispan.pid -D
+plackup -s Starman -p 5000 some/path/start-thispan-web.psgi \
+        --pid thispan.pid -D
 ```
+
+You should have a working app at
+[http://localhost:5000/wherever](http://localhost:5000/wherever).

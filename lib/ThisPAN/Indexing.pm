@@ -28,6 +28,8 @@ use Pod::Simple::XHTML;
   }
 }
 
+has 'config' => (is => 'ro',
+                 default => sub { {} });
 has 'mirror' => (is => 'ro',
                  isa => sub { blessed($_[0]) and $_[0]->isa('URI') },
                  default => sub { URI->new(q{http://www.cpan.org/}) },
@@ -66,7 +68,7 @@ sub BUILD {
     } else {
         $self->_set_graph_factory($self->build_graph_factory);
     }
-    foreach my $hook (qw/perl_indexed new_distribution_indexed new_module_indexed missing_dependency/) {
+    foreach my $hook (qw/perl_indexed new_distribution_indexed new_module_indexed missing_dependency dist_changed module_changed/) {
         # attach to all known hooks -- update this if new hooks appear
         if (my $callback = $self->can("hook_$hook")) {
             $self->graph_factory->attach_hook($hook,
@@ -188,6 +190,8 @@ sub hook_new_distribution_indexed {
 
     $self->dist_index_by_name->{$dist_object->name} = $dist_object;
 
+    return $dist_object;
+
 }
 
 sub hook_new_module_indexed {
@@ -207,10 +211,11 @@ sub hook_new_module_indexed {
     }
     my $rendered_pod_path = $distribution->base_pod_dir($self->workdir)->file(split('::', $filename));
     eval {
-        $distribution->find_or_create_related('modules',
-                                              { name => $payload->{module},
-                                                rendered_pod_path => -e $rendered_pod_path ? $rendered_pod_path->relative($self->workdir)->stringify : undef },
-                                              { key => 'name_unique' });
+        $self->schema->resultset('Module')->find_or_create(
+            { name => $payload->{module},
+              distribution => $distribution->id,
+              rendered_pod_path => -e $rendered_pod_path ? $rendered_pod_path->relative($self->workdir)->stringify : undef },
+            { key => 'name_unique' });
     };
     if (my $error = $@) {
         $self->logger->errorf(q{While trying to find or create module %s for dist %s: %s},
@@ -224,8 +229,22 @@ sub hook_new_module_indexed {
 sub hook_missing_dependency {
     my ($self, $graphmaker, $hook_name, $payload) = @_;
     # payload has keys: module
-    $self->warningf(q{Missing dependency: %s},
-                    $payload->{module});
+    $self->logger->warningf(q{Missing dependency: %s},
+                            $payload->{module});
+}
+
+sub hook_dist_changed {
+    my ($self, $graphmaker, $hook_name, $payload) = @_;
+    # payload has keys: dist_name
+    $self->logger->infof(q{Distribution has changed: %s},
+                         $payload->{dist_name});
+}
+
+sub hook_module_changed {
+    my ($self, $graphmaker, $hook_name, $payload) = @_;
+    # payload has keys: module_name, maybe old_module, maybe new_module
+    $self->logger->warningf(q{Module has changed: %s},
+                            $payload->{module_name});
 }
 
 sub run {
@@ -266,13 +285,13 @@ sub _create_new_links {
                     my $dep_object = $self->dist_index_by_name->{$dist_of_dependency} //= $self->schema->resultset('Distribution')->find({ name => $dist_of_dependency },
                                                                                                                                          { key => 'name_unique' });
                     unless ($dep_object) {
-                        $self->errorf(q{Distribution %s depends on distribution %s but it cannot be found in database},
+                        $self->logger->errorf(q{Distribution %s depends on distribution %s but it cannot be found in database},
                                       $distribution, $dist_of_dependency);
                         next;
                     }
                     my $module_object = $self->module_index_by_name->{$dependency} //= $self->schema->resultset('Module')->find({ name => $dependency });
                     unless ($module_object) {
-                        $self->errorf(q{Distribution %s depends on module %s but it cannot be found in database},
+                        $self->logger->errorf(q{Distribution %s depends on module %s but it cannot be found in database},
                                       $distribution, $dependency);
                         next;
                     }
@@ -498,9 +517,9 @@ before indexing started.
 =head1 HOOKS
 
 After construction (during C<BUILD>, the indexer will attach callbacks
-to all known hooks (currently: "missing_dependency",
-"new_distribution_indexed", "new_module_indexed" and "perl_indexed").
-This is done by checking if
+to all known hooks (currently: "dist_changed", "missing_dependency",
+"module_changed", "new_distribution_indexed", "new_module_indexed" and
+"perl_indexed").  This is done by checking if
 
   $callback = $self->can("hook_$hookname")
 
@@ -525,10 +544,11 @@ hook; see the relevant documentation for L<ThisPAN::DependencyGraph>.
 
 =back
 
-Note that all four of the hooks mentioned have an implementation
-already in this class, and that implementation is important for proper
-indexing.  If you wish to attach your own callbacks, you should make
-sure you call the superclass' method with SUPER.
+Note that all six of the hooks mentioned have an implementation
+already in this class, and that in most cases this implementation is
+important for proper indexing.  If you wish to attach your own
+callbacks, you should make sure you call the superclass' method with
+SUPER.
 
   package OurPAN::Indexing::WithLucy;
   use Moo;

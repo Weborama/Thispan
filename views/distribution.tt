@@ -71,6 +71,8 @@
   </div>
 
   <div class="span2">
+    <i class="icon-picture"></i> <a href="[% mirror_uri_for("/distribution/${distribution}/depgraph") %]">Dependency graph</a>
+    <hr />
     <div>
       <h3>Dependencies</h3>
       [% FOREACH prereq_phase IN prereqs.keys.sort %]
@@ -96,8 +98,6 @@
       Nothing depends on this distribution.
       [% END %]
     </div>
-    <hr />
-    <i class="icon-picture"></i> <a href="[% mirror_uri_for("/distribution/${distribution}/depgraph") %]">Dependency graph</a>
   </div>
 
 </div>

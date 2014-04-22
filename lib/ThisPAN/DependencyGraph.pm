@@ -70,7 +70,7 @@ sub attach_hook {
 
 sub fire_hooks {
     my ($self, $hook_name, @args) = @_;
-    foreach my $callback (@{$self->hook_map->{$hook_name}}) {
+    foreach my $callback (@{$self->hook_map->{$hook_name} // []}) {
         $callback->($self, $hook_name, @args);
     }
     return $self;
@@ -127,8 +127,8 @@ sub parse_meta_json {
     my $meta_contents = try {
         JSON::decode_json(scalar $metafile->slurp);
     } catch {
-        $self->warningf(q{While trying to parse JSON metadata file %s: %s},
-                        $metafile, $_);
+        $self->logger->warningf(q{While trying to parse JSON metadata file %s: %s},
+                                $metafile, $_);
         return;
     };
     return unless $meta_contents;
@@ -145,8 +145,8 @@ sub parse_meta_yaml {
     my $meta_contents = try {
         YAML::Load(scalar $metafile->slurp);
     } catch {
-        $self->warningf(q{While trying to parse YAML metadata file %s: %s},
-                        $metafile, $_);
+        $self->logger->warningf(q{While trying to parse YAML metadata file %s: %s},
+                                $metafile, $_);
         return;
     };
     return unless $meta_contents;
@@ -166,10 +166,10 @@ sub run_configure_script {
         unlink $tempfile;
         return 1;
     } catch {
-        $self->warningf(q{While trying to run build script %s: %s},
-                        $make_or_build_pl, $_);
-        $self->warningf(q{Logs have been kept at %s},
-                        $tempfile);
+        $self->logger->warningf(q{While trying to run build script %s: %s},
+                                $make_or_build_pl, $_);
+        $self->logger->warningf(q{Logs have been kept at %s},
+                                $tempfile);
         return;
     } or return;
     return $self->parse_meta_json($sandbox->file('MYMETA.json'))
@@ -355,8 +355,9 @@ sub module_dependency_graph {
             # Pinto does not add an entry in the index for all modules
             # from core.  Test if this is the case, or if we're really
             # missing a dependency on the mirror.
-            if (version->parse(Module::CoreList->first_release($this_module))
-                <= version->parse($self->perl_version)) {
+            if (Module::CoreList->first_release($this_module)
+                and version->parse(Module::CoreList->first_release($this_module))
+                  <= version->parse($self->perl_version)) {
                 # it's in core.  proceed, citizen
                 $self->logger->infof(q{Skipping %s which is a core module (determined from Module::CoreList)},
                                      $this_module);
@@ -421,6 +422,9 @@ sub module_dependency_graph {
         }
 
         # add current module to list of modules provided by its distribution
+        $self->logger->infof('Adding module %s to distribution %s',
+                             $this_module,
+                             $self->tarballs_visited->{$tarball_path});
         push @{$self->dist_metadata->{$self->tarballs_visited->{$tarball_path}}->{modules}}, $this_module;
 
         # mark current module as processed, and set its parent distribution
@@ -498,6 +502,10 @@ sub reindex {
             # added, modules that are in the current package index but
             # with a different tarball path are updated
             $modules_changed{$new_module}++;
+            $self->fire_hooks('module_changed', {
+                module => $new_module,
+                (old_module => $self->package_index->{$new_module}) x!! $self->package_index->{$new_module},
+                new_module => $new_package_index->{$new_module} });
 
         }
 
@@ -507,8 +515,11 @@ sub reindex {
 
         # modules that are in the current package index but not the
         # new one are removed
-        $modules_changed{$old_module}++
-            unless exists $new_package_index->{$old_module};
+        next if exists $new_package_index->{$old_module};
+        $modules_changed{$old_module}++;
+        $self->fire_hooks('module_changed', {
+            module_name => $old_module,
+            old_module => $self->package_index->{$old_module} });
 
     }
 
@@ -517,7 +528,15 @@ sub reindex {
     # (map of tarball paths to dist names), and modules_visited (map
     # of module names to parent dist names)
 
-    my @dists_changed = grep { defined $_ } map { $self->modules_visited->{$_} } keys %modules_changed;
+    my @dists_changed;
+
+    foreach my $module_changed (keys %modules_changed) {
+        my $dist = $self->modules_visited->{$module_changed};
+        next unless $dist;
+        push @dists_changed, $dist;
+        $self->fire_hooks('dist_changed', { dist_name => $dist });
+    }
+
     delete @{$self->dist_metadata}{@dists_changed};
 
     my @tarballs_changed = grep { defined $_ } map { $self->package_index->{$_} } keys %modules_changed;
@@ -877,6 +896,16 @@ via L<Storable>'s C<nstore>.
 
 Hooks are called in the order they were attached.
 
+=head2 dist_changed
+
+This hook is fired during the preliminary reindexing phase (if it
+occurs at all), for each distribution whose modules changed in the
+package index.
+
+The payload is
+
+  { dist_changed => 'Foo-Bar' }
+
 =head2 missing_dependency
 
 This hook is fired whenever a module is being considered (because it
@@ -886,6 +915,22 @@ in C<package_index>.
 The payload is
 
   { module => 'Foo::Bar' }
+
+=head2 module_changed
+
+This hook is fired during the preliminary reindexing phase (if it
+occurs at all), for each module changed in the index: new modules,
+modules moved from a distribution to another (including version
+changes), and modules removed from the index.
+
+The payload is
+
+  { module => 'Foo::Bar',
+    old_module => 'old/package/index/entry',
+    new_module => 'new/package/index/entry' }
+
+New modules will not have an C<old_module> entry and removed modules
+will not have a C<new_module> entry.
 
 =head2 new_distribution_indexed
 

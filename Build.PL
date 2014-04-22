@@ -41,6 +41,7 @@ my $build = Module::Build->new(
         'Log::Any::Adapter' => 0,
         # need first_release() support
         'Module::CoreList' => 2.21,
+        'Module::Load' => 0,
         'Moo' => 0,
         'Params::Validate' => 0,
         'Path::Class' => 0,

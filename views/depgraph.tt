@@ -24,20 +24,50 @@
 </div>
 
 <div class="span8">
-  <form class="form-inline"
+  <form class="form-horizontal"
         method="GET"
         action="[% mirror_uri_for("/distribution/${distribution}/depgraph") %]">
     <fieldset>
-      <legend>Filtering by distribution name</legend>
-      [% FOREACH filter_pair IN available_filter_pairs %]
-      <label class="radio inline">
-        <input type="radio" name="filter" value="[% filter_pair.name %]"
-               [% IF filter_pair.name == active_filter %]checked="checked"[% END %]
-               />
-        [% filter_pair.name %] (/[% filter_pair.regex %]/)
-      </label>
-      [% END %]
-      <button type="submit" class="btn btn-primary">Filter</button>
+      <legend>Filtering</legend>
+      <div class="control-group">
+        <label class="control-label">
+          Regex filters:
+        </label>
+        <div class="controls">
+          [% FOREACH filter_pair IN available_filter_pairs %]
+          <label class="radio">
+            <input type="radio" name="filter" value="[% filter_pair.name %]"
+                   [% IF filter_pair.name == active_filter %]checked="checked"[% END %]
+                   />
+            [% filter_pair.name %] (/[% filter_pair.regex %]/)
+          </label>
+          [% END %]
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">
+          Graph direction:
+        </label>
+        <div class="controls">
+          <label class="radio">
+            <input type="radio" name="only" value="ancestors">
+            Only reverse dependencies
+          </label>
+          <label class="radio">
+            <input type="radio" name="only" value="descendants">
+            Only dependencies
+          </label>
+          <label class="radio">
+            <input type="radio" name="only" value="all" checked="checked">
+            Both
+          </label>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+      </div>
     </fieldset>
   </form>
   <div id="chart" class="well text-center">

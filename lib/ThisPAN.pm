@@ -13,7 +13,7 @@ use Path::Class;
 use Dancer ':syntax';
 use Dancer::Plugin::DBIC;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub mirror_exists_or_404 {
     my $mirror_name = param('mirror');
@@ -62,6 +62,8 @@ hook 'before_template_render' => sub {
     }
 
     $tokens->{selected_mirror} = param('mirror') // 'nomirror';
+    $tokens->{thispan_version} = $VERSION;
+
 };
 
 get '/no_such_mirror' => sub {
@@ -213,6 +215,7 @@ get '/mirror/:mirror/distribution/:distribution/depgraph.json' => sub {
     mirror_exists_or_404();
 
     my $distribution_name = param('distribution');
+    my $only = param('only') // 'both';
     my $depth_successors = param('ds') // undef;
     my $depth_predecessors = param('dp') // undef;
     my $filter_name = param('filter') // 'none';
@@ -227,13 +230,35 @@ get '/mirror/:mirror/distribution/:distribution/depgraph.json' => sub {
         if ($filter_pair) {
             next if $vertex->{name} !~ $filter_pair->{regex};
         }
-        if (exists $vertex->{ancestors}->{$distribution_name}
-            or exists $vertex->{descendants}->{$distribution_name}
-            or $vertex->{name} eq $distribution_name) {
-            # don't need those for d3.js, save some bandwidth
-            delete $vertex->{ancestors};
-            delete $vertex->{descendants};
-            $depgraph->{$vertex->{name}} = $vertex;
+        if ($only eq 'descendants') {
+            # descendants are those who have us in their ancestry
+            # lineage
+            if (exists $vertex->{ancestors}->{$distribution_name}
+                or $vertex->{name} eq $distribution_name) {
+                # don't need those for d3.js, save some bandwidth
+                delete $vertex->{ancestors};
+                delete $vertex->{descendants};
+                $depgraph->{$vertex->{name}} = $vertex;
+            }
+        } elsif ($only eq 'ancestors') {
+            # ancestors are those who have us in their descendants
+            # lineage
+            if (exists $vertex->{descendants}->{$distribution_name}
+                or $vertex->{name} eq $distribution_name) {
+                # don't need those for d3.js, save some bandwidth
+                delete $vertex->{ancestors};
+                delete $vertex->{descendants};
+                $depgraph->{$vertex->{name}} = $vertex;
+            }
+        } else {
+            if (exists $vertex->{ancestors}->{$distribution_name}
+                or exists $vertex->{descendants}->{$distribution_name}
+                or $vertex->{name} eq $distribution_name) {
+                # don't need those for d3.js, save some bandwidth
+                delete $vertex->{ancestors};
+                delete $vertex->{descendants};
+                $depgraph->{$vertex->{name}} = $vertex;
+            }
         }
     }
 
@@ -304,7 +329,8 @@ get '/mirror/:mirror/distribution/:distribution/depgraph' => sub {
         prereqs => $prereqs,
         rdepends => \@reverse_dependency_list,
         depgraph_json_url => mirror_uri_for('/distribution/' . $distribution_name . '/depgraph.json',
-                                            { filter => $active_filter })->as_string,
+                                            { filter => $active_filter,
+                                              only => param('only') // 'both' })->as_string,
     };
 
 };
