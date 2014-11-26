@@ -64,6 +64,9 @@ hook 'before_template_render' => sub {
     $tokens->{selected_mirror} = param('mirror') // 'nomirror';
     $tokens->{thispan_version} = $VERSION;
 
+    if (my $title = var('title')) {
+        $tokens->{title} = $title;
+    }
 };
 
 get '/no_such_mirror' => sub {
@@ -153,6 +156,8 @@ get '/mirror/:mirror/module/:module' => sub {
 
     my $parent_distribution = $module->distribution;
 
+    var 'title' => "Module $module_name";
+
     template 'module', {
         module => $module->name,
         pod => $pod,
@@ -197,6 +202,8 @@ get '/mirror/:mirror/distribution/:distribution' => sub {
     }
 
     my @reverse_dependency_list = uniq map { $_->parent->name } @reverse_prereqs;
+
+    var 'title' => "Distribution $distribution_name";
 
     template 'distribution', {
         distribution => $distribution->name,
@@ -321,6 +328,8 @@ get '/mirror/:mirror/distribution/:distribution/depgraph' => sub {
     }
 
     my @reverse_dependency_list = uniq map { $_->parent->name } @reverse_prereqs;
+
+    var 'title' => "Dependency graph of $distribution_name";
 
     template 'depgraph', {
         active_filter => $active_filter // 'none',
