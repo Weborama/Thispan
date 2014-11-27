@@ -41,8 +41,6 @@ has 'mirror' => (is => 'ro',
 has 'logger' => (is => 'ro',
                  lazy => 1,
                  default => sub { Log::Any->get_logger(category => blessed(shift)) });
-has 'base_url' => (is => 'ro',
-                   required => 1);
 has 'workdir' => (is => 'ro',
                   required => 1);
 has 'lock_file' => (is => 'ro');
@@ -170,7 +168,7 @@ sub hook_new_distribution_indexed {
         $pod_renderer->html_header('');
         $pod_renderer->html_footer('');
         # http://localhost:5000/module/MODULENAME
-        $pod_renderer->perldoc_url_prefix($self->base_url . 'module/');
+        $pod_renderer->perldoc_url_prefix('[% request.uri_base %]/mirror/[% selected_mirror %]/module/');
         $pod_renderer->output_string(\my $html);
         $pod_renderer->parse_file($module);
         # from tmp9380439/lib/Foo/Bar.pm to Foo/Bar.html
@@ -328,7 +326,6 @@ ThisPAN::Indexing -- Indexing library for ThisPAN
   my $indexer = ThisPAN::Indexing->new(
       # mirror => 'http://example.com/cpan-mirror',
       mirror => 'file:///path/to/mirror',
-      base_url => 'http://localhost:5000/demopan/mirror/local/',
       workdir => 'path/to/writable/directory',
       graph_factory_save_file => 'path/to/writable/file.storable',
       schema => ThisPAN::Schema->connect(...));
@@ -361,23 +358,6 @@ relationships in database
 =back
 
 =head1 ATTRIBUTES
-
-=head2 base_url
-
-(read-only string)
-
-When POD documentation is rendered to HTML, links to module names
-(with LE<lt>...E<gt>) will reference pages on the ThisPAN web app.
-The full URL will be
-
-  ${base_url}/module/${module::name}
-
-so the base URL should look like
-
-  http://${hostname}:${port_number}/${mountpoint}/mirror/${mirror_name}
-
-This means that unfortunately, documentation needs to be regenerated
-if you move the web app around.
 
 =head2 dist_index_by_name
 
