@@ -383,6 +383,7 @@ sub module_dependency_graph {
             $self->logger->infof(q{Skipping %s which is a core module (provided by the Perl tarball)},
                                  $this_module);
             $self->modules_visited->{$this_module} = 'perl';
+            next MODULE;
 
         } elsif (not $self->tarballs_visited->{$tarball_path}) {
 
