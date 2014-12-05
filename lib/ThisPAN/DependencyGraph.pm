@@ -176,12 +176,20 @@ sub run_configure_script {
         || $self->parse_meta_yaml($sandbox->file('MYMETA.yml'));
 }
 
+sub looks_like_perl_tarball {
+    my ($self, $tarball_path) = @_;
+    if ($tarball_path =~ m{/perl-(5[\d.]+).tar.(gz|bz2)}) {
+        return 1;
+    }
+    return;
+}
+
 sub find_perl_tarball {
 
     my $self = shift;
 
     foreach my $tarball (values %{$self->package_index}) {
-        next unless $tarball =~ m{/perl-(5[\d.]+).tar.(gz|bz2)};
+        next unless $self->looks_like_perl_tarball($tarball);
         $self->_set_perl_version($1);
         $self->dist_metadata->{perl}->{version} = $self->perl_version;
 
@@ -370,7 +378,7 @@ sub module_dependency_graph {
                 next MODULE;
             }
 
-        } elsif ($tarball_path eq $self->perl_tarball) {
+        } elsif ($self->looks_like_perl_tarball($tarball_path)) {
 
             $self->logger->infof(q{Skipping %s which is a core module (provided by the Perl tarball)},
                                  $this_module);
