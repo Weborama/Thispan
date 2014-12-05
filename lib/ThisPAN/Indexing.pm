@@ -160,9 +160,10 @@ sub hook_new_distribution_indexed {
     # distribution metadata or find -iname '*.pm' for finding modules,
     # so by the time our search progresses to a given module we don't
     # necessarily have the unpacked tarball anymore
-    my @modules = File::Find::Rule->file->name('*.pm')->in(dir($payload->{extracted_at}, 'lib'));
+    my @modules = File::Find::Rule->file->name('*.pm', '*.pod')->in(dir($payload->{extracted_at}, 'lib'));
 
     foreach my $module (@modules) {
+        my $original_module_path = $module;
         my $pod_renderer = Pod::Simple::XHTML->new;
         # this is going to be inserted in a larger document
         $pod_renderer->html_header('[% TAGS [- -] %]');
@@ -172,7 +173,7 @@ sub hook_new_distribution_indexed {
         $pod_renderer->output_string(\my $html);
         $pod_renderer->parse_file($module);
         # from tmp9380439/lib/Foo/Bar.pm to Foo/Bar.html
-        $module =~ s/\.pm$/.html/;
+        $module =~ s/\.p(m|od)$/.html/;
         $module = file($module)->relative(dir($payload->{extracted_at}, 'lib'));
         # dist-data/Foo-Bar/pod/Foo/Bar.html
         my $rendered_pod_path = $dist_object->base_pod_dir($self->workdir)->file($module);
@@ -180,6 +181,16 @@ sub hook_new_distribution_indexed {
         my $fh = $rendered_pod_path->openw;
         $fh->print($html);
         $fh->close;
+        if ($original_module_path =~ m/\.pod$/) {
+            # not indexed by pinto, so won't fire new_module_indexed
+            # naturally.
+            my $module_name = $module;
+            $module_name =~ s/\.html$//;
+            $module_name =~ s{/}{::}g;
+            $self->hook_new_module_indexed($graphmaker, 'new_module_indexed',
+                                           { distribution => $dist_object->name,
+                                             module => $module_name });
+        }
     }
 
     # mark dist as new so that we can build its relationships
@@ -222,6 +233,7 @@ sub hook_new_module_indexed {
                               $error);
         return;
     }
+
 }
 
 sub hook_missing_dependency {
