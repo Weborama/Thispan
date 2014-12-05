@@ -165,10 +165,10 @@ sub hook_new_distribution_indexed {
     foreach my $module (@modules) {
         my $pod_renderer = Pod::Simple::XHTML->new;
         # this is going to be inserted in a larger document
-        $pod_renderer->html_header('');
+        $pod_renderer->html_header('[% TAGS [- -] %]');
         $pod_renderer->html_footer('');
         # http://localhost:5000/module/MODULENAME
-        $pod_renderer->perldoc_url_prefix('[% request.uri_base %]/mirror/[% selected_mirror %]/module/');
+        $pod_renderer->perldoc_url_prefix('[- request.uri_base -]/mirror/[- selected_mirror -]/module/');
         $pod_renderer->output_string(\my $html);
         $pod_renderer->parse_file($module);
         # from tmp9380439/lib/Foo/Bar.pm to Foo/Bar.html
