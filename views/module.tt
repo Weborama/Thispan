@@ -9,12 +9,10 @@
   <div class="span2">
 
     <div>
-      Parent distribution: <a href="[% mirror_uri_for("/distribution/${parent_distribution}") %]">[% parent_distribution %]</a>.
+      Parent distribution: <a href="[% mirror_uri_for("/distribution/${parent_distribution}") %]">[% parent_distribution %]</a> version [% parent_distribution_version %].
     </div>
 
-    <div>We probably need some more stuff here.</div> 
-
-    <div>POD coverage would be nice.</div> 
+    <hr />
 
   </div>
 

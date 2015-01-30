@@ -162,6 +162,7 @@ get '/mirror/:mirror/module/:module' => sub {
         module => $module->name,
         pod => $pod,
         parent_distribution => $parent_distribution->name,
+        parent_distribution_version => $parent_distribution->version,
     }; 
 
 };
