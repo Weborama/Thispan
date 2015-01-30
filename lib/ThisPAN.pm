@@ -160,8 +160,7 @@ get '/mirror/:mirror/module/:module' => sub {
 
     template 'module', {
         module => $module->name,
-        pod => Dancer::Template->engine->render(\$pod, { selected_mirror => param('mirror') // 'nomirror',
-                                                         request => request }),
+        pod => $pod,
         parent_distribution => $parent_distribution->name,
     }; 
 
