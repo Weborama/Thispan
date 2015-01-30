@@ -134,7 +134,7 @@ d3.json("[% depgraph_json_url %]", function(error, classes) {
     .enter().append("svg:a")
       .attr("xlink:href", function(d) { return d.url; })
       .append("text")
-      .attr("class", "node")
+      .attr("class", function(d) { if (d.key == "[% distribution %]") { return "node-main" } return "node" })
       .attr("dx", function(d) { return d.x < 180 ? 8 : -8; })
       .attr("dy", ".31em")
       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")" + (d.x < 180 ? "" : "rotate(180)"); })

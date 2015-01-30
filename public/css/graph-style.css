@@ -3,6 +3,10 @@
   fill: #bbb;
 }
 
+.node-main {
+  font-weight: bold;
+}
+
 .node:hover {
   fill: #000;
 }
