@@ -87,7 +87,7 @@ Start indexing:
 perl -Ilib bin/thispan-indexer \
      --mirror file:///home/fgabolde/work/localpinto/ \
      --workdir /home/fgabolde/work/local-dist-data/ \
-     --resume state.storable \
+     --state state.storable \
      --base-url http://localhost:5000/webopan/ \
      --dsn dbi:SQLite:foo.db
 ```
