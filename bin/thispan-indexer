@@ -16,7 +16,7 @@ use Getopt::Long::Descriptive;
 use YAML;
 
 my ($opt, $usage) = describe_options(
-    'feed-the-webopan.pl %o',
+    'thispan-indexer %o',
     [ 'indexing-class=s', 'Perl module to load to run the indexing (defaults to ThisPAN::Indexing)',
       { default => 'ThisPAN::Indexing' } ],
     [ 'logfile=s', 'Output logs here (defaults to STDOUT)' ],
@@ -33,7 +33,6 @@ my %options = (
     logfile    => $opt->logfile  // $config->{logfile},
     mirror     => $opt->mirror   // $config->{mirror},
     workdir    => $opt->workdir  // $config->{workdir},
-    'base-url' => $opt->base_url // $config->{'base-url'},
     state      => $opt->state    // $config->{state},
     dsn        => $opt->dsn      // $config->{dsn},
     'indexing-class' => $opt->indexing_class // $config->{'indexing-class'},
@@ -46,7 +45,7 @@ Module::Load::load($options{'indexing-class'});
 # only contains the values used
 $config = { %{$config}, %options };
 
-my @missing_options = grep { not defined $options{$_} } qw/workdir base-url dsn/;
+my @missing_options = grep { not defined $options{$_} } qw/workdir dsn/;
 croak(sprintf(q{Missing values for mandatory options: %s},
               join(', ', @missing_options)))
     if @missing_options;
@@ -62,7 +61,6 @@ my $schema = ThisPAN::Schema->connect($options{dsn});
 my $indexer = $options{'indexing-class'}->new(
     config => $config,
     (mirror => $options{mirror}) x!! $options{mirror},
-    base_url => $options{'base-url'},
     workdir => $options{workdir},
     (graph_factory_save_file => $options{state}) x!! $options{state},
     schema => $schema);
