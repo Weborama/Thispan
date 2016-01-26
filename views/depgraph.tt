@@ -50,15 +50,18 @@
         </label>
         <div class="controls">
           <label class="radio">
-            <input type="radio" name="only" value="ancestors">
+            <input type="radio" name="only" value="ancestors"
+                   [% IF only == "ancestors" %]checked="checked"[% END %]>
             Only reverse dependencies
           </label>
           <label class="radio">
-            <input type="radio" name="only" value="descendants">
+            <input type="radio" name="only" value="descendants"
+                   [% IF only == "descendants" %]checked="checked"[% END %]>
             Only dependencies
           </label>
           <label class="radio">
-            <input type="radio" name="only" value="all" checked="checked">
+            <input type="radio" name="only" value="all"
+                   [% IF !only || only == "all" %]checked="checked"[% END %]>
             Both
           </label>
         </div>

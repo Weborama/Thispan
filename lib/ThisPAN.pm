@@ -223,7 +223,7 @@ get '/mirror/:mirror/distribution/:distribution/depgraph.json' => sub {
     mirror_exists_or_404();
 
     my $distribution_name = param('distribution');
-    my $only = param('only') // 'both';
+    my $only = param('only') // 'all';
     my $depth_successors = param('ds') // undef;
     my $depth_predecessors = param('dp') // undef;
     my $filter_name = param('filter') // 'none';
@@ -334,13 +334,14 @@ get '/mirror/:mirror/distribution/:distribution/depgraph' => sub {
 
     template 'depgraph', {
         active_filter => $active_filter // 'none',
+        only => param('only') // 'all',
         available_filter_pairs => \@available_filters,
         distribution => $distribution_name,
         prereqs => $prereqs,
         rdepends => \@reverse_dependency_list,
         depgraph_json_url => mirror_uri_for('/distribution/' . $distribution_name . '/depgraph.json',
                                             { filter => $active_filter,
-                                              only => param('only') // 'both' })->as_string,
+                                              only => param('only') // 'all' })->as_string,
     };
 
 };
