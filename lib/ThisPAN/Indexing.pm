@@ -265,6 +265,8 @@ sub run {
         $self->_create_new_links;
         $graph = $self->graph_factory->grow_graph;
         if ($self->has_graph_factory_save_file) {
+            $self->logger->infof(q{Writing graph file to %s},
+                                 $self->graph_factory_save_file);
             $self->graph_factory->serialize($self->graph_factory_save_file);
         }
                           });

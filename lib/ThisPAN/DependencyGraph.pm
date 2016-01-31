@@ -300,7 +300,8 @@ sub fetch_and_get_metadata {
                                                                -e $sandbox->file('META.json')   && $self->parse_meta_json($sandbox->file('META.json'))
         || $self->logger->info('No usable META.json file.') && -e $sandbox->file('META.yml')    && $self->parse_meta_yaml($sandbox->file('META.yml'))
         || $self->logger->info('No usable META.yml file.')  && -e $sandbox->file('Build.PL')    && $self->run_configure_script($sandbox, $sandbox->file('Build.PL'))
-        || $self->logger->info('No usable Build.PL file.')  && -e $sandbox->file('Makefile.PL') && $self->run_configure_script($sandbox, $sandbox->file('Makefile.PL'));
+        || $self->logger->info('No usable Build.PL file.')  && -e $sandbox->file('Makefile.PL') && $self->run_configure_script($sandbox, $sandbox->file('Makefile.PL'))
+        || $self->logger->info('No usable Makefile.PL file.') && undef;
 
     unless ($meta_contents) {
         croak('Impossible to determine prereqs!');
