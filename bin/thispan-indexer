@@ -22,7 +22,6 @@ my ($opt, $usage) = describe_options(
     [ 'logfile=s', 'Output logs here (defaults to STDOUT)' ],
     [ 'mirror=s', 'CPAN mirror root' ],
     [ 'workdir=s', 'ThisPAN work directory' ],
-    [ 'base-url=s', 'ThisPAN base URL for POD links' ],
     [ 'state=s', 'Save/load graph data from this save file' ],
     [ 'dsn=s', 'DSN for database connections' ],
     [ 'config=s', 'Provide defaults for all previous values from a YAML config file' ]);
@@ -120,13 +119,6 @@ directly.
 Path to a well-formed YAML file providing default configuration
 values.  An example file is provided with this distribution at
 F<examples/config-local.yml>.
-
-=head2 base-url
-
-  thispan --base-url 'http://example.com/ourpan/mirror/local/'
-          [rest of options]
-
-Base URL for all links in rendered POD.  This parameter is required.
 
 =head2 dsn
 
