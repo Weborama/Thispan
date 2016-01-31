@@ -164,6 +164,7 @@ sub run_configure_script {
     my ($self, $sandbox, $make_or_build_pl) = @_;
     my (undef, $tempfile) = File::Temp::tempfile(UNLINK => 0);
     try {
+        local $ENV{PERL_MM_USE_DEFAULT} = 1;
         system("cd '$sandbox' && perl '$make_or_build_pl' > $tempfile 2>&1");
         unlink $tempfile;
         return 1;
