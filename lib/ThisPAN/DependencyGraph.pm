@@ -137,6 +137,7 @@ sub parse_meta_json {
     #     warn "Prereqs must be determined by running a build script.\n";
     #     return;
     # }
+    $self->logger->infof(q{Valid JSON metadata file found at %s}, $metafile->stringify);
     return $meta_contents;
 }
 
@@ -155,6 +156,7 @@ sub parse_meta_yaml {
     #     warn "Prereqs must be determined by running a build script.\n";
     #     return;
     # }
+    $self->logger->infof(q{Valid YAML metadata file found at %s}, $metafile->stringify);
     return $meta_contents;
 }
 
@@ -172,6 +174,7 @@ sub run_configure_script {
                                 $tempfile);
         return;
     } or return;
+    $self->logger->infof(q{Executed configure script at %s}, $make_or_build_pl->stringify);
     return $self->parse_meta_json($sandbox->file('MYMETA.json'))
         || $self->parse_meta_yaml($sandbox->file('MYMETA.yml'));
 }
