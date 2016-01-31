@@ -15,6 +15,8 @@ my $build = Module::Build->new(
     requires => {
         'perl' => '5.10.0',
         'Archive::Extract' => 0,
+        # don't die when encountering PAX headers from weird tars
+        'Archive::Tar' => '1.74',
         'autodie' => 0,
         'base' => 0,
         'Carp' => 0,
