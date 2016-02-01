@@ -43,6 +43,7 @@ has 'logger' => (is => 'ro',
                  default => sub { Log::Any->get_logger(category => blessed(shift)) });
 has 'workdir' => (is => 'ro',
                   required => 1);
+has 'tempdir' => (is => 'ro');
 has 'lock_file' => (is => 'ro');
 has 'graph_factory' => (is => 'ro',
                         writer => '_set_graph_factory');
@@ -73,6 +74,11 @@ sub BUILD {
                                               sub { $callback->($self, @_) });
         }
     }
+    # reset the workspace which can change between freezing and
+    # thawing
+    $self->graph_factory->workspace($self->tempdir) if $self->tempdir;
+    # and call BUILD manually -- didn't even know this was possible
+    $self->graph_factory->BUILD;
     if ($self->has_graph_factory_save_file
         and -e $self->graph_factory_save_file) {
         # can't do this in load_graph_factory, because we plan on
@@ -99,7 +105,8 @@ sub load_graph_factory {
 
 sub build_graph_factory { # NOT A BUILDER
     my $self = shift;
-    return ThisPAN::DependencyGraph->new(mirror => $self->mirror);
+    return ThisPAN::DependencyGraph->new(mirror => $self->mirror,
+                                         (workspace => $self->tempdir) x!! $self->tempdir);
 }
 
 # override us!

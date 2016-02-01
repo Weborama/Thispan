@@ -11,6 +11,7 @@ use Archive::Extract;
 use CPAN::Meta;
 use DateTime;
 use File::Copy;
+use File::Spec;
 use File::Temp;
 use Graph;
 use HTTP::Tiny;
@@ -31,6 +32,10 @@ use Moo;
 
 has 'mirror' => (is => 'ro',
                  required => 1);
+has 'workspace' => (is => 'rw',
+                    clearer => 1,
+                    lazy => 1,
+                    default => sub { File::Spec->tmpdir });
 has 'logger' => (is => 'ro',
                  lazy => 1,
                  clearer => 1,
@@ -62,6 +67,16 @@ has 'hook_map' => (is => 'ro',
                    writer => '_set_hook_map',
                    default => sub { {} });
 
+sub BUILD {
+    my $self = shift;
+    say "Checking " . $self->workspace;
+    unless (-e $self->workspace) {
+        $self->logger->infof(q{Creating workspace directory %s},
+                             $self->workspace);
+        dir($self->workspace)->mkpath;
+    }
+}
+
 sub attach_hook {
     my ($self, $hook_name, $callback) = @_;
     push @{$self->hook_map->{$hook_name}}, $callback;
@@ -80,6 +95,7 @@ sub serialize {
     my ($self, $filename) = @_;
     $self->_set_hook_map({});
     $self->clear_logger;
+    $self->clear_workspace;
     nstore($self, $filename);
     return $filename;
 }
@@ -98,7 +114,8 @@ sub fetch_file {
         if ($destination) {
             $fh = IO::File->new($destination, 'w');
         } else {
-            ($fh, $destination) = File::Temp::tempfile(UNLINK => 0);
+            ($fh, $destination) = File::Temp::tempfile(UNLINK => 0,
+                                                       DIR => $self->workspace);
         }
         $fh->print($content);
         $fh->close;
@@ -108,7 +125,8 @@ sub fetch_file {
         $self->logger->infof(q{File has been fetched via HTTP to %s},
                              "$destination");
     } elsif ($url->scheme eq 'file') {
-        (undef, $destination) = File::Temp::tempfile(UNLINK => 0)
+        (undef, $destination) = File::Temp::tempfile(UNLINK => 0,
+                                                     DIR => $self->workspace)
             unless $destination;
         copy($url->file, $destination) or croak(sprintf(q{Could not copy file at %s: %s},
                                                         $url->file, $!));
@@ -162,7 +180,10 @@ sub parse_meta_yaml {
 
 sub run_configure_script {
     my ($self, $sandbox, $make_or_build_pl) = @_;
-    my (undef, $tempfile) = File::Temp::tempfile(UNLINK => 0);
+    my (undef, $tempfile) = File::Temp::tempfile(UNLINK => 0,
+                                                 DIR => $self->workspace);
+    $tempfile = file($tempfile)->absolute;
+
     try {
         local $ENV{PERL_MM_USE_DEFAULT} = 1;
         system("cd '$sandbox' && perl '$make_or_build_pl' > $tempfile 2>&1");
@@ -170,9 +191,9 @@ sub run_configure_script {
         return 1;
     } catch {
         $self->logger->warningf(q{While trying to run build script %s: %s},
-                                $make_or_build_pl, $_);
+                                $make_or_build_pl->stringify, "$_");
         $self->logger->warningf(q{Logs have been kept at %s},
-                                $tempfile);
+                                "$tempfile");
         return;
     } or return;
     $self->logger->infof(q{Executed configure script at %s}, $make_or_build_pl->stringify);
@@ -216,7 +237,8 @@ sub fetch_and_build_package_index {
 
     my $index_archive = Archive::Extract->new(archive => $package_index_filename,
                                               type => 'gz');
-    my (undef, $extracted_filename) = File::Temp::tempfile(UNLINK => 0);
+    my (undef, $extracted_filename) = File::Temp::tempfile(UNLINK => 0,
+                                                           DIR => $self->workspace);
     $self->logger->infof(q{Extracting package index %s to %s},
                          $package_index_filename, $extracted_filename);
     $index_archive->extract(to => $extracted_filename);
@@ -262,7 +284,8 @@ sub fetch_and_get_metadata {
     my @path_parts = $uri->path_segments;
     my $filename = $path_parts[-1];
 
-    my $container = Path::Class::tempdir(CLEANUP => 0);
+    my $container = Path::Class::tempdir(CLEANUP => 0,
+                                         DIR => $self->workspace);
 
     # the tarball needs a filename with a proper extension otherwise
     # Archive::Extract gets confused
@@ -299,8 +322,8 @@ sub fetch_and_get_metadata {
     my $meta_contents =
                                                                -e $sandbox->file('META.json')   && $self->parse_meta_json($sandbox->file('META.json'))
         || $self->logger->info('No usable META.json file.') && -e $sandbox->file('META.yml')    && $self->parse_meta_yaml($sandbox->file('META.yml'))
-        || $self->logger->info('No usable META.yml file.')  && -e $sandbox->file('Build.PL')    && $self->run_configure_script($sandbox, $sandbox->file('Build.PL'))
-        || $self->logger->info('No usable Build.PL file.')  && -e $sandbox->file('Makefile.PL') && $self->run_configure_script($sandbox, $sandbox->file('Makefile.PL'))
+        || $self->logger->info('No usable META.yml file.')  && -e $sandbox->file('Build.PL')    && $self->run_configure_script($sandbox, $sandbox->file('Build.PL')->absolute)
+        || $self->logger->info('No usable Build.PL file.')  && -e $sandbox->file('Makefile.PL') && $self->run_configure_script($sandbox, $sandbox->file('Makefile.PL')->absolute)
         || $self->logger->info('No usable Makefile.PL file.') && undef;
 
     unless ($meta_contents) {
