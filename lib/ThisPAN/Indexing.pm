@@ -261,7 +261,7 @@ sub hook_module_changed {
     my ($self, $graphmaker, $hook_name, $payload) = @_;
     # payload has keys: module_name, maybe old_module, maybe new_module
     $self->logger->warningf(q{Module has changed: %s},
-                            $payload->{module_name});
+                            $payload->{module});
 }
 
 sub run {

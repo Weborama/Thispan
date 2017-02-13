@@ -573,7 +573,7 @@ sub reindex {
         next if exists $new_package_index->{$old_module};
         $modules_changed{$old_module}++;
         $self->fire_hooks('module_changed', {
-            module_name => $old_module,
+            module => $old_module,
             old_module => $self->package_index->{$old_module} });
 
     }
