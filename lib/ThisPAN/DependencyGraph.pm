@@ -326,11 +326,13 @@ sub fetch_and_get_metadata {
         || $self->logger->info('No usable Build.PL file.')  && -e $sandbox->file('Makefile.PL') && $self->run_configure_script($sandbox, $sandbox->file('Makefile.PL')->absolute)
         || $self->logger->info('No usable Makefile.PL file.') && undef;
 
-    unless ($meta_contents) {
-        croak('Impossible to determine prereqs!');
-    }
+    my $metadata = {};
 
-    my $metadata = CPAN::Meta->new($meta_contents, { lazy_validation => 1 });
+    if ($meta_contents) {
+        $metadata = CPAN::Meta->new($meta_contents, { lazy_validation => 1 });
+    } else {
+        $self->logger->warn('Impossible to determine prereqs!');
+    }
 
     return [ $sandbox, $container, $metadata ];
 
@@ -421,40 +423,56 @@ sub module_dependency_graph {
             # check what dist it provides
             my ($sandbox_path, $container_path, $metadata) = @{$self->fetch_and_get_metadata($this_module)};
 
-            $self->dist_metadata->{$metadata->name} = {
-                tarball => $tarball_path,
-                version => $metadata->version,
-                date_index => DateTime->now,
-                modules => [ ],
-                prereqs => $metadata->effective_prereqs };
+            if (%{$metadata}) {
 
-            my $merged_prereqs = $metadata->effective_prereqs->merged_requirements(
-                $self->requirement_phases, $self->requirement_types);
+                $self->dist_metadata->{$metadata->name} = {
+                    tarball => $tarball_path,
+                    version => $metadata->version,
+                    date_index => DateTime->now,
+                    modules => [ ],
+                    prereqs => $metadata->effective_prereqs };
 
-            foreach my $required_module ($merged_prereqs->required_modules) {
-                if (not exists $self->modules_visited->{$required_module}
-                    and not (defined $args{filter_with_regex}
-                             and $required_module !~ $args{filter_with_regex})) {
-                    # unless dependency already visited, or not
-                    # interesting to us, add it to the list of modules
-                    # we still need to process
-                    push @all_modules, $required_module;
+                my $merged_prereqs = $metadata->effective_prereqs->merged_requirements(
+                    $self->requirement_phases, $self->requirement_types);
+
+                foreach my $required_module ($merged_prereqs->required_modules) {
+                    if (not exists $self->modules_visited->{$required_module}
+                        and not (defined $args{filter_with_regex}
+                                 and $required_module !~ $args{filter_with_regex})) {
+                        # unless dependency already visited, or not
+                        # interesting to us, add it to the list of
+                        # modules we still need to process
+                        push @all_modules, $required_module;
+                    }
                 }
+
+                $self->fire_hooks('new_distribution_indexed',
+                                  { distribution => $metadata->name,
+                                    tarball => $tarball_path,
+                                    extracted_at => $sandbox_path,
+                                    version => $metadata->version,
+                                    metadata => $metadata,
+                                    prereqs => $metadata->effective_prereqs });
+
+                # map tarballs to the distribution contained, and mark
+                # them as already analyzed
+                $self->tarballs_visited->{$tarball_path} = $metadata->name;
+
+            } else {
+
+                $self->dist_metadata->{$tarball_path} = {
+                    tarball => $tarball_path,
+                    version => 0,
+                    date_index => DateTime->now,
+                    modules => [ ],
+                    prereqs => CPAN::Meta::Prereqs->new({}) };
+
+                $self->tarballs_visited->{$tarball_path} = $tarball_path;
+
             }
 
-            $self->fire_hooks('new_distribution_indexed',
-                              { distribution => $metadata->name,
-                                tarball => $tarball_path,
-                                extracted_at => $sandbox_path,
-                                version => $metadata->version,
-                                metadata => $metadata,
-                                prereqs => $metadata->effective_prereqs });
             # clean up our messes
             $container_path->rmtree;
-
-            # map tarballs to the distribution contained, and mark
-            # them as already analyzed
-            $self->tarballs_visited->{$tarball_path} = $metadata->name;
 
         }
 
