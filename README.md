@@ -3,7 +3,7 @@
 ThisPAN is a lightweight CPAN mirror browser.
 
 See it in action
-[here](http://www.insecable.net/thispan-demo/mirror/local/distribution/ThisPAN)!
+[here](https://pinto.pokki.net/mirror/local/distribution/Dancer2)!
 
 ## Features
 
